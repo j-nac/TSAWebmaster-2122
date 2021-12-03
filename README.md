@@ -1,6 +1,6 @@
 # TSAWebmaster-2122
 
-This is an entry for the TSA Webmaster HS 2021-2022 competition.
+An entry for the TSA Webmaster HS 2021-2022 competition by students at Mountlake Terrace High School.
 
 ## Installation
 
