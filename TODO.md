@@ -1,5 +1,5 @@
 # Todo
 
 - [ ] Make page layouts
-- [ ] Create proper navbar
+- [ ] Set colors for navbar using sass
 - [ ] Write page content
