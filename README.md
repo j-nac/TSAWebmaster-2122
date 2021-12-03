@@ -11,7 +11,7 @@ This is an entry for the TSA Webmaster HS 2021-2022 competition.
 5. Install requirements with command `pip install -r requirements.txt`
 6. \[Optional] Configure python interpreter in your text editor selecting using the virtual environment
 7. Run the website with command `python run.py`
-8. You can see the website on localhost:5000
+8. You can see the website on http://localhost:5000/
 
 ## Developing
 
