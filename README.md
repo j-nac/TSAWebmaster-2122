@@ -16,4 +16,4 @@ This is an entry for the TSA Webmaster HS 2021-2022 competition.
 ## Developing
 
 This website uses flask for the backend with a basic package file structure.
-The \__init__.py file creates the flask app object, views.py is where all the routes (code to render pages) goes, html files go in templates folder, everything else (css, js, and images) go in the static folder. Remember to use url_for which is imported from flask to reference all files or pages in the project.
+The \_\_init\_\_.py file creates the flask app object, views.py is where all the routes (code to render pages) goes, html files go in templates folder, everything else (css, js, and images) go in the static folder. Remember to use url_for which is imported from flask to reference all files or pages in the project.
