@@ -4,14 +4,32 @@ An entry for the TSA Webmaster HS 2021-2022 competition by students at Mountlake
 
 ## Installation
 
-1. Clone the repo
-2. Install python
-3. Create a virtual environment in the project root directory with the command `python -m venv .venv` (for Windows)
-4. Activate with the command `.venv\Scripts\activate`
-5. Install requirements with command `pip install -r requirements.txt`
-6. \[Optional] Configure python interpreter in your text editor selecting using the virtual environment
-7. Run the website with command `python run.py`
-8. You can see the website on http://localhost:5000/
+All instructions are for Windows
+
+### Prerequisites
+
+- [ ] Clone the repo
+- [ ] Install Node and NPM
+- [ ] Install Python
+
+### NPM Package Setup
+
+1. In terminal, from the repo root folder, cd to the app/static folder with the command `cd app\static`
+2. Install the NPM requirements with the command `npm install`
+3. After any changes to scss files in the sass folder, you must compile with the command `npm run css-build`. You may configure watching the scss files to compile automatically
+
+### Flask and Python Setup
+
+1. Create a virtual environment in the project root directory (`cd ../..` if you're coming from the last step) with the command `python -m venv .venv`
+2. Activate with the command `.venv\Scripts\activate`. Terminal should now show (.venv) on the left - you deactivate with the command `deactivate`
+3. Install requirements with command `pip install -r requirements.txt`
+4. Any new packages installed with pip can be saved to the requirements with the command `pip freeze > requirements.txt`
+5. \[Optional] Configure python interpreter in your text editor selecting using the virtual environment
+
+### Running the app
+
+1. From the project root, run the website with command `python run.py`
+2. You can see the website on http://localhost:5000/
 
 ## Developing
 
