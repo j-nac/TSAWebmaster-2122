@@ -1,15 +1,12 @@
 {
   "name": "flaskapp",
-  "version": "1.0.0",
-  "description": "",
-  "main": "",
+  "main": "scss/base.scss",
   "scripts": {
-    "css-build": "node-sass --omit-source-map-url sass/base.scss css/base.css",
+    "css-build": "node-sass -x scss/base.scss css/base.css",
     "css-watch": "npm run css-build -- --watch",
     "start": "npm run css-watch"
   },
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "bulma": "^0.9.3",
     "node-sass": "^6.0.1"
