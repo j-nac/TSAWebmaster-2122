@@ -18,16 +18,46 @@
                 <span aria-hidden="true"></span>
               </a>
         </div>
-        <div id="navMenu" class="navbar-menu">
+        <div id="navMenu" class="navbar-menu is-large">
             <div class="navbar-start">
-                <a href="{{ url_for('home') }}" class="navbar-item">Home</a>
-                <a href="{{ url_for('about') }}" class="navbar-item">About</a>
-                <a href="{{ url_for('contact') }}" class="navbar-item">Contact</a>
-                <a href="{{ url_for('tsa_info') }}" class="navbar-item">TSA Info</a>
+                <a href="{{ url_for('home') }}" class="navbar-item p-4 px-6">Home</a>
+                <a href="{{ url_for('about') }}" class="navbar-item p-4 px-6">About</a>
+                <a href="{{ url_for('contact') }}" class="navbar-item p-4 px-6">Contact</a>
+            </div>
+            <div class="navbar-end">
+                <a href="{{ url_for('tsa_info') }}" class="navbar-item p-4 px-6">TSA Info</a>
             </div>
         </div>
     </nav>
-    <div class="container">{% block content %}{% endblock %}</div>
+
+    <div class="content">
+        <h1 class="title is-1 p-4">{{ title }}</h1>
+        <section class="section">
+            {% block content %}{% endblock %}
+        </section>
+    </div>
+    <footer class="footer">
+        <div class="content has-text-centered">        
+            <div class="columns">
+                <div class="column">
+                    <a href="{{ url_for('home') }}">Home</a>
+                </div>
+                <div class="column">
+                    <a href="{{ url_for('about') }}">About</a>
+                </div>
+                <div class="column">
+                    <a href="{{ url_for('contact') }}">Contact</a>
+                </div>
+                <div class="column">
+                    <a href="{{ url_for('tsa_info') }}">TSA Info</a>
+                </div>
+            </div>
+
+            <div class="block">
+                The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content is licensed <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+            </div>
+        </div>
+    </footer>
     <script src="{{ url_for('static', filename='js/base.js') }}"></script>
 </body>
 </html>
