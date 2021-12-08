@@ -9,14 +9,7 @@ All instructions are for Windows
 ### Prerequisites
 
 - [ ] Clone the repo
-- [ ] Install Node and NPM
 - [ ] Install Python
-
-### NPM Package Setup
-
-1. In terminal, from the repo root folder, cd to the app/static folder with the command `cd app\static`
-2. Install the NPM requirements with the command `npm install`
-3. After any changes to scss files in the sass folder, you must compile with the command `npm run css-build`. You may configure watching the scss files to compile automatically
 
 ### Flask and Python Setup
 

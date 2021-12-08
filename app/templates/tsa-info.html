@@ -4,8 +4,10 @@
 {% endblock %}
 
 {% block content %}
-    <p>This is the TSA info page</p>
+<div class="container">
+    <p>This is the {{  title }} page</p>
     {% for x in range(50) %}
         <p>It's filler text</p>
     {% endfor %}
+</div>
 {% endblock %}
