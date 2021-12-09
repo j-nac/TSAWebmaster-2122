@@ -1,14 +1,36 @@
+.homeContent>div + div {
+    margin-top: 10vh;
+}
+
 .countdownContainer{
     width:100%;
-    padding: 0px,10px;
     margin:0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.countdownSubBox{
+    flex-shrink: 0;
+    text-align: center;
 }
 .countdownImage{
-    float:right
+    width: 200px;
+    height:auto;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 .countdownText {
-    font-size: 450px;
+    font-size: 100px;
 }
 countDown {
-    font-size: 500px;
+    font-size: 50px;
+}
+
+.aboutTheEventContainer {
+    display:flex;
+}
+
+.staff {
+    text-align: center;
 }
