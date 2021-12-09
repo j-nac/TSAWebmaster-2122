@@ -5,20 +5,15 @@
 .countdownContainer{
     width:100%;
     margin:0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    background-repeat: no-repeat;
 }
 .countdownSubBox{
-    flex-shrink: 0;
     text-align: center;
 }
 .countdownImage{
-    width: 200px;
-    height:auto;
-    margin-top: auto;
-    margin-bottom: auto;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
 }
 .countdownText {
     font-size: 100px;
