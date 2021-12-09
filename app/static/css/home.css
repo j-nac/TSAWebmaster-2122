@@ -1,5 +1,5 @@
 .homeContent>div + div {
-    margin-top: 10vh;
+    margin-top: 20vh;
 }
 
 .countdownContainer{
@@ -33,4 +33,26 @@ countDown {
 
 .staff {
     text-align: center;
+}
+
+.scheduleContainer {
+    display:flex;
+    justify-content: space-between;
+}
+.scheduleImage {
+    height:300px;
+    width:auto
+}
+
+.sponsorImage {
+    width:200px;
+    height:auto
+}
+.sponsorRow1 {
+    display:flex;
+    justify-content: space-between;
+}
+.sponsorRow2 {
+    display:flex;
+    justify-content: space-around;
 }
