@@ -1,6 +1,14 @@
 body{
     min-height: 100vh;
 }
+
+.navbar {
+    width: 100%;
+}
+.pageNav {
+    display: block;
+}
+
 footer{
     bottom: 0;
     position: relative;
