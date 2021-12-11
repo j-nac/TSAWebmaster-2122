@@ -1,11 +1,51 @@
+:root {
+    --navbarHeight:100px
+}
 body{
     min-height: 100vh;
 }
 
+.navOpen {
+    position: fixed;
+    top:calc(var(--navbarHeight)*.1);
+    left: calc(var(--navbarHeight)*.1);
+    width: calc(var(--navbarHeight)*.8);
+    height: calc(var(--navbarHeight)*.8)
+}
+@keyframes slideDown {
+    from {position: absolute; top: -100%;}
+    30% {position: absolute; top: -100%;}
+    to {position: absolute; top: 0;}
+}
+@keyframes slideRight {
+    from {position: relative; right:100%;}
+    to {position: relative; right:0%;}
+}
 .navbar {
+    position: fixed;
+    z-index: 1;
+    height: var(--navbarHeight);
+    width: calc(100% - var(--navbarHeight));
+    right: 0;
+    top: 0;
+}
+.navbarBack {
+    position: absolute;
+    top:0;
     width: 100%;
+    height: 100%;
+    background-color: grey;
+    opacity: 75%;
+    animation: slideDown 5s;
+}
+.navbar>h3 {
+    z-index: 2;
+    color:honeydew;
+    font-size: 20px;
+    margin:10px;
 }
 .pageNav {
+    animation: slideRight 5s;
     display: block;
 }
 

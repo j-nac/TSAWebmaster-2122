@@ -1,5 +1,8 @@
 function toggleNavbar(){
-    for(let element of document.getElementsByClassName("pageNav")){
-        element.style.display=="none"?element.style.display="block":element.style.display="none"
+    element = document.getElementsByClassName("navbar")[0]
+    if(element.style.display=="none"){
+        element.style.display="flex"
+    } else {
+        element.style.display="none"
     }
 }
