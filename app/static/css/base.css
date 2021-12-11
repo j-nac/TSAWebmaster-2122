@@ -23,6 +23,7 @@ body{
 }
 .navbar {
     position: fixed;
+    display: none;
     z-index: 1;
     height: var(--navbarHeight);
     width: calc(100% - var(--navbarHeight));
@@ -38,7 +39,7 @@ body{
     opacity: 75%;
     animation: slideDown 5s;
 }
-.navbar>h3 {
+.navbar>a {
     z-index: 2;
     color:honeydew;
     font-size: 20px;
