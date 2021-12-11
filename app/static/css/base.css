@@ -12,23 +12,24 @@ body{
     width: calc(var(--navbarHeight)*.8);
     height: calc(var(--navbarHeight)*.8)
 }
-@keyframes slideDown {
-    from {position: absolute; top: -100%;}
-    30% {position: absolute; top: -100%;}
-    to {position: absolute; top: 0;}
-}
 @keyframes slideRight {
-    from {position: relative; right:100%;}
-    to {position: relative; right:0%;}
+    from {position: absolute; left: -100%;}
+    30% {position: absolute; left: -100%;}
+    to {position: absolute; left: 0;}
 }
-.navbar {
+@keyframes slideUp{
+    from {position: relative; top:100%;}
+    to {position: relative; top:0%;}
+}
+.navbox {
     position: fixed;
-    display: none;
+    flex-direction: column;
+    justify-content: space-around;
     z-index: 1;
-    height: var(--navbarHeight);
-    width: calc(100% - var(--navbarHeight));
-    right: 0;
-    top: 0;
+    height: calc(100% - var(--navbarHeight));
+    width: var(--navbarHeight);
+    bottom: 0;
+    left: 0;
 }
 .navbarBack {
     position: absolute;
@@ -37,16 +38,14 @@ body{
     height: 100%;
     background-color: grey;
     opacity: 75%;
-    animation: slideDown 5s;
+    animation: slideRight 5s;
 }
-.navbar>a {
+.pageNav {
+    animation: slideUp 5s;
     z-index: 2;
     color:honeydew;
     font-size: 20px;
     margin:10px;
-}
-.pageNav {
-    animation: slideRight 5s;
     display: block;
 }
 
