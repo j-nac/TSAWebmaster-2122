@@ -1,8 +1,12 @@
 function toggleNavbar(){
-    element = document.getElementsByClassName("navbox")[0]
-    if(element.style.display=="none"){
-        element.style.display="flex"
+    navElement = $(".navbox:first");
+    toggleButton = $("#menu-icon");
+
+    if (navElement.css("display") == "none") {
+        navElement.css("display", "flex");
+        toggleButton.text("close");
     } else {
-        element.style.display="none"
+        navElement.css("display", "none");
+        toggleButton.text("menu");
     }
 }

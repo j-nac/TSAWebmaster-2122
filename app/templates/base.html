@@ -17,9 +17,7 @@
 </head>
 
 <body>
-    <button onclick="toggleNavbar()" class="navOpen" style="z-index: 3;"><span class="material-icons">
-        menu
-        </span></button>
+    <button onclick="toggleNavbar()" class="navOpen" style="z-index: 3; border:none; background-color: #00000000;"><span class="material-icons" id="menu-icon" style="font-size: 48px;">menu</span></button>
     <div class="navbox" style="display: none;">
         <div class = "navbarBack"></div>
         <a href="{{url_for('home')}}"class="pageNav">home</a>
