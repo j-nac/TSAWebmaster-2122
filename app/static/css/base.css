@@ -1,15 +1,55 @@
 :root {
-    --navbarWidth: 300px
+    --navbarWidth: 300px;
+    --rich-black: #0c0f11;
+    --neon-blue: #6874E8;
+    --radical-red: #FF3366;
+    --tiffany-blue: #2EC4B6;
+    --cultured: #F6F7F8;
+    --prussian-blue: #1c252b;
 }
 
 body {
     min-height: 100vh;
-    --bs-body-color: #ffffff;
-    --bs-body-bg: #000000;
+    background-color: var(--rich-black);
+    color: var(--cultured);
+}
+
+.cust-dark {
+    background-color: var(--prussian-blue);
+}
+
+.cust-red {
+    background-color: var(--radical-red);
+}
+
+.cust-teal {
+    background-color: var(--tiffany-blue);
+}
+
+a {
+    color: var(--neon-blue)
+}
+
+section {
+    min-height: 100vh;
 }
 
 h1 {
     text-align: center;
+    font-size: 3em;
+}
+
+p {
+    line-height: 2;
+}
+
+section p, section a {
+    font-size: 1.5em;
+}
+
+.section-title {
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 @media screen and (max-width:800px) {
