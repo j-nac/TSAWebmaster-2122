@@ -1,4 +1,6 @@
-.countdownContainer {
+/* Countdown and background image */
+
+.countdown-container {
     width: 100%;
     height: 100vh;
     margin: 0;
@@ -8,13 +10,13 @@
     display: table;
 }
 
-.countdownSubBox {
+.countdown-content {
     text-align: center;
     vertical-align: middle;
     display: table-cell;
 }
 
-.countdownBackground {
+.countdown-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -25,7 +27,7 @@
     object-fit: cover;
 }
 
-.countdownText {
+.countdown-text {
     font-size: 100px;
 }
 
@@ -33,27 +35,31 @@ countdown {
     font-size: 50px;
 }
 
-.scheduleSubBox {
+/* Schedule section */
+
+.schedule-content {
     display: flex;
     justify-content: space-between;
 }
 
-.scheduleImage {
+.schedule-img {
     height: 300px;
     width: auto;
 }
 
-.sponsorRow1 {
+/* Sponsor section */
+
+.sponsor-row-1 {
     display: flex;
     justify-content: space-between;
 }
 
-.sponsorRow2 {
+.sponsor-row-2 {
     display: flex;
     justify-content: space-around;
 }
 
-.sponsorImage {
+.sponsor-image {
     width: 200px;
     height: auto;
 }
