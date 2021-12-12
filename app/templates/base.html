@@ -18,9 +18,9 @@
 
 <body>
     <button onclick="toggleNavbar()" class="navOpen" style="z-index: 3; border:none; background-color: #00000000;"><span class="material-icons" id="menu-icon" style="font-size: 48px; color: grey;">menu</span></button>
-    <div class="navbox" style="display: none;">
+    <div class="navbox closed">
         <div class = "navbarBack"></div>
-        <a href="{{url_for('home')}}"class="pageNav">home</a>
+        <a href="{{url_for('home')}}" class="pageNav">home</a>
         <a href="{{url_for('about')}}" class="pageNav">about</a>
         <a href="{{url_for('contact')}}" class="pageNav">contact us</a>
         <a href="{{url_for('tsa_info')}}" class="pageNav">tsa info</a>
