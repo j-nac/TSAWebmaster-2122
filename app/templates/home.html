@@ -1,13 +1,55 @@
 {% extends 'base.html' %}
 
 {% block head %}
+<link href="{{ url_for('static', filename='css/home.css') }}" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <p>This is the {{  title }} page</p>
-    {% for x in range(50) %}
-        <p>Filler text</p>
-    {% endfor %}
+<div class="countdown-container">
+    <div class="countdown-content">
+        <h1 class="countdown-text">COUNTDOWN</h1>
+        <countdown></countdown>
+    </div>
+    <img src="https://images.unsplash.com/photo-1638977937549-15b0cd182636?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
+        alt="filler" class="countdown-background">
 </div>
+<div class="container home-container">
+    <section class="container about-container my-5">
+        <h1>About</h1>
+        <p>Ea cupidatat nostrud culpa dolore proident anim do labore. Laborum ullamco dolore ipsum mollit occaecat occaecat ullamco dolore id ipsum culpa elit culpa. Officia ex veniam veniam esse sunt velit qui magna proident eiusmod velit aliqua in ex.</p>
+    </section>
+
+    <section class="container hosted-container my-5">
+        <h1>Hosted By</h1>
+        <p>Et ipsum in voluptate dolore consectetur. Excepteur do Lorem fugiat quis officia cillum laboris in sit excepteur exercitation enim consectetur est. Cillum dolor laboris sit non ut qui. Officia aute reprehenderit eiusmod laborum eiusmod dolore tempor quis Lorem fugiat Lorem proident.</p>
+    </section>
+
+    <section class="container schedule-container my-5">
+        <h1>Schedule</h1>
+        <div class="schedule-content">
+            <p>Nostrud reprehenderit et dolor minim eu. Aliqua ea do fugiat exercitation excepteur proident et do consectetur non laboris. Elit quis enim magna elit do veniam irure duis labore. Irure duis ullamco id culpa.</p>
+            <img class="schedule-img" src="{{ url_for('static', filename='img/test-img.png') }}" alt="test-img">
+        </div>
+    </section>
+
+    <section class="container sponsor-container my-5">
+        <h1>Sponsors</h1>
+        <div class="sponsor-row-1">
+            <img class="sponsor-image" src="{{ url_for('static', filename='img/test-img.png') }}" alt="test-img">
+            <img class="sponsor-image" src="{{ url_for('static', filename='img/test-img.png') }}" alt="test-img">
+            <img class="sponsor-image" src="{{ url_for('static', filename='img/test-img.png') }}" alt="test-img">
+        </div>
+        <div class="sponsor-row-2">
+            <img class="sponsor-image" src="{{ url_for('static', filename='img/test-img.png') }}" alt="test-img">
+            <img class="sponsor-image" src="{{ url_for('static', filename='img/test-img.png') }}" alt="test-img">
+        </div>
+        <div class="sponsor-row-1">
+            <img class="sponsor-image" src="{{ url_for('static', filename='img/test-img.png') }}" alt="test-img">
+            <img class="sponsor-image" src="{{ url_for('static', filename='img/test-img.png') }}" alt="test-img">
+            <img class="sponsor-image" src="{{ url_for('static', filename='img/test-img.png') }}" alt="test-img">
+        </div>
+    </section>
+</div>
+
+<script src="{{ url_for('static', filename='js/home.js') }}"></script>
 {% endblock %}
