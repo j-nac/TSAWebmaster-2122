@@ -1,15 +1,61 @@
 :root {
-    --navbarWidth: 300px
+    --navbarWidth: 300px;
+    --rich-black: #0c0f11;
+    --neon-blue: #6874E8;
+    --radical-red: #FF3366;
+    --radical-red-alt: #fd8ea9;
+    --tiffany-blue: #2EC4B6;
+    --cultured: #F6F7F8;
+    --prussian-blue: #1c252b;
 }
 
 body {
     min-height: 100vh;
-    --bs-body-color: #ffffff;
-    --bs-body-bg: #000000;
+    background-color: var(--rich-black);
+    color: var(--cultured);
+}
+
+.cust-dark {
+    background-color: var(--prussian-blue);
+}
+
+.cust-red {
+    background-color: var(--radical-red);
+}
+
+.cust-teal {
+    background-color: var(--tiffany-blue);
+}
+
+a {
+    color: var(--radical-red);
+}
+
+a:hover {
+    transition-duration: 1s;
+    color: var(--radical-red-alt)
+}
+
+section {
+    min-height: 100vh;
 }
 
 h1 {
     text-align: center;
+    font-size: 3em;
+}
+
+p {
+    line-height: 2;
+}
+
+section p, section a {
+    font-size: 1.5em;
+}
+
+.section-title {
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 @media screen and (max-width:800px) {
@@ -18,7 +64,7 @@ h1 {
     }
 
     .navbar-back {
-        background-color: #808080 !important;
+        opacity: 1 !important;
     }
 }
 
@@ -26,7 +72,7 @@ h1 {
 
 #menu-icon {
     font-size: 48px;
-    color: #ffffff;
+    color: var(--cultured);
 }
 
 .nav-open {
@@ -77,19 +123,23 @@ h1 {
     left: 0;
 }
 
+.navbox a {
+    text-decoration: none;
+}
+
 .navbar-back {
     position: absolute;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: #808080bf;
+    background-color: var(--prussian-blue);
+    opacity: 0.75;
     animation: slideRight 2s;
 }
 
 .page-nav {
     animation: slideDown 4s;
     z-index: 2;
-    color: honeydew;
     font-size: 20px;
     margin: 10px;
     display: block;

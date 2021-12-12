@@ -19,15 +19,15 @@
     <button onclick="toggleNavbar()" class="nav-open"><span class="material-icons" id="menu-icon">menu</span></button>
     <nav class="navbox" style="display: none;">
         <div class="navbar-back"></div>
-        <a href="{{ url_for('home') }}" class="page-nav">home</a>
-        <a href="{{ url_for('about') }}" class="page-nav">about</a>
-        <a href="{{ url_for('contact') }}" class="page-nav">contact us</a>
-        <a href="{{ url_for('tsa_info') }}" class="page-nav">tsa info</a>
+        <a href="{{ url_for('home') }}" class="page-nav">Home</a>
+        <a href="{{ url_for('about') }}" class="page-nav">About</a>
+        <a href="{{ url_for('contact') }}" class="page-nav">Contact</a>
+        <a href="{{ url_for('tsa_info') }}" class="page-nav">TSA Info</a>
     </nav>
 
     {% block content %}{% endblock %}
 
-    <footer class="py-3 px-5">
+    <footer class="py-3 px-5 cust-dark">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item"><a href="{{ url_for('home') }}" class="nav-link text-muted px-2">Home</a></li>
             <li class="nav-item"><a href="{{ url_for('about') }}" class="nav-link text-muted px-2">About</a></li>
