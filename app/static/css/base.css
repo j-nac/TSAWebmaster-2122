@@ -3,6 +3,7 @@
     --rich-black: #0c0f11;
     --neon-blue: #6874E8;
     --radical-red: #FF3366;
+    --radical-red-alt: #fd8ea9;
     --tiffany-blue: #2EC4B6;
     --cultured: #F6F7F8;
     --prussian-blue: #1c252b;
@@ -27,7 +28,12 @@ body {
 }
 
 a {
-    color: var(--neon-blue)
+    color: var(--radical-red);
+}
+
+a:hover {
+    transition-duration: 1s;
+    color: var(--radical-red-alt)
 }
 
 section {
@@ -58,7 +64,7 @@ section p, section a {
     }
 
     .navbar-back {
-        background-color: #808080 !important;
+        opacity: 1 !important;
     }
 }
 
@@ -66,7 +72,7 @@ section p, section a {
 
 #menu-icon {
     font-size: 48px;
-    color: #ffffff;
+    color: var(--cultured);
 }
 
 .nav-open {
@@ -117,19 +123,23 @@ section p, section a {
     left: 0;
 }
 
+.navbox a {
+    text-decoration: none;
+}
+
 .navbar-back {
     position: absolute;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: #808080bf;
+    background-color: var(--prussian-blue);
+    opacity: 0.75;
     animation: slideRight 2s;
 }
 
 .page-nav {
     animation: slideDown 4s;
     z-index: 2;
-    color: honeydew;
     font-size: 20px;
     margin: 10px;
     display: block;

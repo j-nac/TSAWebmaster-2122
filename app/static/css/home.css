@@ -6,7 +6,7 @@
     margin: 0;
     position: relative;
     overflow: hidden;
-    color: white;
+    color: var(--cultured);
     display: table;
 }
 
@@ -25,6 +25,7 @@
     height: 100vh;
     z-index: -1;
     object-fit: cover;
+    filter: brightness(70%) blur(5px);
 }
 
 .countdown-text {
