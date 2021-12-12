@@ -43,6 +43,16 @@ countdown {
     width: auto;
 }
 
+.sponsorRow1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sponsorRow2 {
+    display: flex;
+    justify-content: space-around;
+}
+
 .sponsorImage {
     width: 200px;
     height: auto;
