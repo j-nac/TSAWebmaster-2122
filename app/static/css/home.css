@@ -14,7 +14,6 @@
     text-align: center;
     vertical-align: middle;
     display: table-cell;
-    border: 5px solid var(--cultured);
 }
 
 .countdown-background {
