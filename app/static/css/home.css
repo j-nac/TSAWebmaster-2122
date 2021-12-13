@@ -14,6 +14,7 @@
     text-align: center;
     vertical-align: middle;
     display: table-cell;
+    border: 5px solid var(--cultured);
 }
 
 .countdown-background {
@@ -49,18 +50,6 @@ countdown {
 }
 
 /* Sponsor section */
-
-/*
-.sponsor-row-1 {
-    display: flex;
-    justify-content: space-between;
-}
-
-.sponsor-row-2 {
-    display: flex;
-    justify-content: space-around;
-}
-*/
 
 .sponsor-image {
     width: 200px;
