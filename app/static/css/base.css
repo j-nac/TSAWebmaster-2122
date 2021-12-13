@@ -79,6 +79,7 @@ section p, section a {
 .nav-open {
     position: fixed;
     margin: 10px;
+    top: 0;
     width: 50px;
     height: 50px;
     z-index: 3;
@@ -135,11 +136,11 @@ section p, section a {
     height: 100%;
     background-color: var(--prussian-blue);
     opacity: 0.75;
-    animation: slideRight 2s;
+    animation: slideRight 1s;
 }
 
 .page-nav {
-    animation: slideDown 4s;
+    animation: slideDown 3s;
     z-index: 2;
     font-size: 20px;
     margin: 10px;

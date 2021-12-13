@@ -1,0 +1,6 @@
+.store-card {
+    width: 18rem;
+    background-color: var(--prussian-blue);
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

@@ -13,8 +13,7 @@ function countdown() {
             clock[i] = "0" + clock[i]
         }
     }
-    for (let i of document.getElementsByTagName("countdown")) {
-        i.innerHTML = clock.reverse().join(":")
-    }
+    
+    $("countdown").text(clock[3] + "d : " + clock[2] + "h : " + clock[1] + "m : " + clock[0] + "s")
 }
 setInterval(countdown, 500)

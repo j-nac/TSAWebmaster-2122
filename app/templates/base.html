@@ -23,8 +23,10 @@
     <nav class="navbox" style="display: none;">
         <div class="navbar-back"></div>
         <a href="{{ url_for('home') }}" class="page-nav">Home</a>
-        <a href="{{ url_for('about') }}" class="page-nav">About</a>
-        <a href="{{ url_for('contact') }}" class="page-nav">Contact</a>
+        <a href="{{ url_for('artists') }}" class="page-nav">Artists</a>
+        <a href="{{ url_for('register') }}" class="page-nav">Register</a>
+        <a href="{{ url_for('store') }}" class="page-nav">Store</a>
+        <a href="{{ url_for('faq') }}" class="page-nav">FAQ</a>
         <a href="{{ url_for('tsa_info') }}" class="page-nav">TSA Info</a>
     </nav>
 
@@ -33,8 +35,10 @@
     <footer class="py-3 px-5 cust-dark">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item"><a href="{{ url_for('home') }}" class="nav-link text-muted px-2">Home</a></li>
-            <li class="nav-item"><a href="{{ url_for('about') }}" class="nav-link text-muted px-2">About</a></li>
-            <li class="nav-item"><a href="{{ url_for('contact') }}" class="nav-link text-muted px-2">Contact</a></li>
+            <li class="nav-item"><a href="{{ url_for('artists') }}" class="nav-link text-muted px-2">Artists</a></li>
+            <li class="nav-item"><a href="{{ url_for('register') }}" class="nav-link text-muted px-2">Register</a></li>
+            <li class="nav-item"><a href="{{ url_for('store') }}" class="nav-link text-muted px-2">Store</a></li>
+            <li class="nav-item"><a href="{{ url_for('faq') }}" class="nav-link text-muted px-2">FAQ</a></li>
             <li class="nav-item"><a href="{{ url_for('tsa_info') }}" class="nav-link text-muted px-2">TSA Info</a></li>
         </ul>
         <p class="text-center text-muted">

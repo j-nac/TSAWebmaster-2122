@@ -14,7 +14,6 @@
     text-align: center;
     vertical-align: middle;
     display: table-cell;
-    border: 5px solid var(--cultured);
 }
 
 .countdown-background {
@@ -66,6 +65,6 @@ countdown {
     }
 
     .countdown-text, countdown {
-        font-size: 50px;
+        font-size: 40px;
     }
 }

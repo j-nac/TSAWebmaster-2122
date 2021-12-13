@@ -7,13 +7,21 @@ from app import app
 def home():
     return render_template('home.html', title='Home')
 
-@app.route('/about')
-def about():
-    return render_template('about.html', title='About')
+@app.route('/artists')
+def artists():
+    return render_template('artists.html', title='Artists')
 
-@app.route('/contact')
-def contact():
-    return render_template('contact.html', title='Contact')
+@app.route('/register')
+def register():
+    return render_template('register.html', title='Register')
+
+@app.route('/store')
+def store():
+    return render_template('store.html', title='Store')
+
+@app.route('/faq')
+def faq():
+    return render_template('faq.html', title='FAQ')
 
 @app.route('/tsa-info')
 def tsa_info():
