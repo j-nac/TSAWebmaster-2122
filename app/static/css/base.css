@@ -136,11 +136,11 @@ section p, section a {
     height: 100%;
     background-color: var(--prussian-blue);
     opacity: 0.75;
-    animation: slideRight 1s;
+    animation: slideRight 0.7s;
 }
 
 .page-nav {
-    animation: slideDown 3s;
+    animation: slideDown 1.5s;
     z-index: 2;
     font-size: 20px;
     margin: 10px;
