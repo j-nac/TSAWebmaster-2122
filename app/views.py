@@ -20,8 +20,8 @@ def register():
 def store():
     return render_template('store.html', title='Store', query_results=[])
 
-@app.route('/store/<int:id>')
-def merch_item(id):
+@app.route('/items/<int:id>')
+def item(id):
     item = Item.query.get(id)
     return render_template('store-item.html', title=f'{item.name} | Store' , item=item)
 
