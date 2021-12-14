@@ -1,4 +1,4 @@
-from flask import render_template, url_for, redirect, flash
+from flask import render_template, url_for, redirect, flash, request
 from app import app, db
 from app.models import Item, Tag
 
@@ -18,7 +18,15 @@ def register():
 
 @app.route('/store')
 def store():
-    return render_template('store.html', title='Store', query_results=[])
+    tags = request.args.get('tags').split(',')
+    print(tags)
+    query_results = []
+    for tag_name in tags:
+        print(tag_name)
+        tags_obj = Tag.query.filter_by(name=tag_name).first()
+        print(tags_obj)
+        query_results += Item.query.filter(Item.tags.contains(tags_obj))
+    return render_template('store.html', title='Store', query_results=query_results)
 
 '''
 To filter by tag:
