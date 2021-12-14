@@ -1,6 +1,6 @@
 from flask import render_template, url_for, redirect, flash
 from app import app, db
-from app.models import Merch
+from app.models import Item, Tag
 
 @app.route('/')
 @app.route('/index')
@@ -22,7 +22,7 @@ def store():
 
 @app.route('/store/<int:id>')
 def merch_item(id):
-    item = Merch.query.get(id)
+    item = Item.query.get(id)
     return render_template('store-item.html', title=f'{item.name} | Store' , item=item)
 
 @app.route('/faq')
