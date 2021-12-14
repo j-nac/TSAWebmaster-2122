@@ -20,6 +20,13 @@ def register():
 def store():
     return render_template('store.html', title='Store', query_results=[])
 
+'''
+To filter by tag:
+
+Item.query.filter(Item.tags.contains(t))
+where t is a database tag object
+'''
+
 @app.route('/items/<int:id>')
 def item(id):
     item = Item.query.get(id)
