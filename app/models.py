@@ -8,4 +8,4 @@ class Merch(db.Model):
     image_file = db.Column(db.String(80))
 
     def __repr__(self):
-        return '<Merchandaise item {0}>'.format(self.name)
+        return '<Merchandise item {0}>'.format(self.name)
