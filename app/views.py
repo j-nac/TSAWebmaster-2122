@@ -18,14 +18,23 @@ def register():
 
 @app.route('/store')
 def store():
-    tags = request.args.get('tags').split(',')
-    print(tags)
-    query_results = []
-    for tag_name in tags:
-        print(tag_name)
-        tags_obj = Tag.query.filter_by(name=tag_name).first()
-        print(tags_obj)
-        query_results += Item.query.filter(Item.tags.contains(tags_obj))
+    tags = request.args.get('tags')
+    if tags == None:
+        query_results = Item.query.all()
+    else:
+        if ',' in tags:
+            tags = tags.split(',')
+        else:
+            tags = [tags]
+        query_results = []
+        for tag_name in tags:
+            tags_obj = Tag.query.filter_by(name=tag_name).first()
+            if tags_obj == None:
+                continue
+            mini_query_results = Item.query.filter(Item.tags.contains(tags_obj))
+            for r in mini_query_results:
+                if r not in query_results:
+                    query_results.append(r)
     return render_template('store.html', title='Store', query_results=query_results)
 
 '''
