@@ -12,9 +12,12 @@
         <div class="row">
         <form action="" method="get">
             {{ form.search }}
-            <input type="checkbox" name="tags" id="" value="test_tag1">
-            <input type="checkbox" name="tags" id="" value="test_tag2">
-            <input type="checkbox" name="tags" id="" value="test_tag3">
+            <input type="checkbox" name="tags" id="tag-test_tag1" value="test_tag1">
+            <label for="tag-test_tag2">test_tag1</label>
+            <input type="checkbox" name="tags" id="tag-test_tag2" value="test_tag2">
+            <label for="tag-test_tag2">test_tag2</label>
+            <input type="checkbox" name="tags" id="tag-test_tag3" value="test_tag3">
+            <label for="tag-test_tag2">test_tag3</label>
             <input type="submit">
         </form>
         {% for item in query_results %}
