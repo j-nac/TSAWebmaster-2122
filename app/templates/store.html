@@ -10,6 +10,13 @@
         <h1>{{ title }}</h1>
         <p>Dolore do aliquip duis excepteur sit culpa aliquip consequat et ut proident tempor esse quis. Esse sint tempor pariatur dolore sit officia commodo occaecat deserunt id minim dolore culpa deserunt. Sit ad in id ut est mollit anim pariatur exercitation officia sint anim.</p>
         <div class="row">
+        <form action="" method="get">
+            {{ form.search }}
+            <input type="checkbox" name="tags" id="" value="test_tag1">
+            <input type="checkbox" name="tags" id="" value="test_tag2">
+            <input type="checkbox" name="tags" id="" value="test_tag3">
+            <input type="submit">
+        </form>
         {% for item in query_results %}
             <div class="col">
                 <div class="card store-card">
