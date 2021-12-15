@@ -20,19 +20,25 @@ def register():
 def store():
     tags = request.args.get('tags')
     if tags == None:
+        # If no tags, show all
         query_results = Item.query.all()
     else:
+        # Handle multiple tags
         if ',' in tags:
             tags = tags.split(',')
+        # Handle a single tag
         else:
             tags = [tags]
         query_results = []
         for tag_name in tags:
+            # Get tag object
             tags_obj = Tag.query.filter_by(name=tag_name).first()
             if tags_obj == None:
                 continue
+            # Get items with tag
             mini_query_results = Item.query.filter(Item.tags.contains(tags_obj))
             for r in mini_query_results:
+                # Don't include duplicates
                 if r not in query_results:
                     query_results.append(r)
     return render_template('store.html', title='Store', query_results=query_results)

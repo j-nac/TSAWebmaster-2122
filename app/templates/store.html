@@ -19,8 +19,9 @@
                         <img src="{{ url_for('static', filename='img/test-img.png') }}" alt="" class="card-img-top">
                     {% endif %}
                     <div class="card-body">
-                        <div class="card-title">{{ item.name }}</div>
+                        <h5 class="card-title">{{ item.name }}</h5>
                         <div class="card-text">{{ item.description }}</div>
+                        <a href="{{ url_for('item', id=item.id) }}" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
