@@ -1,5 +1,7 @@
-from flask import render_template, url_for, redirect, flash
-from app import app
+from flask import render_template, url_for, redirect, flash, request
+from app import app, db, csrf
+from app.models import Item, Tag
+from app.forms import SearchStore
 
 @app.route('/')
 @app.route('/index')
@@ -16,8 +18,48 @@ def register():
     return render_template('register.html', title='Register')
 
 @app.route('/store')
+@csrf.exempt
 def store():
-    return render_template('store.html', title='Store')
+    search = request.args.get('search')
+    if search == None or search == '':
+        search_results = Item.query.all()
+    else:
+        search_results = Item.query.filter(Item.name.contains(search))
+    
+    tags = request.args.getlist('tags')
+    tag_results = []
+    for tag_name in tags:
+        # Get tag object
+        tags_obj = Tag.query.filter_by(name=tag_name).first()
+        if tags_obj == None:
+            continue
+        # Get items with tag
+        mini_tag_results = Item.query.filter(Item.tags.contains(tags_obj))
+        for r in mini_tag_results:
+            # Don't include duplicates
+            if r not in tag_results:
+                tag_results.append(r)
+    
+    if len(tags) == 0:
+        tag_results = Item.query.all()
+    
+    query_results = list(set(search_results).intersection(tag_results))
+
+    form = SearchStore()
+
+    return render_template('store.html', title='Store', query_results=query_results, form=form)
+
+'''
+To filter by tag:
+
+Item.query.filter(Item.tags.contains(t))
+where t is a database tag object
+'''
+
+@app.route('/items/<int:id>')
+def item(id):
+    item = Item.query.get(id)
+    return render_template('item.html', title=f'{item.name} | Store' , item=item)
 
 @app.route('/faq')
 def faq():

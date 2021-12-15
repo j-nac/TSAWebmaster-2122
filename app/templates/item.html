@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section class="container my-5">
+        <h1>{{ item.name }}</h1>
+        <p>{{ item.description }}</p>
+        {% for i in item.tags %}
+            <p>{{ i.name }}</p>
+        {% endfor %}
+    </section>
+</div>
+{% endblock %}
