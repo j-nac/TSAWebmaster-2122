@@ -20,19 +20,30 @@ def register():
 @app.route('/store')
 @csrf.exempt
 def store():
+    search = request.args.get('search')
+    if search == None or search == '':
+        search_results = Item.query.all()
+    else:
+        search_results = Item.query.filter(Item.name.contains(search))
+    
     tags = request.args.getlist('tags')
-    query_results = []
+    tag_results = []
     for tag_name in tags:
         # Get tag object
         tags_obj = Tag.query.filter_by(name=tag_name).first()
         if tags_obj == None:
             continue
         # Get items with tag
-        mini_query_results = Item.query.filter(Item.tags.contains(tags_obj))
-        for r in mini_query_results:
+        mini_tag_results = Item.query.filter(Item.tags.contains(tags_obj))
+        for r in mini_tag_results:
             # Don't include duplicates
-            if r not in query_results:
-                query_results.append(r)
+            if r not in tag_results:
+                tag_results.append(r)
+    
+    if len(tags) == 0:
+        tag_results = Item.query.all()
+    
+    query_results = list(set(search_results).intersection(tag_results))
 
     form = SearchStore()
 
