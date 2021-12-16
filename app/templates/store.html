@@ -8,18 +8,19 @@
 <div class="container">
     <section class="container my-5">
         <h1>{{ title }}</h1>
-        <p>Dolore do aliquip duis excepteur sit culpa aliquip consequat et ut proident tempor esse quis. Esse sint tempor pariatur dolore sit officia commodo occaecat deserunt id minim dolore culpa deserunt. Sit ad in id ut est mollit anim pariatur exercitation officia sint anim.</p>
-        <div class="row">
         <form action="" method="get">
-            {{ form.search }}
-            <input type="checkbox" name="tags" id="tag-test_tag1" value="test_tag1">
-            <label for="tag-test_tag2">test_tag1</label>
-            <input type="checkbox" name="tags" id="tag-test_tag2" value="test_tag2">
-            <label for="tag-test_tag2">test_tag2</label>
-            <input type="checkbox" name="tags" id="tag-test_tag3" value="test_tag3">
-            <label for="tag-test_tag2">test_tag3</label>
-            <input type="submit">
+            <div class="row">
+                <div class="col-11">{{ form.search }}</div>
+                <div class="col-1"><input type="submit" value="Search" id="search-button"></div>
+            </div>
+            <div class="tags-select">
+                {% for t in tags %}
+                    <input type="checkbox" name="tags" id="tag-{{ t.name }}" value="{{ t.name }}">
+                    <label for="tag-{{ t.name }}">{{ t.name }}</label>
+                {% endfor %}
+            </div>
         </form>
+        <div class="row">
         {% for item in query_results %}
             <div class="col">
                 <div class="card store-card">
