@@ -46,8 +46,9 @@ def store():
     query_results = list(set(search_results).intersection(tag_results))
 
     form = SearchStore()
+    tags = Tag.query.all()
 
-    return render_template('store.html', title='Store', query_results=query_results, form=form)
+    return render_template('store.html', title='Store', query_results=query_results, form=form, tags=tags)
 
 '''
 To filter by tag:

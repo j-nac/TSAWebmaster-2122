@@ -14,12 +14,10 @@
                 <div class="col-1"><input type="submit" value="Search" id="search-button"></div>
             </div>
             <div class="tags-select">
-                <input type="checkbox" name="tags" id="tag-test_tag1" value="test_tag1">
-                <label for="tag-test_tag1">test_tag1</label>
-                <input type="checkbox" name="tags" id="tag-test_tag2" value="test_tag2">
-                <label for="tag-test_tag2">test_tag2</label>
-                <input type="checkbox" name="tags" id="tag-test_tag3" value="test_tag3">
-                <label for="tag-test_tag3">test_tag3</label>
+                {% for t in tags %}
+                    <input type="checkbox" name="tags" id="tag-{{ t.name }}" value="{{ t.name }}">
+                    <label for="tag-{{ t.name }}">{{ t.name }}</label>
+                {% endfor %}
             </div>
         </form>
         <div class="row">
