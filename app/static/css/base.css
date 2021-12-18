@@ -17,18 +17,6 @@ body {
     overflow-x: hidden;
 }
 
-.cust-dark {
-    background-color: var(--prussian-blue);
-}
-
-.cust-red {
-    background-color: var(--radical-red);
-}
-
-.cust-teal {
-    background-color: var(--tiffany-blue);
-}
-
 a {
     color: var(--radical-red);
 }
@@ -40,6 +28,8 @@ a:hover {
 
 section {
     min-height: 100vh;
+    padding-top: 10px;
+    padding-bottom: 20px;
 }
 
 h1 {
@@ -68,6 +58,13 @@ section p, section a {
     .navbar-back {
         opacity: 1 !important;
     }
+}
+
+/* Section layout */
+
+.cust-light {
+    background-color: var(--cultured);
+    color: var(--rich-black);
 }
 
 /* Navigation bar */
@@ -154,4 +151,5 @@ footer {
     bottom: 0;
     position: relative;
     width: 100%;
+    background-color: var(--prussian-blue);
 }
