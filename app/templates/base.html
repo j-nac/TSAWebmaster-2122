@@ -41,6 +41,11 @@
             <li class="nav-item"><a href="{{ url_for('faq') }}" class="nav-link text-muted px-2">FAQ</a></li>
             <li class="nav-item"><a href="{{ url_for('tsa_info') }}" class="nav-link text-muted px-2">TSA Info</a></li>
         </ul>
+        <form action="" method="POST">
+            {{ newsletter_form.csrf_token }}
+            {{ newsletter_form.email }}
+            {{ newsletter_form.submit }}
+        </form>
         <p class="text-center text-muted">
             The source code is licensed <a href="https://github.com/j-nac/TSAWebmaster-2122/blob/a82b9b293e339e309c6b0c8c2a64bb68afc37d82/LICENSE" target="_blank">MIT</a>. The website content is licensed <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
         </p>

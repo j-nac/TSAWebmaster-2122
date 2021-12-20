@@ -1,13 +1,16 @@
 from flask import render_template, url_for, redirect, flash, request
 from app import app, db, csrf
 from app.models import Item, Tag
-from app.forms import SearchStore
+from app.forms import SearchStore, NewsletterForm
 
-@app.route('/')
-@app.route('/index')
-@app.route('/home')
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/index', methods=['GET', 'POST'])
+@app.route('/home', methods=['GET', 'POST'])
 def home():
-    return render_template('home.html', title='Home')
+    newsletter_form = NewsletterForm()
+    if newsletter_form.validate_on_submit():
+        print(newsletter_form.email.data)
+    return render_template('home.html', title='Home', newsletter_form=newsletter_form)
 
 @app.route('/artists')
 def artists():
