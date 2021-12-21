@@ -84,6 +84,11 @@ input[type=submit] {
     color: var(--rich-black);
 }
 
+.cust-dark {
+    background-color: var(--prussian-blue);
+    color: var(--cultured);
+}
+
 /* Navigation bar */
 
 #menu-icon {
