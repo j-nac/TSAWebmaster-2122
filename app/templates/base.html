@@ -49,7 +49,7 @@
                     <ul class="nav flex-column">
                         <li class="nav-item"><a href="{{ url_for('home') }}" class="nav-link text-muted px-2">Home</a></li>
                         <li class="nav-item"><a href="{{ url_for('faq') }}" class="nav-link text-muted px-2">FAQ</a></li>
-                        <li class="nav-item"><a href="{{ url_for('home') }}" class="nav-link text-muted px-2">Contact</a></li>
+                        <li class="nav-item"><a href="{{ url_for('contact') }}" class="nav-link text-muted px-2">Contact</a></li>
                         <li class="nav-item"><a href="{{ url_for('tsa_info') }}" class="nav-link text-muted px-2">TSA Info</a></li>
                     </ul>
                 </div>
@@ -65,8 +65,10 @@
                     <h5>Newsletter</h5>
                     <form action="" method="POST">
                         {{ newsletter_form.csrf_token }}
-                        {{ newsletter_form.email }}
-                        {{ newsletter_form.submit }}
+                        <div class="form-grop">
+                            {{ newsletter_form.email(class_="form-control", placeholder_="Email") }}
+                            {{ newsletter_form.submit }}
+                        </div>
                     </form>
                 </div>
             </div>

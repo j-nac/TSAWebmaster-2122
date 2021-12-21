@@ -1,7 +1,7 @@
 from flask import render_template, url_for, redirect, flash, request
 from app import app, db, csrf
 from app.models import Item, Tag
-from app.forms import SearchStore, NewsletterForm
+from app.forms import SearchStore, NewsletterForm, ContactForm
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
@@ -86,6 +86,14 @@ def faq():
         print(newsletter_form.email.data)
 
     return render_template('faq.html', title='FAQ', newsletter_form=newsletter_form)
+
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    newsletter_form = NewsletterForm()
+    form = ContactForm()
+    if newsletter_form.validate_on_submit():
+        print(newsletter_form.email.data)
+    return render_template('contact.html', title='Contact', newsletter_form=newsletter_form, form=form)
 
 @app.route('/tsa-info', methods=['GET', 'POST'])
 def tsa_info():
