@@ -151,3 +151,15 @@ footer {
     width: 100%;
     background-color: var(--prussian-blue);
 }
+
+#newsletter-email-box {
+    border: none;
+    padding: 10px;
+}
+
+#newsletter-submit-box {
+    border: none;
+    background-color: var(--tiffany-blue);
+    color: var(--rich-black);
+    padding: 10px;
+}

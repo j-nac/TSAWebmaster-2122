@@ -8,5 +8,5 @@ class SearchStore(FlaskForm):
     search = StringField('search', id='search-bar')
 
 class NewsletterForm(FlaskForm):
-    email = StringField('email', validators=[Email(), DataRequired()])
-    submit = SubmitField('Get Updates')
+    email = StringField('email', validators=[Email(), DataRequired()], id='newsletter-email-box')
+    submit = SubmitField('Get Updates', id='newsletter-submit-box')
