@@ -36,7 +36,7 @@
     <footer class="py-5">
         <div class="container">
             <div class="row py-3">
-                <div class="col-12 col-sm-3 text-sm-start text-center mb-3">
+                <div class="col-12 col-sm-3 text-sm-start text-center">
                     <h5>Offerings</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item"><a href="{{ url_for('artists') }}" class="nav-link text-muted px-2">Artists</a></li>
@@ -44,7 +44,7 @@
                         <li class="nav-item"><a href="{{ url_for('store') }}" class="nav-link text-muted px-2">Store</a></li>
                     </ul>
                 </div>
-                <div class="col-12 col-sm-3 text-sm-start text-center mb-5">
+                <div class="col-12 col-sm-3 text-sm-start text-center">
                     <h5>About Us</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item"><a href="{{ url_for('home') }}" class="nav-link text-muted px-2">Home</a></li>
@@ -53,7 +53,7 @@
                         <li class="nav-item"><a href="{{ url_for('tsa_info') }}" class="nav-link text-muted px-2">TSA Info</a></li>
                     </ul>
                 </div>
-                <div class="col-12 col-sm-3 text-sm-start text-center mb-5">
+                <div class="col-12 col-sm-3 text-sm-start text-center">
                     <h5>Legal</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item"><a href="{{ url_for('home') }}" class="nav-link text-muted px-2">Privacy Policy</a></li>
@@ -61,7 +61,7 @@
                         <li class="nav-item"><a href="{{ url_for('home') }}" class="nav-link text-muted px-2">Licensing</a></li>
                     </ul>
                 </div>
-                <div class="col-12 col-sm-3 text-sm-start text-center mb-5">
+                <div class="col-12 col-sm-3 text-sm-start text-center">
                     <h5>Newsletter</h5>
                     <form action="" method="POST">
                         {{ newsletter_form.csrf_token }}
@@ -71,12 +71,12 @@
                 </div>
             </div>
             <div class="social-icons">
+                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="text-muted"><i class="bi bi-twitter"></i></a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="text-muted"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="text-muted"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.snapchat.com/" target="_blank" rel="noopener noreferrer" class="text-muted"><i class="bi bi-snapchat"></i></a>
                 <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="text-muted"><i class="bi bi-youtube"></i></a>
-                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="text-muted"><i class="bi bi-instagram"></i></a>
-                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="text-muted"><i class="bi bi-twitter"></i></a>
-                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="text-muted"><i class="bi bi-facebook"></i></a>
-                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="text-muted"><i class="bi bi-snapchat"></i></a>
-                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="text-muted"><i class="bi bi-twitch"></i></a>
+                <a href="https://www.twitch.tv/" target="_blank" rel="noopener noreferrer" class="text-muted"><i class="bi bi-twitch"></i></a>
             </div>
             <p class="text-center text-muted border-top my-3 py-3">
                 The source code is licensed <a href="https://github.com/j-nac/TSAWebmaster-2122/blob/a82b9b293e339e309c6b0c8c2a64bb68afc37d82/LICENSE" target="_blank" >MIT</a>. The website content is licensed <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
