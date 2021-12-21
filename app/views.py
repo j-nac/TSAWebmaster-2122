@@ -12,17 +12,27 @@ def home():
         print(newsletter_form.email.data)
     return render_template('home.html', title='Home', newsletter_form=newsletter_form)
 
-@app.route('/artists')
+@app.route('/artists', methods=['GET', 'POST'])
 def artists():
-    return render_template('artists.html', title='Artists')
+    newsletter_form = NewsletterForm()
+    if newsletter_form.validate_on_submit():
+        print(newsletter_form.email.data)
+    return render_template('artists.html', title='Artists', newsletter_form=newsletter_form)
 
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
-    return render_template('register.html', title='Register')
+    newsletter_form = NewsletterForm()
+    if newsletter_form.validate_on_submit():
+        print(newsletter_form.email.data)
+    return render_template('register.html', title='Register', newsletter_form=newsletter_form)
 
-@app.route('/store')
+@app.route('/store', methods=['GET', 'POST'])
 @csrf.exempt
 def store():
+    newsletter_form = NewsletterForm()
+    if newsletter_form.validate_on_submit():
+        print(newsletter_form.email.data)
+
     search = request.args.get('search')
     if search == None or search == '':
         search_results = Item.query.all()
@@ -51,7 +61,7 @@ def store():
     form = SearchStore()
     tags = Tag.query.all()
 
-    return render_template('store.html', title='Store', query_results=query_results, form=form, tags=tags)
+    return render_template('store.html', title='Store', query_results=query_results, form=form, tags=tags, newsletter_form=newsletter_form)
 
 '''
 To filter by tag:
@@ -60,15 +70,26 @@ Item.query.filter(Item.tags.contains(t))
 where t is a database tag object
 '''
 
-@app.route('/items/<int:id>')
+@app.route('/items/<int:id>', methods=['GET', 'POST'])
 def item(id):
+    newsletter_form = NewsletterForm()
+    if newsletter_form.validate_on_submit():
+        print(newsletter_form.email.data)
+
     item = Item.query.get(id)
-    return render_template('item.html', title=f'{item.name} | Store' , item=item)
+    return render_template('item.html', title=f'{item.name} | Store' , item=item, newsletter_form=newsletter_form)
 
-@app.route('/faq')
+@app.route('/faq', methods=['GET', 'POST'])
 def faq():
-    return render_template('faq.html', title='FAQ')
+    newsletter_form = NewsletterForm()
+    if newsletter_form.validate_on_submit():
+        print(newsletter_form.email.data)
 
-@app.route('/tsa-info')
+    return render_template('faq.html', title='FAQ', newsletter_form=newsletter_form)
+
+@app.route('/tsa-info', methods=['GET', 'POST'])
 def tsa_info():
-    return render_template('tsa-info.html', title='TSA Info')
+    newsletter_form = NewsletterForm()
+    if newsletter_form.validate_on_submit():
+        print(newsletter_form.email.data)
+    return render_template('tsa-info.html', title='TSA Info', newsletter_form=newsletter_form)
