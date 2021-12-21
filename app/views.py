@@ -1,5 +1,5 @@
 from flask import render_template, url_for, redirect, flash, request
-from app import app, db, csrf, messages
+from app import app, db, csrf
 from app.models import Item, Tag
 from app.forms import SearchStore, NewsletterForm, ContactForm
 
