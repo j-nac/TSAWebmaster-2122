@@ -152,9 +152,19 @@ footer {
     background-color: var(--prussian-blue);
 }
 
+.social-icons {
+    text-align: center;
+}
+
+.social-icons i {
+    font-size: 20px;
+    padding: 5px;
+}
+
 #newsletter-email-box {
     border: none;
     padding: 10px;
+    margin-bottom: 10px;
 }
 
 #newsletter-submit-box {
