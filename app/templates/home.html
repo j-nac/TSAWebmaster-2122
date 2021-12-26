@@ -13,30 +13,42 @@
     <img src="https://images.unsplash.com/photo-1453090927415-5f45085b65c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1148&q=80"
         alt="filler" class="countdown-background">
 </div>
-<div class="container home-container">
-    <section class="container about-container my-5">
+
+<section class="about-container cust-light">
+    <div class="container">
         <h1 class="section-title">About</h1>
-        <p>Ea cupidatat nostrud culpa dolore proident anim do labore. Laborum ullamco dolore ipsum mollit occaecat occaecat ullamco dolore id ipsum culpa elit culpa. Officia ex veniam veniam esse sunt velit qui magna proident eiusmod velit aliqua in ex.</p>
-        <a href="{{ url_for('artists') }}">Read more</a>
-    </section>
+        <div class="container-text">
+            <p>Welcome to the ArchFest Music Festival! Created in 2012, we started from humble beginnings with a goal of organizing and supporting local artists and shows. In 2021 after a year off due to the pandemic, our organization went online to keep things safe; yet we stay determined to help everybody continue to enjoy music. Our goal here for the ArchFest Music Festival is for people to enjoy, have access, and build a community to support as much as possible. </p>
+            <a href="{{ url_for('artists') }}">Read more</a>
+        </div>
+    </div>
+    
+</section>
 
-    <section class="container hosted-container my-5">
+<img src="{{ url_for('static', filename='img/test-img.png') }}" alt="" id="about-overlap-img">
+
+<section class="hosted-container">
+    <div class="container">
         <h1 class="section-title">Hosted By</h1>
-        <p>Et ipsum in voluptate dolore consectetur. Excepteur do Lorem fugiat quis officia cillum laboris in sit excepteur exercitation enim consectetur est. Cillum dolor laboris sit non ut qui. Officia aute reprehenderit eiusmod laborum eiusmod dolore tempor quis Lorem fugiat Lorem proident.</p>
-    </section>
+        <p>Our biggest thanks and appreciation goes to Holly Anderson who started this organization to support our local community, and it has expanded to a major business where everybody can enjoy music. Slade Grayson, our Editor-in-Chief and Co-founder who supported Holly every step of the way. And last but not least, Emily Ziao, who is our networker and we wouldn’t have made it this far without her.</p>
+    </div>
+</section>
 
-    <section class="container schedule-container my-5">
+<section class="schedule-container cust-light">
+    <div class="container">
         <h1 class="section-title">Schedule</h1>
         <div class="schedule-content row">
             <div class="schedule-text col-12 col-xl-8">
-                <p>Nostrud reprehenderit et dolor minim eu. Aliqua ea do fugiat exercitation excepteur proident et do consectetur non laboris. Elit quis enim magna elit do veniam irure duis labore. Irure duis ullamco id culpa.</p>
+                <p>Use our scheduling guide and calendar to help you find your perfect artist and times! Check out the most up and coming artists and latest news. Book the times that work best for you and find your favorite artists!</p>
                 <a href="{{ url_for('register') }}">Read more</a>
             </div>
             <img class="schedule-img col-1 col-xl-2" src="{{ url_for('static', filename='img/test-img.png') }}" alt="test-img">
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="container sponsor-container my-5">
+<section class="sponsor-container">
+    <div class="container">
         <h1 class="section-title">Sponsors</h1>
         <div class="sponsor-content row d-flex justify-content-center">
             <img class="sponsor-image col-1 m-4" src="{{ url_for('static', filename='img/test-img.png') }}" alt="test-img">
@@ -48,8 +60,8 @@
             <img class="sponsor-image col-1 m-4" src="{{ url_for('static', filename='img/test-img.png') }}" alt="test-img">
             <img class="sponsor-image col-1 m-4" src="{{ url_for('static', filename='img/test-img.png') }}" alt="test-img">
         </div>
-    </section>
-</div>
+    </div>
+</section>
 
 <script src="{{ url_for('static', filename='js/home.js') }}"></script>
 {% endblock %}

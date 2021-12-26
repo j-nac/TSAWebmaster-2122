@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section class="container my-5">
+        <h1>Contact Us</h1>
+    </section>
+    <section class="container my-5">
+        <h2>Send us a Message</h2>
+        <form action="" method="POST">
+            {{ form.csrf_token }}
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="form-group py-3">
+                        {{ form.name.label }}
+                        {{ form.name(class_="form-control", placeholder_="Full Name") }}
+                    </div>
+                    <div class="form-group py-3">
+                        {{ form.email.label }}
+                        {{ form.email(class_="form-control", placeholder_="Email") }}
+                    </div>
+                    <div class="form-group py-3">
+                        {{ form.subject.label }}
+                        {{ form.subject(class_="form-control", placeholder_="Subject") }}
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group py-3">
+                        {{ form.message.label }}
+                        {{ form.message(class_="form-control", placeholder_="Message", style_="min-height: 200px") }}
+                    </div>
+                </div>
+            </div>
+            {{ form.submit }}
+        </form>
+    </section>
+    <section class="container my-5">
+        <h2>Information</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <td>Email</td>
+                    <td><a href="mailto:help@archfestmusicfestival.com">help@archfestmusicfestival.com</a></td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td><a href="tel:+17735251105">+1 (773) 525-1105</a></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>
+                        <a href="https://goo.gl/maps/TXh2HBFZk61k7jkH8" target="_blank" rel="noopener noreferrer">4001 N Clark St, Chicago, IL 60613</a>
+                        <br>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2967.130060926195!2d-87.66404198433492!3d41.95454136860553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd24a13488957%3A0xdbbe2062f8183e1d!2s4001%20N%20Clark%20St%2C%20Chicago%2C%20IL%2060613!5e0!3m2!1sen!2sus!4v1640061284081!5m2!1sen!2sus" width="550" height="450" style="border:0;" allowfullscreen="" loading="lazy" class="d-none d-md-block"></iframe>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</div>
+{% endblock %}
