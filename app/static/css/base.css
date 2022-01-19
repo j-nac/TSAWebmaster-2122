@@ -6,7 +6,7 @@
     --radical-red-alt: #fd8ea9;
     --tiffany-blue: #2EC4B6;
     --cultured: #F6F7F8;
-    --prussian-blue: #1c252b;
+    --prussian-blue: #08141b;
 }
 
 body {
@@ -77,9 +77,9 @@ input[type=submit] {
         width: 100% !important;
     }
 
-    .navbar-back {
+    /*.navbar-back {
         opacity: 1 !important;
-    }
+    }*/
 }
 
 /* Section layout */
@@ -160,7 +160,7 @@ input[type=submit] {
     width: 100%;
     height: 100%;
     background-color: var(--prussian-blue);
-    opacity: 0.75;
+    /*opacity: 0.75;*/
     animation: slideRight 0.7s;
 }
 

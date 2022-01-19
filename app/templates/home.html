@@ -5,12 +5,13 @@
 {% endblock %}
 
 {% block content %}
+<!--style="border: 6px solid rgb(212, 212, 212)-->
 <div class="countdown-container">
     <div class="countdown-content">
         <h1 class="countdown-text">COUNTDOWN</h1>
         <countdown></countdown>
         <br><br><br>
-        <a href="" id="tickets-link">Get tickets now</a>
+        <a href="{{ url_for('register') }}" id="tickets-link">Get tickets now</a>
     </div>
     <img src="https://images.unsplash.com/photo-1453090927415-5f45085b65c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1148&q=80" alt="filler" class="countdown-background">
 </div>
@@ -21,7 +22,7 @@
             <img class="schedule-img col-1 col-xl-4" src="{{ url_for('static', filename='img/test-img.png') }}" alt="test-img">
             <div class="artists-text col-12 col-xl-8">
                 <h1 class="custom-text-1">Latest local bands performing live</h1>
-                <a href="{{ url_for('register') }}">Read more</a>
+                <a href="{{ url_for('artists') }}">More info</a>
             </div>
         </div>
     </div>
@@ -33,7 +34,6 @@
         <div class="about-content row">
             <div class="about-text col-12 col-xl-8">
                 <p>Created in 2012, we started with the goal of organizing and supporting local artists and shows. In 2021 after a year off due to the pandemic, our organization went online to keep things safe; yet we stay determined to help everybody continue to enjoy music. Our goal here for the ArchFest Music Festival is for people to enjoy, have access, and build a community to support as much as possible.</p>
-                <a href="{{ url_for('artists') }}">Read more</a>
             </div>
             <img class="schedule-img col-4 d-none d-xl-block" src="{{ url_for('static', filename='img/test-img.png') }}" alt="test-img">
         </div>
@@ -45,7 +45,7 @@
         <h1 class="section-title">Tickets</h1>
         <div class="container-text">
             <p>Buy tickets, schedule 1 on 1 events with your favorite artists, and access exclusive deals now. Performances June 20 - June 27</p>
-            <a href="{{ url_for('artists') }}">Read more</a>
+            <a href="{{ url_for('register') }}">Read more</a>
         </div>
     </div>
 </section>
