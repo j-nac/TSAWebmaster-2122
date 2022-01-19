@@ -32,11 +32,16 @@ section {
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 4em;
 }
 
 p {
     line-height: 2;
+}
+
+.custom-text-1 {
+    
+    font-style: italic !important;
 }
 
 section p, section a {

@@ -9,41 +9,51 @@
     <div class="countdown-content">
         <h1 class="countdown-text">COUNTDOWN</h1>
         <countdown></countdown>
+        <br><br><br>
+        <a href="" id="tickets-link">Get tickets now</a>
     </div>
-    <img src="https://images.unsplash.com/photo-1453090927415-5f45085b65c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1148&q=80"
-        alt="filler" class="countdown-background">
+    <img src="https://images.unsplash.com/photo-1453090927415-5f45085b65c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1148&q=80" alt="filler" class="countdown-background">
 </div>
 
-<section class="about-container cust-light">
+<section class="artists-container mt-5">
+    <div class="container">
+        <div class="artists-content row">
+            <img class="schedule-img col-1 col-xl-4" src="{{ url_for('static', filename='img/test-img.png') }}" alt="test-img">
+            <div class="artists-text col-12 col-xl-8">
+                <h1 class="custom-text-1">Latest local bands performing live</h1>
+                <a href="{{ url_for('register') }}">Read more</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-container">
     <div class="container">
         <h1 class="section-title">About</h1>
+        <div class="about-content row">
+            <div class="about-text col-12 col-xl-8">
+                <p>Created in 2012, we started with the goal of organizing and supporting local artists and shows. In 2021 after a year off due to the pandemic, our organization went online to keep things safe; yet we stay determined to help everybody continue to enjoy music. Our goal here for the ArchFest Music Festival is for people to enjoy, have access, and build a community to support as much as possible.</p>
+                <a href="{{ url_for('artists') }}">Read more</a>
+            </div>
+            <img class="schedule-img col-4 d-none d-xl-block" src="{{ url_for('static', filename='img/test-img.png') }}" alt="test-img">
+        </div>
+    </div>
+</section>
+
+<section class="tickets-container">
+    <div class="container">
+        <h1 class="section-title">Tickets</h1>
         <div class="container-text">
-            <p>Welcome to the ArchFest Music Festival! Created in 2012, we started from humble beginnings with a goal of organizing and supporting local artists and shows. In 2021 after a year off due to the pandemic, our organization went online to keep things safe; yet we stay determined to help everybody continue to enjoy music. Our goal here for the ArchFest Music Festival is for people to enjoy, have access, and build a community to support as much as possible. </p>
+            <p>Buy tickets, schedule 1 on 1 events with your favorite artists, and access exclusive deals now. Performances June 20 - June 27</p>
             <a href="{{ url_for('artists') }}">Read more</a>
         </div>
     </div>
-    
 </section>
-
-<img src="{{ url_for('static', filename='img/test-img.png') }}" alt="" id="about-overlap-img">
 
 <section class="hosted-container">
     <div class="container">
-        <h1 class="section-title">Hosted By</h1>
-        <p>Our biggest thanks and appreciation goes to Holly Anderson who started this organization to support our local community, and it has expanded to a major business where everybody can enjoy music. Slade Grayson, our Editor-in-Chief and Co-founder who supported Holly every step of the way. And last but not least, Emily Ziao, who is our networker and we wouldn’t have made it this far without her.</p>
-    </div>
-</section>
-
-<section class="schedule-container cust-light">
-    <div class="container">
-        <h1 class="section-title">Schedule</h1>
-        <div class="schedule-content row">
-            <div class="schedule-text col-12 col-xl-8">
-                <p>Use our scheduling guide and calendar to help you find your perfect artist and times! Check out the most up and coming artists and latest news. Book the times that work best for you and find your favorite artists!</p>
-                <a href="{{ url_for('register') }}">Read more</a>
-            </div>
-            <img class="schedule-img col-1 col-xl-2" src="{{ url_for('static', filename='img/test-img.png') }}" alt="test-img">
-        </div>
+        <h1 class="section-title">Special Thanks</h1>
+        <p>Thanks and appreciation goes to Holly Anderson who started this organization to support our local community; Slade Grayson, our Editor-in-Chief and Co-founder who supported Holly every step of the way; and last but not least, Emily Ziao, who is our networker and we wouldn't have made it this far without her.</p>
     </div>
 </section>
 
