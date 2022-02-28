@@ -1,13 +1,37 @@
 {% extends 'base.html' %}
 
 {% block head %}
+<link href = "{{ url_for('static', filename = 'css/artists.css') }}" rel = "stylesheet">
 {% endblock %}
 
 {% block content %}
 <div class="container">
-    <section class="container my-5">
-        <h1>{{ title }}</h1>
+    <section class="container my-5 artist">
+        <div class = 'artist-image'><img src = "{{ url_for('static', filename='img/test-img.png') }}" alt = 'artist'></div>
+        <h1>Artist / Band</h1>
         <p>Dolore do aliquip duis excepteur sit culpa aliquip consequat et ut proident tempor esse quis. Esse sint tempor pariatur dolore sit officia commodo occaecat deserunt id minim dolore culpa deserunt. Sit ad in id ut est mollit anim pariatur exercitation officia sint anim.</p>
+        <p class="promotion">Merch  &#183 fan meet-up &#183 insert social</p>
+        <hr>
+    </section>
+    <section class="container my-5 artist">
+        <div class = 'artist-image'><img src = "{{ url_for('static', filename='img/test-img.png') }}" alt = 'artist'></div>
+        <h1>Artist / Band</h1>
+        <p>Dolore do aliquip duis excepteur sit culpa aliquip consequat et ut proident tempor esse quis. Esse sint tempor pariatur dolore sit officia commodo occaecat deserunt id minim dolore culpa deserunt. Sit ad in id ut est mollit anim pariatur exercitation officia sint anim.</p>
+        <p class="promotion">Merch  &#183 fan meet-up &#183 insert social</p>
+        <hr>
+    </section>
+    <section class="container my-5 artist">
+        <div class = 'artist-image'><img src = "{{ url_for('static', filename='img/test-img.png') }}" alt = 'artist'></div>
+        <h1>Artist / Band</h1>
+        <p>Dolore do aliquip duis excepteur sit culpa aliquip consequat et ut proident tempor esse quis. Esse sint tempor pariatur dolore sit officia commodo occaecat deserunt id minim dolore culpa deserunt. Sit ad in id ut est mollit anim pariatur exercitation officia sint anim.</p>
+        <p class="promotion">Merch  &#183 fan meet-up &#183 insert social</p>
+        <hr>
+    </section><section class="container my-5 artist">
+        <div class = 'artist-image'><img src = "{{ url_for('static', filename='img/test-img.png') }}" alt = 'artist'></div>
+        <h1>Artist / Band</h1>
+        <p>Dolore do aliquip duis excepteur sit culpa aliquip consequat et ut proident tempor esse quis. Esse sint tempor pariatur dolore sit officia commodo occaecat deserunt id minim dolore culpa deserunt. Sit ad in id ut est mollit anim pariatur exercitation officia sint anim.</p>
+        <p class="promotion">Merch  &#183 fan meet-up &#183 insert social</p>
+        <hr>
     </section>
 </div>
 {% endblock %}
