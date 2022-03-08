@@ -2,13 +2,6 @@
     --image-offset: 20px;
     --image-size: 300px
 }
-
-.artist:nth-child(even) {
-    background-color: aqua;
-}
-.artist:nth-child(odd) {
-    background-color: brown;
-}
 .artist-image {
     display: inline;
 }
