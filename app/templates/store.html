@@ -20,24 +20,23 @@
                 {% endfor %}
             </div>
         </form>
-        <div class="row">
+        <div class="row grid" id="gallery"> <!-- data-masonry='{"percentPosition": true }' - disabled because it doesn't update with search -->
         {% for item in query_results %}
-            <div class="col">
-                <div class="card store-card">
-                    {% if item.image_file %}
-                        <img src="{{ url_for('static', filename='img/'+item.image_file) }}" alt="" class="card-img-top">
-                    {% else %}
-                        <img src="{{ url_for('static', filename='img/test-img.png') }}" alt="" class="card-img-top">
-                    {% endif %}
-                    <div class="card-body">
-                        <h5 class="card-title">{{ item.name }}</h5>
-                        <div class="card-text">{{ item.description }}</div>
-                        <a href="{{ url_for('item', id=item.id) }}" class="stretched-link"></a>
-                    </div>
+            <div class="card store-card">
+                {% if item.image_file %}
+                    <img src="{{ url_for('static', filename='img/'+item.image_file) }}" alt="" class="card-img-top">
+                {% else %}
+                    <img src="{{ url_for('static', filename='img/test-img.png') }}" alt="" class="card-img-top">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.name }}</h5>
+                    <div class="card-text">{{ item.description }}</div>
+                    <a href="{{ url_for('item', id=item.id) }}" class="stretched-link"></a>
                 </div>
             </div>
         {% endfor %}
         </div>
     </section>
 </div>
+<script src="{{ url_for('static', filename='js/store.js') }}"></script>
 {% endblock %}
