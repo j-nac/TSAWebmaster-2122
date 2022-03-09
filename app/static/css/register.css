@@ -1,5 +1,6 @@
 table {
     width: 100%;
+    border: 2px var(--radical-red);
 }
 button {
     background: none;
@@ -14,10 +15,13 @@ form {
     display: flex;
     justify-content: center;
 }
+tr {
+    margin-top: 10px;
+}
 th {
     font-size: 24px;
 }
 td {
-    padding: 2px;
+    padding: 8px;
     font-size: 18px;
 }
