@@ -17,6 +17,20 @@ body {
     overflow-x: hidden;
 }
 
+.red-btn {
+    background-color: var(--radical-red);
+    display: block;
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    color: var(--cultured);
+}
+
+.red-btn:hover {
+    background-color: var(--radical-red-alt);
+    transition: 1s;
+}
+
 a {
     color: var(--radical-red);
 }
