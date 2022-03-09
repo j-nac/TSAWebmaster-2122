@@ -36,3 +36,16 @@
 .promotion {
     text-align: center;
 }
+
+.promotion a {
+    font-size: 1em;
+}
+
+.more-btn {
+    font-size: 1em;
+    color: var(--cultured);
+}
+
+.more-btn:hover {
+    color: var(--cultured);
+}
