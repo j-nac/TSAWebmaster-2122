@@ -2,13 +2,6 @@
     --image-offset: 20px;
     --image-size: 300px
 }
-
-.artist:nth-child(even) {
-    background-color: aqua;
-}
-.artist:nth-child(odd) {
-    background-color: brown;
-}
 .artist-image {
     display: inline;
 }
@@ -17,30 +10,42 @@
     width: var(--image-size);
     height: var(--image-size);
     top: var(--image-offset);
-    border-radius: 10px;
 }
-.artist:nth-child(odd) .artist-image {
+.artist:nth-child(4n+1) .artist-image {
     float: left;
-    background-color: bisque;
+    background-color: var(--tiffany-blue);
 }
-.artist:nth-child(odd) .artist-image{
+.artist:nth-child(4n+1) .artist-image{
     margin-right: calc(var(--image-offset) + 25px);
     margin-bottom: calc(var(--image-offset) + 25px);
 }
-.artist:nth-child(odd) .artist-image img {
+.artist:nth-child(4n+1) .artist-image img {
     left: var(--image-offset);
 }
-.artist:nth-child(even) .artist-image {
+.artist:nth-child(4n+3) .artist-image {
     float: right;
-    background-color: blueviolet;
+    background-color: var(--neon-blue);
 }
-.artist:nth-child(even) .artist-image{
+.artist:nth-child(4n+3) .artist-image{
     margin-left: calc(var(--image-offset) + 25px);
     margin-bottom: calc(var(--image-offset) + 25px);
 }
-.artist:nth-child(even) .artist-image img {
+.artist:nth-child(4n+3) .artist-image img {
     right: var(--image-offset);
 }
 .promotion {
     text-align: center;
+}
+
+.promotion a {
+    font-size: 1em;
+}
+
+.more-btn {
+    font-size: 1em;
+    color: var(--cultured);
+}
+
+.more-btn:hover {
+    color: var(--cultured);
 }

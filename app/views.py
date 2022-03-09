@@ -95,6 +95,30 @@ def contact():
         print(newsletter_form.email.data)
     return render_template('contact.html', title='Contact', newsletter_form=newsletter_form, form=form)
 
+@app.route('/sale-and-refund', methods=['GET', 'POST'])
+def refund():
+    newsletter_form = NewsletterForm()
+    form = ContactForm()
+    if newsletter_form.validate_on_submit():
+        print(newsletter_form.email.data)
+    return render_template('refund.html', title='Sales & Refund', newsletter_form=newsletter_form, form=form)
+
+@app.route('/privacy-policy', methods=['GET', 'POST'])
+def privacy():
+    newsletter_form = NewsletterForm()
+    form = ContactForm()
+    if newsletter_form.validate_on_submit():
+        print(newsletter_form.email.data)
+    return render_template('privacy.html', title='Privacy Policy', newsletter_form=newsletter_form, form=form)
+
+@app.route('/licensing', methods=['GET', 'POST'])
+def licensing():
+    newsletter_form = NewsletterForm()
+    form = ContactForm()
+    if newsletter_form.validate_on_submit():
+        print(newsletter_form.email.data)
+    return render_template('licensing.html', title='Licensing', newsletter_form=newsletter_form, form=form)
+
 @app.route('/tsa-info', methods=['GET', 'POST'])
 def tsa_info():
     newsletter_form = NewsletterForm()

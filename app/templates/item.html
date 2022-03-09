@@ -6,11 +6,10 @@
 {% block content %}
 <div class="container">
     <section class="container my-5">
-        <h1>{{ item.name }}</h1>
+        <h1>{{ item.name }} - ${{item.price}}</h1>
+        <img src="{{ url_for('static', filename='img/'+item.image_file) }}" alt="">
         <p>{{ item.description }}</p>
-        {% for i in item.tags %}
-            <p>{{ i.name }}</p>
-        {% endfor %}
+        <button type="button" class="red-btn">Buy now</button>
     </section>
 </div>
 {% endblock %}
