@@ -2,6 +2,7 @@ table {
     width: 100%;
 }
 button {
+    margin-top: 20px;
     width:100%;
     background: none;
     border: none;
@@ -14,10 +15,22 @@ button {
     display: flex;
     justify-content: center;
     padding: 20px;
-    border: 2px solid var(--tiffany-blue);
+    border: 2px solid gray;
 }
-.day + .day {
-    margin-top: 60px;
+form + form {
+    margin-top: 100px;
+}
+.label{
+    border-bottom: 5px solid grey;
+}
+.label:nth-child(0){
+    width: 25%;
+}
+.label:nth-child(1){
+    width: 25%;
+}
+.label:nth-child(2){
+    width:50%
 }
 tr + tr {
     margin-top:10px
@@ -28,6 +41,9 @@ th {
 td {
     padding: 8px;
     font-size: 18px;
+}
+tr {
+    width: 100%;
 }
 h1 {
     margin-bottom: 150px;
