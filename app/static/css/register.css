@@ -14,8 +14,9 @@ button {
     padding: 20px;
     border: 2px solid gray;
 }
-form + form {
-    margin-top: 100px;
+form {
+    margin-top: 50px;
+    margin-bottom: 25px;
 }
 .label{
     border-bottom: 5px solid grey;
@@ -35,5 +36,12 @@ tr {
     width: 100%;
 }
 h1 {
-    margin-bottom: 150px;
+    margin-bottom: 50px;
+}
+.previews {
+    display: flex;
+    justify-content: space-around;
+}
+.previews img {
+    height: 350px
 }
