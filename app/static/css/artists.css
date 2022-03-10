@@ -5,11 +5,21 @@
 .artist-image {
     display: inline;
 }
-.artist-image img {
+.artist-image div {
     position: relative;
     width: var(--image-size);
     height: var(--image-size);
     top: var(--image-offset);
+    overflow: hidden;
+}
+.artist-image div img{
+    height: 100%;
+    min-height: 100%;
+    width:100%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
 }
 .artist:nth-of-type(even) .artist-image {
     float: left;
@@ -19,7 +29,7 @@
     margin-right: calc(var(--image-offset) + 25px);
     margin-bottom: calc(var(--image-offset) + 25px);
 }
-.artist:nth-of-type(even) .artist-image img {
+.artist:nth-of-type(even) .artist-image div {
     left: var(--image-offset);
 }
 .artist:nth-of-type(odd) .artist-image {
@@ -30,7 +40,7 @@
     margin-left: calc(var(--image-offset) + 25px);
     margin-bottom: calc(var(--image-offset) + 25px);
 }
-.artist:nth-of-type(odd) .artist-image img {
+.artist:nth-of-type(odd) .artist-image div {
     right: var(--image-offset);
 }
 .promotion {
