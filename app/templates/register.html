@@ -1,13 +1,55 @@
 {% extends 'base.html' %}
 
 {% block head %}
+<link href = "{{ url_for('static', filename = 'css/register.css') }}" rel = "stylesheet">
 {% endblock %}
 
 {% block content %}
 <div class="container">
     <section class="container my-5">
         <h1>{{ title }}</h1>
-        <p>Dolore do aliquip duis excepteur sit culpa aliquip consequat et ut proident tempor esse quis. Esse sint tempor pariatur dolore sit officia commodo occaecat deserunt id minim dolore culpa deserunt. Sit ad in id ut est mollit anim pariatur exercitation officia sint anim.</p>
+        <form>
+            <table class = 'day'>
+                <tr class='label'>
+                    <th width='25%'></th>
+                    <th width='25%'>Time</th>
+                    <th width='50%'>Event</th>
+                </tr>
+                <tr>
+                    <th rowspan="3">June 17th</th>
+                    <td>9:00am - 10:00am</td>
+                    <td>pepe the frog kicks frog days for copyright infringment</td>
+                </tr>
+                <tr>
+                    <td>10:00am - 11:59pm</td>
+                    <td>giving me money</td>
+                </tr>
+                <tr>
+                    <td>12:00pm - 1:00pm</td>
+                    <td>lunch break for artists</td>
+                </tr>
+            </table>
+            <button>Buy ticket</button>
+        </form>
+        <form>
+            <table class = 'day'>
+                <tr class='label'>
+                    <th width='25%'></th>
+                    <th width='25%'>Time</th>
+                    <th width='50%'>Event</th>
+                </tr>
+                <tr>
+                    <th rowspan="3">June 18th</th>
+                    <td>9:00am - 10:00am</td>
+                    <td>pepe the frog kicks frog days for copyright infringment</td>
+                </tr>
+                <tr>
+                    <td>10:00am - 11:59pm</td>
+                    <td>giving me money</td>
+                </tr>
+            </table>
+            <button>Buy ticket</button>
+        </form>
     </section>
 </div>
 {% endblock %}
