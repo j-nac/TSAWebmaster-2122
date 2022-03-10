@@ -11,9 +11,6 @@ button {
     text-decoration: underline;
 }
 .day {
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
     padding: 20px;
     border: 2px solid gray;
 }
@@ -23,19 +20,11 @@ form + form {
 .label{
     border-bottom: 5px solid grey;
 }
-.label:nth-child(0){
-    width: 25%;
-}
-.label:nth-child(1){
-    width: 25%;
-}
-.label:nth-child(2){
-    width:50%
-}
 tr + tr {
     margin-top:10px
 }
 th {
+    padding: 8px;
     font-size: 24px;
 }
 td {
