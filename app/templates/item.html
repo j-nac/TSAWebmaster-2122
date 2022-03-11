@@ -7,7 +7,7 @@
 <div class="container">
     <section class="container my-5">
         <h1>{{ item.name }} - ${{item.price}}</h1>
-        <img src="{{ url_for('static', filename='img/'+item.image_file) }}" alt="">
+        <img src="{{ url_for('static', filename='img/'+item.image_file) }}" alt="" style="max-width: 400px">
         <p>{{ item.description }}</p>
         <button type="button" class="red-btn">Buy now</button>
     </section>
