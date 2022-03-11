@@ -7,7 +7,46 @@
 <div class="container">
     <section class="container my-5">
         <h1>{{ title }}</h1>
-        <p>Dolore do aliquip duis excepteur sit culpa aliquip consequat et ut proident tempor esse quis. Esse sint tempor pariatur dolore sit officia commodo occaecat deserunt id minim dolore culpa deserunt. Sit ad in id ut est mollit anim pariatur exercitation officia sint anim.</p>
+        
+        <div class="row">
+            <div class="col">
+                <h2>Documentation Files</h2>
+                <ul>
+                    <li><a href="{{ url_for('static', filename='img/documentation/WebmasterWL.pdf') }}" target="_blank" rel="noopener noreferrer">Work Log</a></li>
+                    <li><a href="{{ url_for('static', filename='img/documentation/WEbmasterchecklist.pdf') }}" target="_blank" rel="noopener noreferrer">Copyright Checklist</a></li>
+                    <li><a href="{{ url_for('static', filename='img/documentation/consent-and-release-form.pdf') }}" target="_blank" rel="noopener noreferrer">Consent Form 1</a></li>
+                    <li><a href="{{ url_for('static', filename='img/documentation/IMG_0362.JPG') }}" target="_blank" rel="noopener noreferrer">Consent Form 2</a></li>
+                    <li><a href="{{ url_for('static', filename='img/documentation/CamScanner 03-09-2022 19.47 - Page 9.jpg') }}" target="_blank" rel="noopener noreferrer">Consent Form 3</a></li>
+                    <li><a href="{{ url_for('static', filename='img/documentation/CamScanner 03-09-2022 19.47 - Page 10.jpg') }}" target="_blank" rel="noopener noreferrer">Consent Form 4</a></li>
+                    <li><a href="{{ url_for('static', filename='img/documentation/CamScanner 03-09-2022 19.47_1.jpg') }}" target="_blank" rel="noopener noreferrer">Consent Form 5</a></li>
+                    <li><a href="{{ url_for('static', filename='img/documentation/CamScanner 03-09-2022 19.47_2.jpg') }}" target="_blank" rel="noopener noreferrer">Consent Form 6</a></li>
+                    <li><a href="{{ url_for('static', filename='img/documentation/CamScanner 03-09-2022 19.47_3.jpg') }}" target="_blank" rel="noopener noreferrer">Consent Form 7</a></li>
+                    <li><a href="{{ url_for('static', filename='img/documentation/CamScanner 03-09-2022 19.47_4.jpg') }}" target="_blank" rel="noopener noreferrer">Consent Form 8</a></li>
+                    <li><a href="{{ url_for('static', filename='img/documentation/CamScanner 03-09-2022 19.47_5.jpg') }}" target="_blank" rel="noopener noreferrer">Consent Form 9</a></li>
+                    <li><a href="{{ url_for('static', filename='img/documentation/CamScanner 03-09-2022 19.47_6.jpg') }}" target="_blank" rel="noopener noreferrer">Consent Form 10</a></li>
+                    <li><a href="{{ url_for('static', filename='img/documentation/CamScanner 03-09-2022 19.47_7.jpg') }}" target="_blank" rel="noopener noreferrer">Consent Form 11</a></li>
+                    <li><a href="{{ url_for('static', filename='img/documentation/CamScanner 03-09-2022 19.47_8.jpg') }}" target="_blank" rel="noopener noreferrer">Consent Form 12</a></li>
+                </ul>
+            </div>
+            <div class="col">
+                <h2>Technologies</h2>
+                <ul>
+                    <li>Hosted on Heroku</li>
+                    <li>Code on Github</li>
+                    <li>Flask web framework for backend</li>
+                    <li>SQLite for database</li>
+                    <li>Bootstrap library for front end</li>
+                    <li>jQuery library for additional Javascript functionality</li>
+                </ul>
+
+                <h2>Sources</h2>
+                <ul>
+                    <li>Stock images from Unsplash</li>
+                </ul>
+            </div>
+        </div>
+        
+        
     </section>
 </div>
 {% endblock %}

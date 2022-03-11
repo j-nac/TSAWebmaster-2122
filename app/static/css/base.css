@@ -17,6 +17,10 @@ body {
     overflow-x: hidden;
 }
 
+li {
+    font-size: 1.2em;
+}
+
 .red-btn {
     background-color: var(--radical-red);
     display: block;
