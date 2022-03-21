@@ -5,6 +5,10 @@
     margin-bottom: 5px;
 }
 
+item {
+    display: inline;
+}
+
 #search-bar {
     text-decoration: none;
     border: none;
