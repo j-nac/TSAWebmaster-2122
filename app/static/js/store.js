@@ -10,27 +10,23 @@ window.onload = function(){
 function search_items(search){
   	let regex = search ? (new RegExp(`.*${search}.*`)) : (new RegExp(".*"));
 
-	$('item[id]').each( function(){ 
-		console.log(Object.keys(this))
-		console.log(this.className)
-		ids = this.id.split(/\s+/)
-		for (let id of ids){
-			if(regex.test(id)){
-				this.css('display', 'block')
-				continue
-			}
+	$('div[searchable]').each( function(){
+		if(regex.test($(this).attr('searchable').toLowerCase())){
+			$(this).css('display', 'block')
+			return
 		}
-		this.css('display', 'none')
+		$(this).css('display', 'none')
 	});
 }
-function apply_tags(tag){
-	$(`div[class]`).each(function(){
-		classes = this.className.split(/\s+/)
-		for (let name of classes){
-			if(name == tag){
-				this.css('display', 'block')
+function apply_tags(id){
+	$('div[tags]').each(function(){
+		tags = $(this).attr('tags').split(/\s+/)
+		for (let tag of tags){
+			if(tag == id){
+				$(this).css('display', 'block')
+				return
 			}
 		}
-		this.css('display', 'none')
+		$(this).css('display', 'none')
 	});
 }
