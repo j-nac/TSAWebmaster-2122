@@ -1,7 +1,7 @@
+var $grid = $('.grid').masonry({
+	itemSelector: '.visible-item'
+});
 function mason(){
-	var $grid = $('.grid').masonry({
-
-	});
 	// layout Masonry after each image loads
 	$grid.imagesLoaded().progress( function() {
 		$grid.masonry('layout');
@@ -13,11 +13,13 @@ function search_items(search){
 	$('div[searchable]').each( function(){
 		if(regex.test($(this).attr('searchable').toLowerCase())){
 			$(this).css('display', 'block')
+			$(this).addClass('visible-item')
 			return
 		}
 		$(this).css('display', 'none')
+		$(this).removeClass('visible-item')
 	});
-	mason()
+	$grid.isotope({itemSelector:'.visible-item'})
 }
 searched_tags = []
 function toggle_tag(id){
@@ -30,18 +32,21 @@ function toggle_tag(id){
 	searched_tags.push(id)
 }
 function apply_tag(id){
-	toggle_tag(id.toLowerCase)
+	toggle_tag(id.toLowerCase())
 	$('div[tags]').each(function(){
 		tags = $(this).attr('tags').split(/\s+/)
 		for(tag of tags){
 			if(searched_tags.includes(tag.toLowerCase()) || searched_tags.length==0){
+				console.log('found')
 				$(this).css('display', 'block')
+				$(this).addClass('visible-item')
 				return
 			}
 		}
 		$(this).css('display', 'none')
+		$(this).removeClass('visible-item')
 	});
-	mason()
+	$grid.isotope({itemSelector:'.visible-item'})
 }
 
 window.onload = mason
