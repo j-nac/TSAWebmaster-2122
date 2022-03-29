@@ -61,7 +61,7 @@ def store():
     form = SearchStore()
     tags = Tag.query.all()
 
-    return render_template('store.html', title='Store', query_results=query_results, form=form, tags=tags, newsletter_form=newsletter_form)
+    return render_template('store.html', title='Store', query_results=query_results, form=form, tags=tags, selected_tags=request.args.getlist('tags'), newsletter_form=newsletter_form)
 
 '''
 To filter by tag:

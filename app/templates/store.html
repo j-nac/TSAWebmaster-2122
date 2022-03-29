@@ -15,7 +15,12 @@
             </div>
             <div class="tags-select">
                 {% for t in tags %}
-                    <button name="tags" id="tag-{{ t.name }}" value="{{ t.name }}">{{ t.name }}</button>
+                    <button 
+                    {% if t.name in selected_tags %} class="checked" {% endif %}
+                    >
+                        <input name="tags" id="tag-{{ t.name }}" value="{{ t.name }}" type="checkbox">
+                        <label for="tag-{{ t.name }}">{{ t.name }}</label>
+                    </button>
                 {% endfor %}
             </div>
         </form>

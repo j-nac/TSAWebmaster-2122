@@ -26,21 +26,16 @@
     overflow-y: hidden;
     white-space: nowrap;
 }
-
+.tags-select label{
+    padding: 6px;
+    margin:4px;
+}
 .tags-select input {
-    position: absolute;
+    background-color: var(--radical-red);
+    border: none;
     visibility: hidden;
 }
-
-.tags-select label {
-    padding: 10px;
-    margin: 10px;
-}
-
-.tags-select input[type=checkbox]+label {
-    background-color: var(--radical-red);
-}
   
-.tags-select input[type=checkbox]:checked+label {
+.tags-select input:checked {
     background-color: var(--radical-red-alt);
 }
