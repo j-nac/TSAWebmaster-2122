@@ -1,4 +1,4 @@
-window.onload = ()=>{
+function mason(){
 	var $grid = $('.grid').masonry({
 		// options...
 	});
@@ -7,3 +7,4 @@ window.onload = ()=>{
 		$grid.masonry('layout')
 	})
 }
+window.onload = mason

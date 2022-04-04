@@ -55,7 +55,6 @@ def store():
     
     if len(tags) == 0:
         tag_results = Item.query.all()
-    
     query_results = list(set(search_results).intersection(tag_results))
 
     form = SearchStore()

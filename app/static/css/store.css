@@ -21,6 +21,7 @@
 }
 
 .tags-select {
+    padding: 2px;
     margin: 10px 5px;
     overflow-x: auto;
     overflow-y: hidden;
@@ -30,12 +31,38 @@
     padding: 6px;
     margin:4px;
 }
-.tags-select input {
-    background-color: var(--radical-red);
+.tags-select button{
     border: none;
-    visibility: hidden;
+}
+.tags-select input {
+    display: none;
 }
   
-.tags-select input:checked {
+.tags-select input:checked+button {
     background-color: var(--radical-red-alt);
+}
+
+@keyframes open {
+    from{
+        width: 5x;
+    }
+    to{
+        width: 15px;
+    }
+}
+
+::-webkit-scrollbar {
+    height: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

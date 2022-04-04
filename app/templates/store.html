@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+<script src="{{ url_for('static', filename='js/store.js') }}"></script>
 <div class="container">
     <section class="container my-5">
         <h1>{{ title }}</h1>
@@ -15,10 +16,8 @@
             </div>
             <div class="tags-select">
                 {% for t in tags %}
-                    <button 
-                    {% if t.name in selected_tags %} class="checked" {% endif %}
-                    >
-                        <input name="tags" id="tag-{{ t.name }}" value="{{ t.name }}" type="checkbox">
+                    <input name="tags" id="tag-{{ t.name }}" value="{{ t.name }}" type="checkbox" {% if t.name in selected_tags %} checked {% endif %}>
+                    <button>
                         <label for="tag-{{ t.name }}">{{ t.name }}</label>
                     </button>
                 {% endfor %}
@@ -42,5 +41,4 @@
         </div>
     </section>
 </div>
-<script src="{{ url_for('static', filename='js/store.js') }}"></script>
 {% endblock %}
