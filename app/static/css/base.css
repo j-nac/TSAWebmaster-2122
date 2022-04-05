@@ -32,7 +32,7 @@ li {
 
 .red-btn:hover {
     background-color: var(--radical-red-alt);
-    transition: 1s;
+    transition: .2s;
 }
 
 a {
