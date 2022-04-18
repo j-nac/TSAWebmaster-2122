@@ -1,7 +1,8 @@
 from flask import render_template, url_for, redirect, flash, request
-from app import app, db, csrf
+from app import app, db, mail, csrf
 from app.models import Item, Tag
 from app.forms import SearchStore, NewsletterForm, ContactForm
+from flask_mail import Message, Attachment
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
@@ -10,6 +11,13 @@ def home():
     newsletter_form = NewsletterForm()
     if newsletter_form.validate_on_submit():
         print(newsletter_form.email.data)
+        msg = Message(subject='Never Gonna Give You Up',
+            sender='Rick Astley',
+            recipients=[newsletter_form.email.data],
+            body='''We're no strangers to love\nYou know the rules and so do I\nA full commitment's what I'm thinking of\nYou wouldn't get this from any other guy\n\nI just wanna tell you how I'm feeling\nGotta make you understand\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n\nWe've known each other for so long\nYour heart's been aching, but\nYou're too shy to say it\nInside, we both know what's been going on\nWe know the game and we're gonna play it\n\nAnd if you ask me how I'm feeling\nDon't tell me you're too blind to see\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n\n(Ooh, give you up)\n(Ooh, give you up)\nNever gonna give, never gonna give\n(Give you up)\nNever gonna give, never gonna give\n(Give you up)\n\nWe've known each other for so long\nYour heart's been aching, but\nYou're too shy to say it\nInside, we both know what's been going on\nWe know the game and we're gonna play it\n\nI just wanna tell you how I'm feeling\nGotta make you understand\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you''')
+        with app.open_resource("./static/etc/rickroll.gif") as fp:
+            msg.attach("./static/etc/rickroll.gif", "image/gif", fp.read())
+        mail.send(msg)
     return render_template('home.html', title='Home', newsletter_form=newsletter_form)
 
 @app.route('/artists', methods=['GET', 'POST'])
