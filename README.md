@@ -21,8 +21,9 @@ All instructions are for Windows
 
 ### Running the app
 
-1. From the project root, run the website with command `python run.py`
-2. You can see the website on http://localhost:5000/
+1. Set proper environment variables
+2. From the project root, run the website with command `python run.py`
+3. You can see the website on http://localhost:5000/
 
 ## Developing
 
