@@ -9,7 +9,7 @@ app = Flask(__name__)
 # $env:VARIABLE_NAME = 'value'
 
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY') # secrets.token_urlsafe(20)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQL_URI') # 'sqlite:///site.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQL_URI') # 'sqlite:///site.db'
 db = SQLAlchemy(app)
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
@@ -19,8 +19,6 @@ app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
-
-print(app.config['MAIL_USERNAME'], app.config['MAIL_PASSWORD'], app.config['SQLALCHEMY_DATABASE_URI'])
 
 csrf = CSRFProtect(app)
 
