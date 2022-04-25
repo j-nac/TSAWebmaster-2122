@@ -8,9 +8,7 @@ app = Flask(__name__)
 
 # $env:VARIABLE_NAME = 'value'
 
-import secrets
-
-app.config['SECRET_KEY'] = secrets.token_urlsafe(20)
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY') # secrets.token_urlsafe(20)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQL_URI') # 'sqlite:///site.db'
 db = SQLAlchemy(app)
 
