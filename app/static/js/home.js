@@ -1,5 +1,6 @@
 target = 1656658800000
 
+// https://loading.io/progress/
 function countdown() {
     var timeTill = Math.max(0, parseInt((target - Date.now()) / 1000))
     var clock = [timeTill]
@@ -13,7 +14,13 @@ function countdown() {
             clock[i] = "0" + clock[i]
         }
     }
-    
-    $("countdown").text(clock[3] + "d : " + clock[2] + "h : " + clock[1] + "m : " + clock[0] + "s")
+
+    $("#day-cd").attr("data-value", clock[3]);
+    $("#hr-cd").attr("data-value", clock[2]);
+    $("#min-cd").attr("data-value", clock[1]);
+    $("#sec-cd").attr("data-value", clock[0]);
+
+    // $("countdown").text(clock[3] + "d : " + clock[2] + "h : " + clock[1] + "m : " + clock[0] + "s")
 }
 setInterval(countdown, 500)
+
