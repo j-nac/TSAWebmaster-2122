@@ -10,3 +10,19 @@ function toggleNavbar() {
         toggleButton.text("menu");
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+	document.querySelectorAll('button.page-nav').forEach(button => {
+		button.onclick = () => {
+			var request = new XMLHttpRequest();
+			request.open('Get', button.link);
+			request.onload = ()=>{
+                document.getElementById('page')
+                let newpage = document.makeElement('div')
+                alert(request.responseText)
+                
+            }
+			request.send();
+		};
+	});
+});

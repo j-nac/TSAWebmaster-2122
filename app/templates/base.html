@@ -28,15 +28,17 @@
     <button onclick="toggleNavbar()" class="nav-open"><span class="material-icons" id="menu-icon">menu</span></button>
     <nav class="navbox" style="display: none;">
         <div class="navbar-back"></div>
-        <a href="{{ url_for('home') }}" class="page-nav">Home</a>
-        <a href="{{ url_for('artists') }}" class="page-nav">Artists</a>
-        <a href="{{ url_for('register') }}" class="page-nav">Register</a>
-        <a href="{{ url_for('store') }}" class="page-nav">Store</a>
-        <a href="{{ url_for('faq') }}" class="page-nav">FAQ</a>
-        <a href="{{ url_for('tsa_info') }}" class="page-nav">TSA Info</a>
+        <button link="{{ url_for('home') }}" class="page-nav">Home</button>
+        <button link="{{ url_for('artists') }}" class="page-nav">Artists</button>
+        <button link="{{ url_for('register') }}" class="page-nav">Register</button>
+        <button link="{{ url_for('store') }}" class="page-nav">Store</button>
+        <button link="{{ url_for('faq') }}" class="page-nav">FAQ</button>
+        <button link="{{ url_for('tsa_info') }}" class="page-nav">TSA Info</button>
     </nav>
 
-    {% block content %}{% endblock %}
+    <div id = 'page'>
+        {% block content %}{% endblock %}
+    </page>
 
     <footer class="py-5">
         <div class="container">

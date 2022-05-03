@@ -1,10 +1,7 @@
 function mason(){
-	var $grid = $('.grid').masonry({
-		// options...
-	});
-	// layout Masonry after each image loads
+	var $grid = $('.grid').masonry({});
 	$grid.imagesLoaded().progress( function() {
 		$grid.masonry('layout')
 	})
 }
-window.onload = mason
+document.addEventListener('DOMContentLoaded',()=>mason())
