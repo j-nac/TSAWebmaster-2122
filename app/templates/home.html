@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loading-bar.min.css') }}"/>
+<script type="text/javascript" src="{{ url_for('static', filename='js/loading-bar.min.js') }}"></script>
 <link href="{{ url_for('static', filename='css/home.css') }}" rel="stylesheet">
 {% endblock %}
 
@@ -9,7 +11,14 @@
 <div class="countdown-container">
     <div class="countdown-content">
         <h1 class="countdown-text">ArchFest</h1>
-        <countdown></countdown>
+        <div class="container">
+        <div class="row" style="margin: 0 20%;">
+            <div class="col"><div class="ldBar label-center" id="day-cd" data-preset="circle" data-min="0" style="margin: 0 auto;"></div></div> <!-- data-max="365" breaks it for some reason -->
+            <div class="col"><div class="ldBar label-center" id="hr-cd" data-preset="circle" data-min="0" data-max="24" style="margin: 0 auto;"></div></div>
+            <div class="col"><div class="ldBar label-center" id="min-cd" data-preset="circle" data-min="0" data-max="60" style="margin: 0 auto;"></div></div>
+            <div class="col"><div class="ldBar label-center" id="sec-cd" data-preset="circle" data-min="0" data-max="60" style="margin: 0 auto;"></div></div>
+        </div>
+    </div>
         <br><br><br>
         <a href="{{ url_for('register') }}" id="tickets-link">Get tickets now</a>
     </div>

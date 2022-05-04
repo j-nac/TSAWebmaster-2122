@@ -32,6 +32,7 @@
     margin:4px;
 }
 .tags-select button{
+    background-color: var(--radical-red);
     border: none;
 }
 .tags-select input {
