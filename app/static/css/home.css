@@ -1,5 +1,41 @@
 /* Countdown and background image */
 
+.ldBar {
+    width: 120px !important;
+    height: 120px !important;
+}
+
+#day-cd .ldBar-label::after {
+    content: " days";
+    font-size: 1em;
+}
+
+#hr-cd .ldBar-label::after {
+    content: " hours";
+    font-size: 1em;
+}
+#min-cd .ldBar-label::after {
+    content: " minutes";
+    font-size: 1em;
+}
+#sec-cd .ldBar-label::after {
+    content: " seconds";
+    font-size: 1em;
+}
+
+.ldBar path.mainline {
+    stroke-width: 5;
+    stroke: var(--radical-red);
+}
+
+.ldBar path.baseline {
+    stroke-width: 1;
+}
+
+.ldBar-label {
+    text-shadow: none !important;
+}
+
 .countdown-container {
     width: 100%;
     height: 100vh;

@@ -4,19 +4,17 @@ from app.models import Item, Tag
 from app.forms import SearchStore, NewsletterForm, ContactForm
 from flask_mail import Message, Attachment
 
+msg = Message(subject='Never Gonna Give You Up', sender='Rick Astley', body='''We're no strangers to love\nYou know the rules and so do I\nA full commitment's what I'm thinking of\nYou wouldn't get this from any other guy\n\nI just wanna tell you how I'm feeling\nGotta make you understand\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n\nWe've known each other for so long\nYour heart's been aching, but\nYou're too shy to say it\nInside, we both know what's been going on\nWe know the game and we're gonna play it\n\nAnd if you ask me how I'm feeling\nDon't tell me you're too blind to see\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n\n(Ooh, give you up)\n(Ooh, give you up)\nNever gonna give, never gonna give\n(Give you up)\nNever gonna give, never gonna give\n(Give you up)\n\nWe've known each other for so long\nYour heart's been aching, but\nYou're too shy to say it\nInside, we both know what's been going on\nWe know the game and we're gonna play it\n\nI just wanna tell you how I'm feeling\nGotta make you understand\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you''')
+with app.open_resource("./static/etc/rickroll.gif") as fp:
+    msg.attach("./static/etc/rickroll.gif", "image/gif", fp.read())
+
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 @app.route('/home', methods=['GET', 'POST'])
 def home():
     newsletter_form = NewsletterForm()
     if newsletter_form.validate_on_submit():
-        print(newsletter_form.email.data)
-        msg = Message(subject='Never Gonna Give You Up',
-            sender='Rick Astley',
-            recipients=[newsletter_form.email.data],
-            body='''We're no strangers to love\nYou know the rules and so do I\nA full commitment's what I'm thinking of\nYou wouldn't get this from any other guy\n\nI just wanna tell you how I'm feeling\nGotta make you understand\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n\nWe've known each other for so long\nYour heart's been aching, but\nYou're too shy to say it\nInside, we both know what's been going on\nWe know the game and we're gonna play it\n\nAnd if you ask me how I'm feeling\nDon't tell me you're too blind to see\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n\n(Ooh, give you up)\n(Ooh, give you up)\nNever gonna give, never gonna give\n(Give you up)\nNever gonna give, never gonna give\n(Give you up)\n\nWe've known each other for so long\nYour heart's been aching, but\nYou're too shy to say it\nInside, we both know what's been going on\nWe know the game and we're gonna play it\n\nI just wanna tell you how I'm feeling\nGotta make you understand\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you''')
-        with app.open_resource("./static/etc/rickroll.gif") as fp:
-            msg.attach("./static/etc/rickroll.gif", "image/gif", fp.read())
+        msg.recipients = [newsletter_form.email.data]
         mail.send(msg)
     return render_template('home.html', title='Home', newsletter_form=newsletter_form)
 
@@ -24,14 +22,16 @@ def home():
 def artists():
     newsletter_form = NewsletterForm()
     if newsletter_form.validate_on_submit():
-        print(newsletter_form.email.data)
+        msg.recipients = [newsletter_form.email.data]
+        mail.send(msg)
     return render_template('artists.html', title='Artists', newsletter_form=newsletter_form)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     newsletter_form = NewsletterForm()
     if newsletter_form.validate_on_submit():
-        print(newsletter_form.email.data)
+        msg.recipients = [newsletter_form.email.data]
+        mail.send(msg)
     return render_template('register.html', title='Register', newsletter_form=newsletter_form)
 
 @app.route('/store', methods=['GET', 'POST'])
@@ -39,7 +39,8 @@ def register():
 def store():
     newsletter_form = NewsletterForm()
     if newsletter_form.validate_on_submit():
-        print(newsletter_form.email.data)
+        msg.recipients = [newsletter_form.email.data]
+        mail.send(msg)
 
     search = request.args.get('search')
     if search == None or search == '':
@@ -81,7 +82,8 @@ where t is a database tag object
 def item(id):
     newsletter_form = NewsletterForm()
     if newsletter_form.validate_on_submit():
-        print(newsletter_form.email.data)
+        msg.recipients = [newsletter_form.email.data]
+        mail.send(msg)
 
     item = Item.query.get(id)
     return render_template('item.html', title=f'{item.name} | Store' , item=item, newsletter_form=newsletter_form)
@@ -90,7 +92,8 @@ def item(id):
 def faq():
     newsletter_form = NewsletterForm()
     if newsletter_form.validate_on_submit():
-        print(newsletter_form.email.data)
+        msg.recipients = [newsletter_form.email.data]
+        mail.send(msg)
 
     return render_template('faq.html', title='FAQ', newsletter_form=newsletter_form)
 
@@ -99,7 +102,8 @@ def contact():
     newsletter_form = NewsletterForm()
     form = ContactForm()
     if newsletter_form.validate_on_submit():
-        print(newsletter_form.email.data)
+        msg.recipients = [newsletter_form.email.data]
+        mail.send(msg)
     return render_template('contact.html', title='Contact', newsletter_form=newsletter_form, form=form)
 
 @app.route('/sale-and-refund', methods=['GET', 'POST'])
@@ -107,7 +111,8 @@ def refund():
     newsletter_form = NewsletterForm()
     form = ContactForm()
     if newsletter_form.validate_on_submit():
-        print(newsletter_form.email.data)
+        msg.recipients = [newsletter_form.email.data]
+        mail.send(msg)
     return render_template('refund.html', title='Sales & Refund', newsletter_form=newsletter_form, form=form)
 
 @app.route('/privacy-policy', methods=['GET', 'POST'])
@@ -115,7 +120,8 @@ def privacy():
     newsletter_form = NewsletterForm()
     form = ContactForm()
     if newsletter_form.validate_on_submit():
-        print(newsletter_form.email.data)
+        msg.recipients = [newsletter_form.email.data]
+        mail.send(msg)
     return render_template('privacy.html', title='Privacy Policy', newsletter_form=newsletter_form, form=form)
 
 @app.route('/licensing', methods=['GET', 'POST'])
@@ -123,12 +129,14 @@ def licensing():
     newsletter_form = NewsletterForm()
     form = ContactForm()
     if newsletter_form.validate_on_submit():
-        print(newsletter_form.email.data)
+        msg.recipients = [newsletter_form.email.data]
+        mail.send(msg)
     return render_template('licensing.html', title='Licensing', newsletter_form=newsletter_form, form=form)
 
 @app.route('/tsa-info', methods=['GET', 'POST'])
 def tsa_info():
     newsletter_form = NewsletterForm()
     if newsletter_form.validate_on_submit():
-        print(newsletter_form.email.data)
+        msg.recipients = [newsletter_form.email.data]
+        mail.send(msg)
     return render_template('tsa-info.html', title='TSA Info', newsletter_form=newsletter_form)
