@@ -207,3 +207,28 @@ footer {
     font-size: 20px;
     padding: 5px;
 }
+
+@keyframes fadeout {
+    start{
+        opacity: 100%;
+    }
+    end{
+        opacity: 0%;
+    }
+}
+
+@keyframes swipein {
+    start{
+        left:100%;
+    }
+    start{
+        left:0%;
+    }
+}
+
+.oldpage{
+    animation: fadeout 2s;
+}
+.newpage{
+    animation: swipein 2s;
+}

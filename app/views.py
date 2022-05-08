@@ -8,33 +8,36 @@ msg = Message(subject='Never Gonna Give You Up', sender='Rick Astley', body='''W
 with app.open_resource("./static/etc/rickroll.gif") as fp:
     msg.attach("./static/etc/rickroll.gif", "image/gif", fp.read())
 
-@app.route('/', methods=['GET', 'POST'])
-@app.route('/index', methods=['GET', 'POST'])
-@app.route('/home', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST', 'STATIC'])
+@app.route('/index', methods=['GET', 'POST', 'STATIC'])
+@app.route('/home', methods=['GET', 'POST', 'STATIC'])
 def home():
     newsletter_form = NewsletterForm()
     if newsletter_form.validate_on_submit():
         msg.recipients = [newsletter_form.email.data]
         mail.send(msg)
-    return render_template('home.html', title='Home', newsletter_form=newsletter_form)
+    file = 'spa.html' if request.method == 'STATIC' else 'base.html'
+    return render_template('home.html', title='Home', newsletter_form=newsletter_form, file=file)
 
-@app.route('/artists', methods=['GET', 'POST'])
+@app.route('/artists', methods=['GET', 'POST', 'STATIC'])
 def artists():
     newsletter_form = NewsletterForm()
     if newsletter_form.validate_on_submit():
         msg.recipients = [newsletter_form.email.data]
         mail.send(msg)
-    return render_template('artists.html', title='Artists', newsletter_form=newsletter_form)
+    file = 'spa.html' if request.method == 'STATIC' else 'base.html'
+    return render_template('artists.html', title='Artists', newsletter_form=newsletter_form, file=file)
 
-@app.route('/register', methods=['GET', 'POST'])
+@app.route('/register', methods=['GET', 'POST', 'STATIC'])
 def register():
     newsletter_form = NewsletterForm()
     if newsletter_form.validate_on_submit():
         msg.recipients = [newsletter_form.email.data]
         mail.send(msg)
-    return render_template('register.html', title='Register', newsletter_form=newsletter_form)
+    file = 'spa.html' if request.method == 'STATIC' else 'base.html'
+    return render_template('register.html', title='Register', newsletter_form=newsletter_form, file=file)
 
-@app.route('/store', methods=['GET', 'POST'])
+@app.route('/store', methods=['GET', 'POST', 'STATIC'])
 @csrf.exempt
 def store():
     newsletter_form = NewsletterForm()
@@ -69,7 +72,8 @@ def store():
     form = SearchStore()
     tags = Tag.query.all()
 
-    return render_template('store.html', title='Store', query_results=query_results, form=form, tags=tags, selected_tags=request.args.getlist('tags'), newsletter_form=newsletter_form)
+    file = 'spa.html' if request.method == 'STATIC' else 'base.html'
+    return render_template('store.html', title='Store', query_results=query_results, form=form, tags=tags, selected_tags=request.args.getlist('tags'), newsletter_form=newsletter_form, file=file)
 
 '''
 To filter by tag:
@@ -78,7 +82,7 @@ Item.query.filter(Item.tags.contains(t))
 where t is a database tag object
 '''
 
-@app.route('/items/<int:id>', methods=['GET', 'POST'])
+@app.route('/items/<int:id>', methods=['GET', 'POST', 'STATIC'])
 def item(id):
     newsletter_form = NewsletterForm()
     if newsletter_form.validate_on_submit():
@@ -86,27 +90,30 @@ def item(id):
         mail.send(msg)
 
     item = Item.query.get(id)
-    return render_template('item.html', title=f'{item.name} | Store' , item=item, newsletter_form=newsletter_form)
+    file = 'spa.html' if request.method == 'STATIC' else 'base.html'
+    return render_template('item.html', title=f'{item.name} | Store' , item=item, newsletter_form=newsletter_form, file=file)
 
-@app.route('/faq', methods=['GET', 'POST'])
+@app.route('/faq', methods=['GET', 'POST', 'STATIC'])
 def faq():
     newsletter_form = NewsletterForm()
     if newsletter_form.validate_on_submit():
         msg.recipients = [newsletter_form.email.data]
         mail.send(msg)
 
-    return render_template('faq.html', title='FAQ', newsletter_form=newsletter_form)
+    file = 'spa.html' if request.method == 'STATIC' else 'base.html'
+    return render_template('faq.html', title='FAQ', newsletter_form=newsletter_form, file=file)
 
-@app.route('/contact', methods=['GET', 'POST'])
+@app.route('/contact', methods=['GET', 'POST', 'STATIC'])
 def contact():
     newsletter_form = NewsletterForm()
     form = ContactForm()
     if newsletter_form.validate_on_submit():
         msg.recipients = [newsletter_form.email.data]
         mail.send(msg)
-    return render_template('contact.html', title='Contact', newsletter_form=newsletter_form, form=form)
+    file=file = 'spa.html' if request.method == 'STATIC' else 'base.html'
+    return render_template('contact.html', title='Contact', newsletter_form=newsletter_form, form=form, file=file)
 
-@app.route('/sale-and-refund', methods=['GET', 'POST'])
+@app.route('/sale-and-refund', methods=['GET', 'POST', 'STATIC'])
 def refund():
     newsletter_form = NewsletterForm()
     form = ContactForm()
@@ -115,28 +122,31 @@ def refund():
         mail.send(msg)
     return render_template('refund.html', title='Sales & Refund', newsletter_form=newsletter_form, form=form)
 
-@app.route('/privacy-policy', methods=['GET', 'POST'])
+@app.route('/privacy-policy', methods=['GET', 'POST', 'STATIC'])
 def privacy():
     newsletter_form = NewsletterForm()
     form = ContactForm()
     if newsletter_form.validate_on_submit():
         msg.recipients = [newsletter_form.email.data]
         mail.send(msg)
-    return render_template('privacy.html', title='Privacy Policy', newsletter_form=newsletter_form, form=form)
+    file = 'spa.html' if request.method == 'STATIC' else 'base.html'
+    return render_template('privacy.html', title='Privacy Policy', newsletter_form=newsletter_form, form=form, file=file )
 
-@app.route('/licensing', methods=['GET', 'POST'])
+@app.route('/licensing', methods=['GET', 'POST', 'STATIC'])
 def licensing():
     newsletter_form = NewsletterForm()
     form = ContactForm()
     if newsletter_form.validate_on_submit():
         msg.recipients = [newsletter_form.email.data]
         mail.send(msg)
-    return render_template('licensing.html', title='Licensing', newsletter_form=newsletter_form, form=form)
+    file = 'spa.html' if request.method == 'STATIC' else 'base.html'
+    return render_template('licensing.html', title='Licensing', newsletter_form=newsletter_form, form=form, file=file)
 
-@app.route('/tsa-info', methods=['GET', 'POST'])
+@app.route('/tsa-info', methods=['GET', 'POST', 'STATIC'])
 def tsa_info():
     newsletter_form = NewsletterForm()
     if newsletter_form.validate_on_submit():
         msg.recipients = [newsletter_form.email.data]
         mail.send(msg)
-    return render_template('tsa-info.html', title='TSA Info', newsletter_form=newsletter_form)
+    file = 'spa.html' if request.method == 'STATIC' else 'base.html'
+    return render_template('tsa-info.html', title='TSA Info', newsletter_form=newsletter_form, file=file)

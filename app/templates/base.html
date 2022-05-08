@@ -21,7 +21,6 @@
     <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     <title>{{ title }} | ArchFest</title>
-    {% block head %}{% endblock %}
 </head>
 
 <body>
@@ -37,8 +36,11 @@
     </nav>
 
     <div id = 'page'>
-        {% block content %}{% endblock %}
-    </page>
+        <div>
+            {% block head %}{% endblock %}
+            {% block content %}{% endblock %}
+        </div>
+    </div>
 
     <footer class="py-5">
         <div class="container">
