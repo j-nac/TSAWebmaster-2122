@@ -11,20 +11,22 @@ function toggleNavbar() {
     }
 }
 
+function redirect(e){
+    var request = new XMLHttpRequest();
+    request.onload = function(){
+        let group = document.getElementById('page')
+        let newpage = document.createElement('div')
+        newpage.innerHTML = this.responseText
+        group.children[0].remove()
+        newpage.id = 'newpage'
+        group.appendChild(newpage)
+    }
+    request.open('STATIC', e.target.parentNode.getAttribute('link'));
+    request.send();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 	document.querySelectorAll('button.page-nav').forEach(button => {
-		button.onclick = () => {
-			var request = new XMLHttpRequest();
-            request.onload = function(){
-                let group = document.getElementById('page')
-                let newpage = document.createElement('div')
-                newpage.innerHTML = this.responseText
-                group.children[0].remove()
-                newpage.id = 'newpage'
-                group.appendChild(newpage)
-            }
-			request.open('STATIC', button.getAttribute('link'));
-			request.send();
-		};
+		button.onclick = redirect
 	});
 });

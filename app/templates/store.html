@@ -108,7 +108,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ item.name }}</h5>
                     <div class="card-text">{{ item.description }}</div>
-                    <a href="{{ url_for('item', id=item.id) }}" class="stretched-link"></a>
+                    <button link="{{ url_for('item',id=item.id) }}" class="page-nav stretched-link"></button>
                 </div>
             </div>
         {% endfor %}
