@@ -4,4 +4,3 @@ function mason(){
 		$grid.masonry('layout')
 	})
 }
-document.addEventListener('DOMContentLoaded',()=>mason())

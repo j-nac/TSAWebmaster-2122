@@ -6,6 +6,7 @@ function countdown() {
     var hrCd = document.getElementById('hr-cd').ldBar;
     var minCd = document.getElementById('min-cd').ldBar;
     var secCd = document.getElementById('sec-cd').ldBar;
+    if (!dayCd||!hrCd||!minCd||!secCd){console.log(2);return;}
 
     var timeTill = Math.max(0, parseInt((target - Date.now()) / 1000))
     var clock = [timeTill]

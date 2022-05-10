@@ -19,9 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let group = document.getElementById('page')
                 let newpage = document.createElement('div')
                 newpage.innerHTML = this.responseText
-                for(let i of group.children){
-                    i.remove()
-                }
+                group.children[0].remove()
                 newpage.id = 'newpage'
                 group.appendChild(newpage)
             }
