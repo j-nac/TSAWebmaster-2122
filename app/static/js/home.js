@@ -30,4 +30,9 @@ function countdown() {
     // $("countdown").text(clock[3] + "d : " + clock[2] + "h : " + clock[1] + "m : " + clock[0] + "s")
 }
 
-setInterval(countdown, 500);
+var inter = setInterval(countdown, 500);
+
+function cleanup(){
+    clearInterval(inter)
+    cleanup = ()=>{}
+}

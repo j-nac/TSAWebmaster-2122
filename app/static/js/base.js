@@ -11,7 +11,8 @@ function toggleNavbar() {
     }
 }
 
-function redirect(e){
+function redirect(){
+    cleanup()
     var request = new XMLHttpRequest();
     request.onload = function(){
         let group = document.getElementById('page')
@@ -21,7 +22,7 @@ function redirect(e){
         newpage.id = 'newpage'
         group.appendChild(newpage)
     }
-    request.open('STATIC', e.target.parentNode.getAttribute('link'));
+    request.open('STATIC', this.getAttribute('link'));
     request.send();
 }
 
@@ -30,3 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		button.onclick = redirect
 	});
 });
+
+var cleanup;
+if(!cleanup){cleanup=()=>{}}
