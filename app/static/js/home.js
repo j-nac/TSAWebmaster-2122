@@ -34,5 +34,4 @@ var inter = setInterval(countdown, 500);
 
 function cleanup(){
     clearInterval(inter)
-    cleanup = ()=>{}
 }
