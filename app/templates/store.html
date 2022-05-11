@@ -80,6 +80,7 @@
 
 {% block content %}
 <script src="{{ url_for('static', filename='js/store.js') }}"></script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <div class="container" onload="mason()">
     <section class="container my-5">
         <h1>{{ title }}</h1>
@@ -98,7 +99,21 @@
             </div>
         </form>
         <div class="row grid" id="gallery">
-        {% for item in query_results %}
+        {% if query_results %}
+            <div class="card store-card">
+                {% if query_results[0].image_file %}
+                    <img src="{{ url_for('static', filename='img/'+query_results[0].image_file) }}" alt="" class="card-img-top" onload="mason()">
+                {% else %}
+                    <img src="{{ url_for('static', filename='img/test-img.png') }}" alt="" class="card-img-top" onload="mason()">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ query_results[0].name }}</h5>
+                    <div class="card-text">{{ query_results[0].description }}</div>
+                    <button link="{{ url_for('item',id=query_results[0].id) }}" class="page-nav stretched-link"></button>
+                </div>
+            </div>
+        {% endif %}
+        {% for item in query_results[1:] %}
             <div class="card store-card">
                 {% if item.image_file %}
                     <img src="{{ url_for('static', filename='img/'+item.image_file) }}" alt="" class="card-img-top">
