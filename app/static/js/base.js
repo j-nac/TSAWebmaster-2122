@@ -1,3 +1,7 @@
+var cleanup
+if(!cleanup){
+    cleanup = ()=>{}
+}
 function toggleNavbar() {
     navElement = $(".navbox:first");
     toggleButton = $("#menu-icon");
