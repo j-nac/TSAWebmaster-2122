@@ -5,6 +5,10 @@
     height: 120px !important;
 }
 
+.progress {
+    padding: 0px;
+}
+
 #day-cd .ldBar-label::after {
     content: " days";
     font-size: 1em;

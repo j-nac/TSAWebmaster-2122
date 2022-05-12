@@ -19,6 +19,11 @@ def home():
     file = 'spa.html' if request.method == 'STATIC' else 'base.html'
     return render_template('home.html', title='Home', newsletter_form=newsletter_form, file=file)
 
+@app.route('/bar.js', methods=['GET'])
+def bar():
+    with open('app/static/js/loading-bar.min.js') as f:
+        return f.read()
+
 @app.route('/artists', methods=['GET', 'POST', 'STATIC'])
 def artists():
     newsletter_form = NewsletterForm()
