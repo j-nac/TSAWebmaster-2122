@@ -2,25 +2,21 @@ var target = 1656658800000
 
 // https://loading.io/progress/
 function countdown() {
-    console.log(3)
-    var dayCd = document.getElementById('day-cd')
-    var hrCd = document.getElementById('hr-cd')
-    var minCd = document.getElementById('min-cd')
-    var secCd = document.getElementById('sec-cd')
-    if (!dayCd||!hrCd||!minCd||!secCd){return;}
-
-    var timeTill = Math.max(0, parseInt((target - Date.now()) / 1000))
+    var timeTill = Math.max(0, ((target - Date.now()) / 1000))
     var clock = [timeTill]
     for (let [i, v] of [60, 60, 24].entries()) {
-        clock.push(parseInt(clock[i] / v))
+        console.log(clock)
+        clock.push(clock[i] / v)
         clock[i] %= v
     }
-
-    alert((clock[3]/365).toString()+'%')
-    dayCd.style.width = (clock[3]/365).toString()+'%';
-    hrCd.style.width = (clock[2]/24).toString()+'%';
-    minCd.style.width = (clock[1]/60).toString()+'%';
-    secCd.style.width = (clock[0]/60).toString()+'%';
+    $('#day-cd').css('width', (clock[3]/365*100).toString()+'%');
+    $('#hr-cd').css('width', (clock[2]/24*100).toString()+'%');
+    $('#min-cd').css('width', (clock[1]/60*100).toString()+'%');
+    $('#sec-cd').css('width', (clock[0]/60*100).toString()+'%');
+    $('#days').html(parseInt(clock[3]))
+    $('#hrs').html(parseInt(clock[2]))
+    $('#mins').html(parseInt(clock[1]))
+    $('#secs').html(parseInt(clock[0]))
     
     // $("countdown").text(clock[3] + "d : " + clock[2] + "h : " + clock[1] + "m : " + clock[0] + "s")
 }

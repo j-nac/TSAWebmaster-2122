@@ -16,7 +16,6 @@ function toggleNavbar() {
 }
 
 function redirect(){
-    console.log(4)
     cleanup()
     var request = new XMLHttpRequest();
     request.js = this.getAttribute('js')

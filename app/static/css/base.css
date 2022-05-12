@@ -1,3 +1,6 @@
+.tnum{
+    color:#999;
+}
 :root {
     --navbarWidth: 300px;
     --rich-black: #0c0f11;
