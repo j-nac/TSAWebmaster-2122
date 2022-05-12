@@ -14,4 +14,3 @@ function loadstore(){
 		button.onclick = redirect
 	});
 }
-window.onload=loadstore

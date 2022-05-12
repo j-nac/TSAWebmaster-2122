@@ -41,4 +41,3 @@ function loadhome(){
     console.log(cleanup)
     inter=setInterval(countdown, 500)
 }
-window.onload=loadhome()
