@@ -2,11 +2,12 @@ target = 1656658800000
 
 // https://loading.io/progress/
 function countdown() {
+    console.log(3)
     var dayCd = document.getElementById('day-cd').ldBar;
     var hrCd = document.getElementById('hr-cd').ldBar;
     var minCd = document.getElementById('min-cd').ldBar;
     var secCd = document.getElementById('sec-cd').ldBar;
-    if (!dayCd||!hrCd||!minCd||!secCd){console.log(2);return;}
+    if (!dayCd||!hrCd||!minCd||!secCd){return;}
 
     var timeTill = Math.max(0, parseInt((target - Date.now()) / 1000))
     var clock = [timeTill]
@@ -30,8 +31,14 @@ function countdown() {
     // $("countdown").text(clock[3] + "d : " + clock[2] + "h : " + clock[1] + "m : " + clock[0] + "s")
 }
 
-var inter = setInterval(countdown, 500);
+var inter
 
-function cleanup(){
-    clearInterval(inter)
+function loadhome(){
+    cleanup = ()=>{ 
+        console.log('sweeping')
+        clearInterval(inter)
+    }
+    console.log(cleanup)
+    inter=setInterval(countdown, 500)
 }
+window.onload=loadhome()

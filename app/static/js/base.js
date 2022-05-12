@@ -12,8 +12,10 @@ function toggleNavbar() {
 }
 
 function redirect(){
+    console.log(4)
     cleanup()
     var request = new XMLHttpRequest();
+    request.js = this.getAttribute('js')
     request.onload = function(){
         let group = document.getElementById('page')
         let newpage = document.createElement('div')
@@ -21,6 +23,8 @@ function redirect(){
         group.children[0].remove()
         newpage.id = 'newpage'
         group.appendChild(newpage)
+        eval(this.js)
+
     }
     request.open('STATIC', this.getAttribute('link'));
     request.send();
@@ -31,6 +35,3 @@ document.addEventListener('DOMContentLoaded', () => {
 		button.onclick = redirect
 	});
 });
-
-var cleanup;
-if(!cleanup){cleanup=()=>{}}

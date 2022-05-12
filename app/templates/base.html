@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/artists.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/store.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+    {% block head %}{% endblock %}
     <title>{{ title }} | ArchFest</title>
 </head>
 
@@ -36,17 +38,16 @@
     <button onclick="toggleNavbar()" class="nav-open"><span class="material-icons" id="menu-icon">menu</span></button>
     <nav class="navbox" style="display: none;">
         <div class="navbar-back"></div>
-        <button link="{{ url_for('home') }}" class="page-nav">Home</button>
-        <button link="{{ url_for('artists') }}" class="page-nav">Artists</button>
-        <button link="{{ url_for('register') }}" class="page-nav">Register</button>
-        <button link="{{ url_for('store') }}" class="page-nav">Store</button>
-        <button link="{{ url_for('faq') }}" class="page-nav">FAQ</button>
-        <button link="{{ url_for('tsa_info') }}" class="page-nav">TSA Info</button>
+        <button link="{{ url_for('home') }}" class="page-nav" js="loadhome()">Home</button>
+        <button link="{{ url_for('artists') }}" class="page-nav" js="">Artists</button>
+        <button link="{{ url_for('register') }}" class="page-nav" js="">Register</button>
+        <button link="{{ url_for('store') }}" class="page-nav" js="loadstore()">Store</button>
+        <button link="{{ url_for('faq') }}" class="page-nav" js="">FAQ</button>
+        <button link="{{ url_for('tsa_info') }}" class="page-nav" js="">TSA Info</button>
     </nav>
 
     <div id = 'page'>
         <div>
-            {% block head %}{% endblock %}
             {% block content %}{% endblock %}
         </div>
     </div>
