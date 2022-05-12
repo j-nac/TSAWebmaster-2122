@@ -1,4 +1,4 @@
-target = 1656658800000
+var target = 1656658800000
 
 // https://loading.io/progress/
 function countdown() {
