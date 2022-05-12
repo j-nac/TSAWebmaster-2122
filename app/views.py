@@ -73,7 +73,8 @@ def store():
     tags = Tag.query.all()
 
     file = 'spa.html' if request.method == 'STATIC' else 'base.html'
-    return render_template('store.html', title='Store', query_results=query_results, form=form, tags=tags, selected_tags=request.args.getlist('tags'), newsletter_form=newsletter_form, file=file)
+    redirect = '/store' if request.method == 'STATIC' else ''
+    return render_template('store.html', title='Store', query_results=query_results, form=form, tags=tags, selected_tags=request.args.getlist('tags'), newsletter_form=newsletter_form, file=file, redirect=redirect)
 
 '''
 To filter by tag:
