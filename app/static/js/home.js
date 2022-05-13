@@ -1,32 +1,32 @@
-target = 1656658800000
+var target = 1656658800000
 
 // https://loading.io/progress/
 function countdown() {
-    var dayCd = document.getElementById('day-cd').ldBar;
-    var hrCd = document.getElementById('hr-cd').ldBar;
-    var minCd = document.getElementById('min-cd').ldBar;
-    var secCd = document.getElementById('sec-cd').ldBar;
-
-    var timeTill = Math.max(0, parseInt((target - Date.now()) / 1000))
+    var timeTill = Math.max(0, ((target - Date.now()) / 1000))
     var clock = [timeTill]
     for (let [i, v] of [60, 60, 24].entries()) {
-        clock.push(parseInt(clock[i] / v))
+        console.log(clock)
+        clock.push(clock[i] / v)
         clock[i] %= v
     }
-    for (let i in clock) {
-        clock[i] = String(clock[i])
-    }
-
-    if (clock[0] == 0) {
-        clock[0] = 60;
-    }
-
-    dayCd.set(clock[3], false);
-    hrCd.set(clock[2], false);
-    minCd.set(clock[1], false);
-    secCd.set(clock[0], false);
+    $('#day-cd').css('width', (clock[3]/365*100).toString()+'%');
+    $('#hr-cd').css('width', (clock[2]/24*100).toString()+'%');
+    $('#min-cd').css('width', (clock[1]/60*100).toString()+'%');
+    $('#sec-cd').css('width', (clock[0]/60*100).toString()+'%');
+    $('#days').html(parseInt(clock[3]))
+    $('#hrs').html(parseInt(clock[2]))
+    $('#mins').html(parseInt(clock[1]))
+    $('#secs').html(parseInt(clock[0]))
     
     // $("countdown").text(clock[3] + "d : " + clock[2] + "h : " + clock[1] + "m : " + clock[0] + "s")
 }
 
-setInterval(countdown, 500);
+var inter
+
+function loadhome(){
+    cleanup = ()=>{ 
+        console.log('sweeping')
+        clearInterval(inter)
+    }
+    inter=setInterval(countdown, 500)
+}

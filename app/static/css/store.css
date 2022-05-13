@@ -1,4 +1,5 @@
 .store-card {
+    color: white;
     width: 18rem;
     background-color: var(--prussian-blue);
     margin-top: 5px;
@@ -50,20 +51,4 @@
     to{
         width: 15px;
     }
-}
-
-::-webkit-scrollbar {
-    height: 15px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #888;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
 }

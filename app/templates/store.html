@@ -1,15 +1,14 @@
-{% extends 'base.html' %}
+{% extends file %}
 
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/store.css') }}">
+<script>window.onload=loadstore</script>
 {% endblock %}
 
 {% block content %}
-<script src="{{ url_for('static', filename='js/store.js') }}"></script>
 <div class="container">
     <section class="container my-5">
         <h1>{{ title }}</h1>
-        <form action="" method="get">
+        <form action="{{ redirect }}" method="Get">
             <div class="row">
                 <div class="col-11">{{ form.search(placeholder_="Search") }}</div>
                 <div class="col-1"><input type="submit" value="Search" id="search-button"></div>
@@ -24,8 +23,9 @@
             </div>
         </form>
         <div class="row grid" id="gallery">
+        
         {% for item in query_results %}
-            <div class="card store-card">
+            <button link="{{ url_for('item',id=item.id) }}" class="card store-card">
                 {% if item.image_file %}
                     <img src="{{ url_for('static', filename='img/'+item.image_file) }}" alt="" class="card-img-top">
                 {% else %}
@@ -33,10 +33,9 @@
                 {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">{{ item.name }}</h5>
-                    <div class="card-text">{{ item.description }}</div>
-                    <a href="{{ url_for('item', id=item.id) }}" class="stretched-link"></a>
+                    <h6 class="card-text">{{ item.description }}</h6>
                 </div>
-            </div>
+            </button>
         {% endfor %}
         </div>
     </section>

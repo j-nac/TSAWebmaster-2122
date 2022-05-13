@@ -1,8 +1,14 @@
 /* Countdown and background image */
-
+.progress-bar{
+    background-color: var(--radical-red);
+}
 .ldBar {
     width: 120px !important;
     height: 120px !important;
+}
+
+.progress {
+    padding: 0px;
 }
 
 #day-cd .ldBar-label::after {
