@@ -5,11 +5,16 @@
 
 {% block content %}
 <div class="container">
-    <section class="container my-5">
-        <h1>{{ item.name }} - ${{item.price}}</h1>
-        <img src="{{ url_for('static', filename='img/'+item.image_file) }}" alt="" style="max-width: 400px">
-        <p>{{ item.description }}</p>
-        <button type="button" class="red-btn">Buy now</button>
+    <section class="container my-5 itempage">
+        <h1>{{ item.name }}</h1>
+        <p>${{item.price}}</p>
+        <div class="itemanddesc">
+            <img src="{{ url_for('static', filename='img/'+item.image_file) }}" alt="" style="max-width: 400px">
+            <div class = 'desc'>
+                <p>{{ item.description }}</p>
+                <button type="button" class="red-btn">Buy now</button>
+            </div>
+        </div>
     </section>
 </div>
 {% endblock %}
