@@ -57,7 +57,7 @@ $(document).on('submit','#newsletter-form',function(e) {
     })
 });
 
-ScrollReveal().reveal('.reveal', { duration: 3000 });
+ScrollReveal().reveal('.reveal', { duration: 1500, reset: true });
 
 /*
 document.getElementsByClassName('navbox')[0].addEventListener('keyup', (e)=>{
