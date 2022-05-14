@@ -18,7 +18,6 @@ function loadstore(){
 		button.onclick = redirect
 	});
 	document.getElementById('searchbox').onsubmit = function(){
-		console.log($('#searchbox').serializeArray().map(e=>e['name']+'='+e['value']).join('&'))
 		$.ajax({
 			url:'/store?'+$('#searchbox').serializeArray().map(e=>e['name']+'='+e['value']).join('&'),
 			type: 'STATIC',

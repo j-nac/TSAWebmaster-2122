@@ -43,3 +43,18 @@ document.addEventListener('DOMContentLoaded', () => {
 document.getElementsByClassName('navbox')[0].addEventListener('keyup', (e)=>{
     if (e.keycode=='esc'){$(".navbox:first").css("display", "flex")}
 })
+
+document.getElementById('newsletter').onsubmit = function(){
+    let form = $('#searchbox').serializeArray()
+    let data = {}
+    for(i of form){
+        data[i['name']]=i['value']
+    }
+    $.ajax({
+        'url':'/news',
+        'type': 'POST',
+        'contentType':'application/x-www-form-urlencoded',
+        'data': data
+    })
+    return false
+}

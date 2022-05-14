@@ -19,10 +19,13 @@ def home():
     file = 'spa.html' if request.method == 'STATIC' else 'base.html'
     return render_template('home.html', title='Home', newsletter_form=newsletter_form, file=file)
 
-@app.route('/bar.js', methods=['GET'])
-def bar():
-    with open('app/static/js/loading-bar.min.js') as f:
-        return f.read()
+@app.route('/news', methods=['STATIC'])
+def news():
+    newsletter_form = NewsletterForm()
+    if newsletter_form.validate_on_submit():
+        msg.recipients = [newsletter_form.email.data]
+        mail.send(msg)
+    return ''
 
 @app.route('/artists', methods=['GET', 'POST', 'STATIC'])
 def artists():
@@ -42,7 +45,16 @@ def register():
     file = 'spa.html' if request.method == 'STATIC' else 'base.html'
     return render_template('register.html', title='Register', newsletter_form=newsletter_form, file=file)
 
-def get_items(search, tags):
+@app.route('/store', methods=['GET', 'POST', 'STATIC'])
+@csrf.exempt
+def store():
+    newsletter_form = NewsletterForm()
+    if newsletter_form.validate_on_submit():
+        msg.recipients = [newsletter_form.email.data]
+        mail.send(msg)
+    
+    search = request.args.get('search')
+    tags = request.args.getlist('tags')
     if search == None or search == '':
         search_results = Item.query.all()
     else:
@@ -63,19 +75,7 @@ def get_items(search, tags):
     
     if len(tags) == 0:
         tag_results = Item.query.all()
-    return list(set(search_results).intersection(tag_results))
-
-@app.route('/store', methods=['GET', 'POST', 'STATIC'])
-@csrf.exempt
-def store():
-    newsletter_form = NewsletterForm()
-    if newsletter_form.validate_on_submit():
-        msg.recipients = [newsletter_form.email.data]
-        mail.send(msg)
-    
-    search = request.args.get('search')
-    tags = request.args.getlist('tags')
-    query_results = get_items(search, tags)
+    query_results = list(set(search_results).intersection(tag_results))
 
     form = SearchStore()
     tags = Tag.query.all()
@@ -83,13 +83,6 @@ def store():
     file = 'spa.html' if request.method == 'STATIC' else 'base.html'
     redirect = '/store' if request.method == 'STATIC' else ''
     return render_template('store.html', title='Store', query_results=query_results, form=form, tags=tags, selected_tags=request.args.getlist('tags'), newsletter_form=newsletter_form, file=file, redirect=redirect, search = request.args.get('search'))
-
-@app.route('/items', methods=['STATIC'])
-def items():
-    search = request.args.get('search')
-    tags = request.args.getlist('tags')
-    query_results = get_items(search, tags)
-    return render_template('items.html', query_results=query_results)
 
 '''
 To filter by tag:
@@ -101,6 +94,7 @@ where t is a database tag object
 @app.route('/items/<int:id>', methods=['GET', 'POST', 'STATIC'])
 def item(id):
     newsletter_form = NewsletterForm()
+    print(newsletter_form.__dict__)
     if newsletter_form.validate_on_submit():
         msg.recipients = [newsletter_form.email.data]
         mail.send(msg)
