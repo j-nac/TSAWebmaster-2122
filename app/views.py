@@ -19,10 +19,13 @@ def home():
     file = 'spa.html' if request.method == 'STATIC' else 'base.html'
     return render_template('home.html', title='Home', newsletter_form=newsletter_form, file=file)
 
-@app.route('/bar.js', methods=['GET'])
-def bar():
-    with open('app/static/js/loading-bar.min.js') as f:
-        return f.read()
+@app.route('/news', methods=['STATIC'])
+def news():
+    newsletter_form = NewsletterForm()
+    if newsletter_form.validate_on_submit():
+        msg.recipients = [newsletter_form.email.data]
+        mail.send(msg)
+    return ''
 
 @app.route('/artists', methods=['GET', 'POST', 'STATIC'])
 def artists():
@@ -49,14 +52,14 @@ def store():
     if newsletter_form.validate_on_submit():
         msg.recipients = [newsletter_form.email.data]
         mail.send(msg)
-
+    
     search = request.args.get('search')
+    tags = request.args.getlist('tags')
     if search == None or search == '':
         search_results = Item.query.all()
     else:
         search_results = Item.query.filter(Item.name.contains(search))
     
-    tags = request.args.getlist('tags')
     tag_results = []
     for tag_name in tags:
         # Get tag object
@@ -79,7 +82,7 @@ def store():
 
     file = 'spa.html' if request.method == 'STATIC' else 'base.html'
     redirect = '/store' if request.method == 'STATIC' else ''
-    return render_template('store.html', title='Store', query_results=query_results, form=form, tags=tags, selected_tags=request.args.getlist('tags'), newsletter_form=newsletter_form, file=file, redirect=redirect)
+    return render_template('store.html', title='Store', query_results=query_results, form=form, tags=tags, selected_tags=request.args.getlist('tags'), newsletter_form=newsletter_form, file=file, redirect=redirect, search = request.args.get('search'))
 
 '''
 To filter by tag:
@@ -91,6 +94,7 @@ where t is a database tag object
 @app.route('/items/<int:id>', methods=['GET', 'POST', 'STATIC'])
 def item(id):
     newsletter_form = NewsletterForm()
+    print(newsletter_form.__dict__)
     if newsletter_form.validate_on_submit():
         msg.recipients = [newsletter_form.email.data]
         mail.send(msg)

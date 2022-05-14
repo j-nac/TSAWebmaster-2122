@@ -16,6 +16,8 @@ function toggleNavbar() {
 }
 
 function redirect(){
+    window.history.pushState('Home', 'Home', this.getAttribute('link'));
+    window.scrollTo(0, 0);
     cleanup()
     var request = new XMLHttpRequest();
     request.js = this.getAttribute('js')
@@ -27,7 +29,6 @@ function redirect(){
         newpage.id = 'newpage'
         group.appendChild(newpage)
         eval(this.js)
-
     }
     request.open('STATIC', this.getAttribute('link'));
     request.send();
@@ -55,3 +56,7 @@ $(document).on('submit','#newsletter-form',function(e) {
         }
     })
 });
+
+document.getElementsByClassName('navbox')[0].addEventListener('keyup', (e)=>{
+    if (e.keycode=='esc'){$(".navbox:first").css("display", "flex")}
+})
