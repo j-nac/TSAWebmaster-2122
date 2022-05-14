@@ -30,6 +30,7 @@ function loadhome(){
     };
     inter=setInterval(countdown, 500);
 
+    // https://simpleparallax.com/
     var image = document.getElementsByClassName('countdown-background');
     new simpleParallax(image, {
         delay: .3,
