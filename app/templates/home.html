@@ -31,8 +31,8 @@
 
 <section class="artists-container mt-5">
     <div class="container">
-        <h1 class="custom-text-1">Latest local bands performing live</h1>
-        <div class="container-fluid py-2 artists-cards-cont">
+        <h1 class="custom-text-1 reveal">Latest bands live</h1>
+        <div class="container-fluid py-2 artists-cards-cont reveal">
             <div class="d-flex flex-row">
                 {% set artist_info = [
                     {'name':'Anywhere/Everywhere', 'img':'img/Artist Portraits/Anywhere-Everywhere/Polish_20220226_225801745.jpg'},
@@ -46,7 +46,7 @@
                     {'name':'The Embers', 'img':'img/Artist Portraits/The Embers/Polish_20220225_171942511.jpg'},
                 ] %}
                 {% for c in artist_info %}
-                    <div class="card artist-card"">
+                    <div class="card artist-card">
                         <img class="card-img-top" src="{{ url_for('static', filename=c.img) }}" alt="Card image cap">
                         <h4 class="card-text p-1">{{ c.name }}</h4>
                     </div>

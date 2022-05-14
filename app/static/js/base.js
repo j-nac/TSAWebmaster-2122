@@ -57,6 +57,8 @@ $(document).on('submit','#newsletter-form',function(e) {
     })
 });
 
+ScrollReveal().reveal('.reveal', { duration: 3000 });
+
 /*
 document.getElementsByClassName('navbox')[0].addEventListener('keyup', (e)=>{
     if (e.keycode=='esc') {
