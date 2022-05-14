@@ -22,7 +22,7 @@
                 {% endfor %}
             </div>
         </form>
-        <div class="row grid" id="gallery">
+        <div class="grid row" id="gallery">
         
         {% for item in query_results %}
             <button link="{{ url_for('item',id=item.id) }}" class="card store-card">

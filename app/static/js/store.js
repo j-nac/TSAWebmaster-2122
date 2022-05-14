@@ -1,12 +1,8 @@
 function mason(){
-	var $grid = $('.grid').masonry({});
+	var $grid = $('.grid').masonry({'isFitWidth': true});
 	$grid.imagesLoaded().progress( function() {
 		$grid.masonry('layout')
 	})
-}
-
-function getStore(){
-	document.get
 }
 
 function loadstore(){

@@ -39,7 +39,11 @@
 .tags-select input {
     display: none;
 }
-  
+
+#gallery {
+    margin: 0 auto;
+}
+
 .tags-select input:checked+button {
     background-color: var(--radical-red-alt);
 }
