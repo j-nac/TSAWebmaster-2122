@@ -87,6 +87,24 @@
 countdown {
     font-size: 6vw;
 }
+.artist-card {
+    height: 450px;
+    min-width: 300px;
+    margin-right: 50px;
+    background-color: var(--prussian-blue);
+    border-radius: 0;
+    border: none;
+}
+
+.artist-card img.card-img-top {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+}
+
+.artists-cards-cont {
+    overflow: auto;
+}
 
 #tickets-link {
     border: 4px solid;

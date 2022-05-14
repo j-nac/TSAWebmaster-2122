@@ -31,11 +31,29 @@
 
 <section class="artists-container mt-5">
     <div class="container">
-        <div class="artists-content row">
-            <img class="schedule-img col-1 col-xl-4" src="{{ url_for('static', filename='img/misc/claus-grunstaudl-dKeB0-M9iiA-unsplash.jpg') }}" alt="test-img">
-            <div class="artists-text col-12 col-xl-8">
-                <h1 class="custom-text-1">Latest local bands performing live</h1>
-                <a href="{{ url_for('artists') }}">More info</a>
+        <h1 class="custom-text-1">Latest local bands performing live</h1>
+        <div class="container-fluid py-2 artists-cards-cont">
+            <div class="d-flex flex-row">
+                {% set artist_info = [
+                    {'name':'Anywhere/Everywhere', 'img':'img/Artist Portraits/Anywhere-Everywhere/Polish_20220226_225801745.jpg', 'description':'Ooh ooh ah'},
+                    {'name':'Bloom', 'img':'img/Artist Portraits/Bloom/bloom.jpg', 'description':'Ooh ooh ah'},
+                    {'name':'boymade', 'img':'img/Artist Portraits/boymade/P1140031_2.JPG', 'description':'Ooh ooh ah'},
+                    {'name':'Cam Lane', 'img':'img/Artist Portraits/Cam Lane/Polish_20220304_225931702.jpg', 'description':'Ooh ooh ah'},
+                    {'name':'Evan Walker', 'img':'img/Artist Portraits/Anywhere-Everywhere/Polish_20220226_225801745.jpg', 'description':'Ooh ooh ah'},
+                    {'name':'Frog Days', 'img':'img/Artist Portraits/Anywhere-Everywhere/Polish_20220226_225801745.jpg', 'description':'Ooh ooh ah'},
+                    {'name':'Hey, There!', 'img':'img/Artist Portraits/Anywhere-Everywhere/Polish_20220226_225801745.jpg', 'description':'Ooh ooh ah'},
+                    {'name':'Star•strung', 'img':'img/Artist Portraits/Anywhere-Everywhere/Polish_20220226_225801745.jpg', 'description':'Ooh ooh ah'},
+                    {'name':'The Embers', 'img':'img/Artist Portraits/Anywhere-Everywhere/Polish_20220226_225801745.jpg', 'description':'Ooh ooh ah'},
+                ] %}
+                {% for c in artist_info %}
+                    <div class="card artist-card"">
+                        <img class="card-img-top" src="{{ url_for('static', filename=c.img) }}" alt="Card image cap">
+                        <h5 class="card-title">{{ c.name }}</h5>
+                        <div class="card-body">
+                            <p class="card-text">{{ c.description }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -49,16 +67,6 @@
                 <p>Created in 2012, we started with the goal of organizing and supporting local artists and shows. In 2021 after a year off due to the pandemic, our organization went online to keep things safe; yet we stay determined to help everybody continue to enjoy music. Our goal here for the ArchFest Music Festival is for people to enjoy, have access, and build a community to support as much as possible.</p>
             </div>
             <img class="schedule-img col-4 d-none d-xl-block" src="{{ url_for('static', filename='img/misc/dayne-topkin-cB10K2ugb-4-unsplash.jpg') }}" alt="test-img">
-        </div>
-    </div>
-</section>
-
-<section class="tickets-container">
-    <div class="container">
-        <h1 class="section-title">Tickets</h1>
-        <div class="container-text">
-            <p>Buy tickets, schedule 1 on 1 events with your favorite artists, and access exclusive deals now. Performances June 20 - June 27</p>
-            <a href="{{ url_for('register') }}">Read more</a>
         </div>
     </div>
 </section>
