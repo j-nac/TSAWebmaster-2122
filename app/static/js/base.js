@@ -16,6 +16,7 @@ function toggleNavbar() {
 }
 
 function redirect(){
+    window.history.pushState('Home', 'Home', '/');
     cleanup()
     var request = new XMLHttpRequest();
     request.js = this.getAttribute('js')
