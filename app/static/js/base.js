@@ -37,4 +37,21 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.querySelectorAll('button.page-nav').forEach(button => {
 		button.onclick = redirect
 	});
+
+});
+
+$(document).on('submit','#newsletter-form',function(e) {
+    e.preventDefault();
+    $.ajax({
+        type:'POST',
+        url:'',
+        data: {
+            email:$("#newsletter-email-box").val(),
+            csrf_token:$("#csrf_token").val()
+        },
+        success: function() {
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            $("#newsletter-email-box").val('');
+        }
+    })
 });

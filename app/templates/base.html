@@ -84,7 +84,7 @@
                 </div>
                 <div class="col-12 col-sm-3 text-sm-start text-center mb-4">
                     <h5>Newsletter</h5>
-                    <form action="" method="POST">
+                    <form action="" method="POST" id="newsletter-form">
                         {{ newsletter_form.csrf_token }}
                         <div class="form-grop">
                             {{ newsletter_form.email(class_="form-control", placeholder_="Email") }}
