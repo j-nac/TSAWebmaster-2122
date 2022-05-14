@@ -5,7 +5,6 @@ function countdown() {
     var timeTill = Math.max(0, ((target - Date.now()) / 1000))
     var clock = [timeTill]
     for (let [i, v] of [60, 60, 24].entries()) {
-        console.log(clock)
         clock.push(clock[i] / v)
         clock[i] %= v
     }
@@ -25,7 +24,6 @@ var inter
 
 function loadhome(){
     cleanup = ()=>{ 
-        console.log('sweeping')
         clearInterval(inter)
     }
     inter=setInterval(countdown, 500)

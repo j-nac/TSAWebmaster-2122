@@ -16,7 +16,7 @@ function toggleNavbar() {
 }
 
 function redirect(){
-    window.history.pushState('Home', 'Home', '/');
+    window.history.pushState('Home', 'Home', this.getAttribute('link'));
     window.scrollTo(0, 0);
     cleanup()
     var request = new XMLHttpRequest();
@@ -29,7 +29,6 @@ function redirect(){
         newpage.id = 'newpage'
         group.appendChild(newpage)
         eval(this.js)
-
     }
     request.open('STATIC', this.getAttribute('link'));
     request.send();
@@ -40,3 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		button.onclick = redirect
 	});
 });
+
+document.getElementsByClassName('navbox')[0].addEventListener('keyup', (e)=>{
+    if (e.keycode=='esc'){$(".navbox:first").css("display", "flex")}
+})
