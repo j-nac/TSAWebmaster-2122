@@ -21,12 +21,19 @@ function countdown() {
     // $("countdown").text(clock[3] + "d : " + clock[2] + "h : " + clock[1] + "m : " + clock[0] + "s")
 }
 
-var inter
+var inter;
 
 function loadhome(){
     cleanup = ()=>{ 
-        console.log('sweeping')
-        clearInterval(inter)
-    }
-    inter=setInterval(countdown, 500)
+        console.log('sweeping');
+        clearInterval(inter);
+    };
+    inter=setInterval(countdown, 500);
+
+    var image = document.getElementsByClassName('countdown-background');
+    new simpleParallax(image, {
+        delay: .3,
+        scale: 1.5,
+        transition: 'cubic-bezier(0,0,0,1)'
+    });
 }
