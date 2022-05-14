@@ -17,6 +17,7 @@ function toggleNavbar() {
 
 function redirect(){
     window.history.pushState('Home', 'Home', '/');
+    window.scrollTo(0, 0);
     cleanup()
     var request = new XMLHttpRequest();
     request.js = this.getAttribute('js')
