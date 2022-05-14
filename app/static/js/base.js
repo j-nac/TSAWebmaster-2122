@@ -38,23 +38,31 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.querySelectorAll('button.page-nav').forEach(button => {
 		button.onclick = redirect
 	});
+
 });
 
-document.getElementsByClassName('navbox')[0].addEventListener('keyup', (e)=>{
-    if (e.keycode=='esc'){$(".navbox:first").css("display", "flex")}
-})
-
-document.getElementById('newsletter').onsubmit = function(){
-    let form = $('#searchbox').serializeArray()
-    let data = {}
-    for(i of form){
-        data[i['name']]=i['value']
-    }
+$(document).on('submit','#newsletter-form',function(e) {
+    e.preventDefault();
     $.ajax({
-        'url':'/news',
-        'type': 'POST',
-        'contentType':'application/x-www-form-urlencoded',
-        'data': data
+        type:'POST',
+        url:'',
+        data: {
+            email:$("#newsletter-email-box").val(),
+            csrf_token:$("#csrf_token").val()
+        },
+        success: function() {
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            $("#newsletter-email-box").val('');
+        }
     })
-    return false
-}
+});
+
+ScrollReveal().reveal('.reveal', { duration: 3000 });
+
+/*
+document.getElementsByClassName('navbox')[0].addEventListener('keyup', (e)=>{
+    if (e.keycode=='esc') {
+        $(".navbox:before").css("display", "flex");
+    }
+})
+*/
