@@ -35,23 +35,20 @@
         <div class="container-fluid py-2 artists-cards-cont">
             <div class="d-flex flex-row">
                 {% set artist_info = [
-                    {'name':'Anywhere/Everywhere', 'img':'img/Artist Portraits/Anywhere-Everywhere/Polish_20220226_225801745.jpg', 'description':'Ooh ooh ah'},
-                    {'name':'Bloom', 'img':'img/Artist Portraits/Bloom/bloom.jpg', 'description':'Ooh ooh ah'},
-                    {'name':'boymade', 'img':'img/Artist Portraits/boymade/P1140031_2.JPG', 'description':'Ooh ooh ah'},
-                    {'name':'Cam Lane', 'img':'img/Artist Portraits/Cam Lane/Polish_20220304_225931702.jpg', 'description':'Ooh ooh ah'},
-                    {'name':'Evan Walker', 'img':'img/Artist Portraits/Anywhere-Everywhere/Polish_20220226_225801745.jpg', 'description':'Ooh ooh ah'},
-                    {'name':'Frog Days', 'img':'img/Artist Portraits/Anywhere-Everywhere/Polish_20220226_225801745.jpg', 'description':'Ooh ooh ah'},
-                    {'name':'Hey, There!', 'img':'img/Artist Portraits/Anywhere-Everywhere/Polish_20220226_225801745.jpg', 'description':'Ooh ooh ah'},
-                    {'name':'Star•strung', 'img':'img/Artist Portraits/Anywhere-Everywhere/Polish_20220226_225801745.jpg', 'description':'Ooh ooh ah'},
-                    {'name':'The Embers', 'img':'img/Artist Portraits/Anywhere-Everywhere/Polish_20220226_225801745.jpg', 'description':'Ooh ooh ah'},
+                    {'name':'Anywhere/Everywhere', 'img':'img/Artist Portraits/Anywhere-Everywhere/Polish_20220226_225801745.jpg'},
+                    {'name':'Bloom', 'img':'img/Artist Portraits/Bloom/bloom.jpg'},
+                    {'name':'boymade', 'img':'img/Artist Portraits/boymade/P1140031_2.JPG'},
+                    {'name':'Cam Lane', 'img':'img/Artist Portraits/Cam Lane/Polish_20220304_225931702.jpg'},
+                    {'name':'Evan Walker', 'img':'img/Artist Portraits/Evan Walker/Polish_20220220_210641693.jpg'},
+                    {'name':'Frog Days', 'img':'img/Artist Portraits/Frog Days/IMG_20220226_222953.jpg'},
+                    {'name':'Hey, There!', 'img':'img/Artist Portraits/Hey, There!/pixilart-drawing.png'},
+                    {'name':'Star•strung', 'img':'img/Artist Portraits/Star.strung/Polish_20220226_230037625.jpg'},
+                    {'name':'The Embers', 'img':'img/Artist Portraits/The Embers/Polish_20220225_171942511.jpg'},
                 ] %}
                 {% for c in artist_info %}
                     <div class="card artist-card"">
                         <img class="card-img-top" src="{{ url_for('static', filename=c.img) }}" alt="Card image cap">
-                        <h5 class="card-title">{{ c.name }}</h5>
-                        <div class="card-body">
-                            <p class="card-text">{{ c.description }}</p>
-                        </div>
+                        <h4 class="card-text p-1">{{ c.name }}</h4>
                     </div>
                 {% endfor %}
             </div>
