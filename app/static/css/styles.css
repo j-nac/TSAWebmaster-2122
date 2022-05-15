@@ -431,6 +431,12 @@ countdown {
     height: auto;
 }
 
+#logo-image {
+    width: 30vw;
+    height: auto;
+    margin-top: -100px;
+}
+
 @media screen and (max-width:800px) {
     .sponsor-content {
         overflow-x: scroll;
@@ -442,6 +448,11 @@ countdown {
 
     .countdown-text, countdown {
         font-size: 40px;
+        vertical-align: text-top;
+    }
+
+    #logo-image {
+        width: 15rem;
     }
 
     .navbox {
