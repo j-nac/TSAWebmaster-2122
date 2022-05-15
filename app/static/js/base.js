@@ -3,15 +3,22 @@ if(!cleanup){
     cleanup = ()=>{}
 }
 function toggleNavbar() {
-    navElement = $(".navbox:first");
-    toggleButton = $("#menu-icon");
+    let navElement = $(".navbox:first");
+    let toggleButton = $("#menu-icon");
 
     if (navElement.css("display") == "none") {
         navElement.css("display", "flex");
         toggleButton.text("close");
     } else {
-        navElement.css("display", "none");
-        toggleButton.text("menu");
+        navElement.addClass('fadingnav')
+        navElement.on('animationend',()=>{
+            let navElement = $(".navbox:first");
+            let toggleButton = $("#menu-icon");
+            navElement.removeClass('fadingnav')
+            navElement.css("display", "none");
+            toggleButton.text("menu");
+            navElement.off('animationend')
+        })
     }
 }
 
@@ -25,9 +32,16 @@ function redirect(){
         let group = document.getElementById('page')
         let newpage = document.createElement('div')
         newpage.innerHTML = this.responseText
-        group.children[0].remove()
-        newpage.id = 'newpage'
+        for(let i=0;i<group.children.length-1;i++){
+            group.children[i].remove()
+        }
+        group.children[0].classList.add('oldpage')
+        newpage.classList.add('newpage')
+        newpage.classList.add('pagein')
         group.appendChild(newpage)
+        $('.oldpage:first').on('transitionend',()=>{
+            $('.oldpage:first').remove()
+        })
         eval(this.js)
     }
     request.open('STATIC', this.getAttribute('link'));

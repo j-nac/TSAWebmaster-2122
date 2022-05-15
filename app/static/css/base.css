@@ -151,11 +151,20 @@ input[type=submit] {
         top: -200%;
     }
 
+    90%{
+        position: relative;
+        top:2%;
+    }
+
     to {
         position: relative;
         top: 0%;
     }
 
+}
+
+.fadingnav{
+    animation: slideRight 1s linear 0s 1 reverse;
 }
 
 .navbox {
@@ -182,11 +191,11 @@ input[type=submit] {
     height: 100%;
     background-color: var(--prussian-blue);
     /*opacity: 0.75;*/
-    animation: slideRight 0.7s;
+    animation: slideRight 0.7s ease-in;
 }
 
 .page-nav {
-    animation: slideDown 1.5s;
+    animation: slideDown 1.5s ease-out;
     z-index: 3;
     font-size: 20px;
     margin: 10px;
@@ -215,29 +224,33 @@ footer {
     padding: 5px;
 }
 
-@keyframes fadeout {
-    start{
-        opacity: 100%;
-    }
-    end{
-        opacity: 0%;
-    }
-}
-
-@keyframes swipein {
-    start{
-        left:100%;
-    }
-    start{
-        left:0%;
-    }
+#page{
+    width: 100vw;
+    min-height: 100vh;
 }
 
 .oldpage{
-    animation: fadeout 2s;
+    z-index: 0;
+    min-width: 100vw;
+    left:0;
+    top:0;
+    opacity: 0% !important;
+    position: absolute !important;
 }
+@keyframes pagein {
+    from{
+        position: relative;
+        right:100%;
+    } to {
+        position: relative;
+        right:0%;
+    }
+}
+.pagein{animation: pagein .5s;}
 .newpage{
-    animation: swipein 2s;
+    position: relative;
+    opacity: 100%;
+    transition: opacity .5s ease-in;
 }
 ::-webkit-scrollbar {
     height: 15px;
