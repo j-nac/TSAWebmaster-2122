@@ -46,7 +46,7 @@
                     {'name':'The Embers', 'img':'img/Artist Portraits/The Embers/Polish_20220225_171942511.jpg', 'id':'a8'},
                 ] %}
                 {% for c in artist_info %}
-                    <button class="card artist-card in-link" link="{{ url_for('artists',section=c.id) }}">
+                    <button class="card artist-card in-link" link="{{ url_for('artists',section=c.id) }}" target="{{ c.id }}">
                         <img class="card-img-top" src="{{ url_for('static', filename=c.img) }}" alt="Card image cap">
                         <h4 class="card-text p-1">{{ c.name }}</h4>
                     </button>

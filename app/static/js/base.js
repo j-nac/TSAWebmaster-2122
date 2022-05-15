@@ -15,19 +15,23 @@ function toggleNavbar() {
     }
 }
 
+function insert_page(txt){
+    let group = document.getElementById('page')
+    let newpage = document.createElement('div')
+    newpage.innerHTML = txt
+    group.children[0].remove()
+    newpage.id = 'newpage'
+    group.appendChild(newpage)
+}
+
 function redirect(){
-    window.history.pushState('Home', 'Home', this.getAttribute('link'));
+    window.history.pushState('Arch', '', this.getAttribute('link'));
     window.scrollTo(0, 0);
     cleanup()
     var request = new XMLHttpRequest();
     request.js = this.getAttribute('js')
     request.onload = function(){
-        let group = document.getElementById('page')
-        let newpage = document.createElement('div')
-        newpage.innerHTML = this.responseText
-        group.children[0].remove()
-        newpage.id = 'newpage'
-        group.appendChild(newpage)
+        insert_page(this.responseText)
         eval(this.js)
     }
     request.open('STATIC', this.getAttribute('link'));

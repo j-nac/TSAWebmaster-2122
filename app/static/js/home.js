@@ -20,9 +20,26 @@ function countdown() {
     // $("countdown").text(clock[3] + "d : " + clock[2] + "h : " + clock[1] + "m : " + clock[0] + "s")
 }
 
+function check_artist(){
+    window.history.pushState('Arch', '', '/artists');
+    cleanup()
+    var request = new XMLHttpRequest();
+    request.id = this.getAttribute('target')
+    request.onload = function(){
+        insert_page(this.responseText)
+        document.getElementById(this.id).scrollIntoView(true)
+    }
+    request.open('STATIC', '/artists');
+    request.send();
+}
+
 var inter;
 
 function loadhome(){
+    document.querySelectorAll('button.artist-card').forEach(div => {
+		div.onclick = check_artist
+	});
+    
     cleanup = ()=>{
         console.log('sweeping');
         clearInterval(inter);

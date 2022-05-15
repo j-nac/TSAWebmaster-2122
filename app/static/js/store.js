@@ -18,12 +18,7 @@ function loadstore(){
 			url:'/store?'+$('#searchbox').serializeArray().map(e=>e['name']+'='+e['value']).join('&'),
 			type: 'STATIC',
 			success: function(data){
-				let group = document.getElementById('page')
-				let newpage = document.createElement('div')
-				newpage.innerHTML = data
-				group.children[0].remove()
-				newpage.id = 'newpage'
-				group.appendChild(newpage)
+				insert_page(data)
 				loadstore()
 			}
 		})
