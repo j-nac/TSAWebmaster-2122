@@ -35,21 +35,21 @@
         <div class="container-fluid py-2 artists-cards-cont reveal">
             <div class="d-flex flex-row">
                 {% set artist_info = [
-                    {'name':'Anywhere/Everywhere', 'img':'img/Artist Portraits/Anywhere-Everywhere/Polish_20220226_225801745.jpg'},
-                    {'name':'Bloom', 'img':'img/Artist Portraits/Bloom/bloom.jpg'},
-                    {'name':'boymade', 'img':'img/Artist Portraits/boymade/P1140031_2.JPG'},
-                    {'name':'Cam Lane', 'img':'img/Artist Portraits/Cam Lane/Polish_20220304_225931702.jpg'},
-                    {'name':'Evan Walker', 'img':'img/Artist Portraits/Evan Walker/Polish_20220220_210641693.jpg'},
-                    {'name':'Frog Days', 'img':'img/Artist Portraits/Frog Days/IMG_20220226_222953.jpg'},
-                    {'name':'Hey, There!', 'img':'img/Artist Portraits/Hey, There!/pixilart-drawing.png'},
-                    {'name':'Star•strung', 'img':'img/Artist Portraits/Star.strung/Polish_20220226_230037625.jpg'},
-                    {'name':'The Embers', 'img':'img/Artist Portraits/The Embers/Polish_20220225_171942511.jpg'},
+                    {'name':'Anywhere/Everywhere', 'img':'img/Artist Portraits/Anywhere-Everywhere/Polish_20220226_225801745.jpg', 'id':'a0'},
+                    {'name':'Bloom', 'img':'img/Artist Portraits/Bloom/bloom.jpg', 'id':'a1'},
+                    {'name':'boymade', 'img':'img/Artist Portraits/boymade/P1140031_2.JPG', 'id':'a2'},
+                    {'name':'Cam Lane', 'img':'img/Artist Portraits/Cam Lane/Polish_20220304_225931702.jpg', 'id':'a3'},
+                    {'name':'Evan Walker', 'img':'img/Artist Portraits/Evan Walker/Polish_20220220_210641693.jpg', 'id':'a4'},
+                    {'name':'Frog Days', 'img':'img/Artist Portraits/Frog Days/IMG_20220226_222953.jpg', 'id':'a5'},
+                    {'name':'Hey, There!', 'img':'img/Artist Portraits/Hey, There!/pixilart-drawing.png', 'id':'a6'},
+                    {'name':'Star•strung', 'img':'img/Artist Portraits/Star.strung/Polish_20220226_230037625.jpg', 'id':'a7'},
+                    {'name':'The Embers', 'img':'img/Artist Portraits/The Embers/Polish_20220225_171942511.jpg', 'id':'a8'},
                 ] %}
                 {% for c in artist_info %}
-                    <div class="card artist-card">
+                    <button class="card artist-card in-link" link="{{ url_for('artists',section=c.id) }}">
                         <img class="card-img-top" src="{{ url_for('static', filename=c.img) }}" alt="Card image cap">
                         <h4 class="card-text p-1">{{ c.name }}</h4>
-                    </div>
+                    </button>
                 {% endfor %}
             </div>
         </div>

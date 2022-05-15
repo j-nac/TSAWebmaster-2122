@@ -1,5 +1,5 @@
 .store-card {
-    color: white;
+    color: var(--cultured);
     width: 18rem;
     background-color: var(--prussian-blue);
     border-radius: 0;

@@ -103,6 +103,8 @@ countdown {
     background-color: var(--prussian-blue);
     border-radius: 0;
     border: none;
+    color: var(--cultured);
+    width: 18rem;
 }
 
 .artist-card img.card-img-top {
