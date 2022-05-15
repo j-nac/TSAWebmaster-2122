@@ -27,9 +27,16 @@ function insert_page(txt){
     let group = document.getElementById('page')
     let newpage = document.createElement('div')
     newpage.innerHTML = txt
-    group.children[0].remove()
-    newpage.id = 'newpage'
+    for(let i=0;i<group.children.length-1;i++){
+        group.children[i].remove()
+    }
+    group.children[0].classList.add('oldpage')
+    newpage.classList.add('newpage')
+    newpage.classList.add('pagein')
     group.appendChild(newpage)
+    $('.oldpage:first').on('transitionend',()=>{
+        $('.oldpage:first').remove()
+    })
 }
 
 function redirect(){
@@ -39,8 +46,8 @@ function redirect(){
     var request = new XMLHttpRequest();
     request.js = this.getAttribute('js')
     request.onload = function(){
-        insert_page(this.responseText)
-        eval(this.js)
+        insert_page(this.responseText);
+        eval(this.js);
     }
     request.open('STATIC', this.getAttribute('link'));
     request.send();
