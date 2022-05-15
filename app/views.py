@@ -29,12 +29,13 @@ def news():
 
 @app.route('/artists', methods=['GET', 'POST', 'STATIC'])
 def artists():
+    section = request.args.get('section')
     newsletter_form = NewsletterForm()
     if newsletter_form.validate_on_submit():
         msg.recipients = [newsletter_form.email.data]
         mail.send(msg)
     file = 'spa.html' if request.method == 'STATIC' else 'base.html'
-    return render_template('artists.html', title='Artists', newsletter_form=newsletter_form, file=file)
+    return render_template('artists.html', title='Artists', section=section, newsletter_form=newsletter_form, file=file)
 
 @app.route('/register', methods=['GET', 'POST', 'STATIC'])
 def register():
