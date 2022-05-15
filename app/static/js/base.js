@@ -10,15 +10,13 @@ function toggleNavbar() {
         navElement.css("display", "flex");
         toggleButton.text("close");
     } else {
-        navElement.addClass('fadingnav')
+        navElement.addClass('fadingnav');
+        toggleButton.text("menu");
         navElement.on('animationend',()=>{
-            let navElement = $(".navbox:first");
-            let toggleButton = $("#menu-icon");
-            navElement.removeClass('fadingnav')
+            navElement.removeClass('fadingnav');
             navElement.css("display", "none");
-            toggleButton.text("menu");
-            navElement.off('animationend')
-        })
+            navElement.off('animationend');
+        });
     }
 }
 
