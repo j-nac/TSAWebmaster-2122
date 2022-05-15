@@ -60,18 +60,8 @@ p {
     line-height: 2;
 }
 
-.custom-text-1 {
-    
-    font-style: italic !important;
-}
-
 section p, section a {
     font-size: 1.5em;
-}
-
-.section-title {
-    margin-top: 30px;
-    margin-bottom: 30px;
 }
 
 input[type=text] {
@@ -97,22 +87,6 @@ input[type=submit] {
     .navbox {
         width: 100% !important;
     }
-
-    /*.navbar-back {
-        opacity: 1 !important;
-    }*/
-}
-
-/* Section layout */
-
-.cust-light {
-    background-color: var(--cultured);
-    color: var(--rich-black);
-}
-
-.cust-dark {
-    background-color: var(--prussian-blue);
-    color: var(--cultured);
 }
 
 /* Navigation bar */
@@ -135,12 +109,10 @@ input[type=submit] {
 
 @keyframes slideRight {
     from {
-        position: absolute;
         left: -100%;
     }
 
     to {
-        position: absolute;
         left: 0;
     }
 }
@@ -176,7 +148,6 @@ input[type=submit] {
     height: 100vh;
     width: var(--navbarWidth);
     top: 0;
-    bottom: 0;
     left: 0;
 }
 
@@ -190,7 +161,6 @@ input[type=submit] {
     width: 100%;
     height: 100%;
     background-color: var(--prussian-blue);
-    /*opacity: 0.75;*/
     animation: slideRight 0.7s ease-in;
 }
 
@@ -209,8 +179,6 @@ input[type=submit] {
 /* Footer */
 
 footer {
-    bottom: 0;
-    position: relative;
     width: 100%;
     background-color: var(--prussian-blue);
 }
@@ -246,7 +214,9 @@ footer {
         right:0%;
     }
 }
-.pagein{animation: pagein .5s;}
+.pagein{
+    animation: pagein .5s;
+}
 .newpage{
     position: relative;
     opacity: 100%;
