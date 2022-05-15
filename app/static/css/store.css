@@ -2,8 +2,13 @@
     color: white;
     width: 18rem;
     background-color: var(--prussian-blue);
-    margin-top: 5px;
-    margin-bottom: 5px;
+    border-radius: 0;
+    margin: 5px;
+    padding: 0;
+}
+
+img.card-img-top {
+    border-radius: 0;
 }
 
 #search-bar {
@@ -32,6 +37,7 @@
     padding: 6px;
     margin:4px;
 }
+
 .tags-select button{
     background-color: var(--radical-red);
     border: none;
