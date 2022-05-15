@@ -94,7 +94,6 @@ where t is a database tag object
 @app.route('/items/<int:id>', methods=['GET', 'POST', 'STATIC'])
 def item(id):
     newsletter_form = NewsletterForm()
-    print(newsletter_form.__dict__)
     if newsletter_form.validate_on_submit():
         msg.recipients = [newsletter_form.email.data]
         mail.send(msg)
