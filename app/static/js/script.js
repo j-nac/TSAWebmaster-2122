@@ -23,26 +23,23 @@ function toggleNavbar() {
     }
 }
 
+function insert_page(txt){
+    let group = document.getElementById('page')
+    let newpage = document.createElement('div')
+    newpage.innerHTML = txt
+    group.children[0].remove()
+    newpage.id = 'newpage'
+    group.appendChild(newpage)
+}
+
 function redirect(){
-    window.history.pushState('Home', 'Home', this.getAttribute('link'));
+    window.history.pushState('Arch', '', this.getAttribute('link'));
     window.scrollTo(0, 0);
     cleanup()
     var request = new XMLHttpRequest();
     request.js = this.getAttribute('js')
     request.onload = function(){
-        let group = document.getElementById('page')
-        let newpage = document.createElement('div')
-        newpage.innerHTML = this.responseText
-        for(let i=0;i<group.children.length-1;i++){
-            group.children[i].remove()
-        }
-        group.children[0].classList.add('oldpage')
-        newpage.classList.add('newpage')
-        newpage.classList.add('pagein')
-        group.appendChild(newpage)
-        $('.oldpage:first').on('transitionend',()=>{
-            $('.oldpage:first').remove()
-        })
+        insert_page(this.responseText)
         eval(this.js)
     }
     request.open('STATIC', this.getAttribute('link'));
@@ -53,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.querySelectorAll('button.page-nav').forEach(button => {
 		button.onclick = redirect
 	});
-
 });
 
 $(document).on('submit','#newsletter-form',function(e) {
@@ -105,9 +101,26 @@ function countdown() {
     // $("countdown").text(clock[3] + "d : " + clock[2] + "h : " + clock[1] + "m : " + clock[0] + "s")
 }
 
+function check_artist(){
+    window.history.pushState('Arch', '', '/artists');
+    cleanup()
+    var request = new XMLHttpRequest();
+    request.id = this.getAttribute('target')
+    request.onload = function(){
+        insert_page(this.responseText)
+        document.getElementById(this.id).scrollIntoView(true)
+    }
+    request.open('STATIC', '/artists');
+    request.send();
+}
+
 var inter;
 
 function loadhome(){
+    document.querySelectorAll('button.artist-card').forEach(div => {
+		div.onclick = check_artist
+	});
+
     cleanup = ()=>{
         console.log('sweeping');
         clearInterval(inter);
@@ -146,12 +159,7 @@ function loadstore(){
 			url:'/store?'+$('#searchbox').serializeArray().map(e=>e['name']+'='+e['value']).join('&'),
 			type: 'STATIC',
 			success: function(data){
-				let group = document.getElementById('page')
-				let newpage = document.createElement('div')
-				newpage.innerHTML = data
-				group.children[0].remove()
-				newpage.id = 'newpage'
-				group.appendChild(newpage)
+				insert_page(data)
 				loadstore()
 			}
 		})

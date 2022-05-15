@@ -4,6 +4,7 @@ BASE FILE
 .tnum{
     color:#999;
 }
+
 :root {
     --navbarWidth: 300px;
     --rich-black: #0c0f11;
@@ -12,7 +13,7 @@ BASE FILE
     --radical-red-alt: #fd8ea9;
     --tiffany-blue: #2EC4B6;
     --cultured: #F6F7F8;
-    --prussian-blue: #08141b;
+    --prussian-blue: #0e131d;
 }
 
 body {
@@ -85,13 +86,6 @@ input[type=submit] {
     color: var(--rich-black);
     padding: 10px 20px;
 }
-
-@media screen and (max-width:800px) {
-    .navbox {
-        width: 100% !important;
-    }
-}
-
 /* Navigation bar */
 
 #menu-icon {
@@ -163,7 +157,7 @@ input[type=submit] {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--prussian-blue);
+    background-color: #000;
     animation: slideRight 0.7s ease-in;
 }
 
@@ -247,6 +241,11 @@ ARTISTS FILE
     --image-offset: 20px;
     --image-size: 300px
 }
+
+.artist h1 {
+    margin-bottom: 10px;
+}
+
 .artist-image {
     display: inline;
 }
@@ -265,6 +264,7 @@ ARTISTS FILE
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
+    object-fit: cover;
 }
 .artist:nth-of-type(even) .artist-image {
     float: left;
@@ -381,6 +381,7 @@ countdown {
     min-width: 300px;
     margin-right: 50px;
     background-color: var(--prussian-blue);
+    color: var(--cultured);
     border-radius: 0;
     border: none;
 }
@@ -441,6 +442,10 @@ countdown {
 
     .countdown-text, countdown {
         font-size: 40px;
+    }
+
+    .navbox {
+        width: 100vw !important;
     }
 }
 /*
@@ -527,11 +532,16 @@ h1 {
 STORE FILE
 */
 .store-card {
-    color: white;
+    color: var(--cultured);
     width: 18rem;
     background-color: var(--prussian-blue);
-    margin-top: 5px;
-    margin-bottom: 5px;
+    border-radius: 0;
+    margin: 5px;
+    padding: 0;
+}
+
+img.card-img-top {
+    border-radius: 0;
 }
 
 #search-bar {
@@ -578,7 +588,7 @@ STORE FILE
 
 @keyframes open {
     from{
-        width: 5x;
+        width: 5px;
     }
     to{
         width: 15px;
