@@ -129,6 +129,7 @@ def refund():
     if newsletter_form.validate_on_submit():
         msg.recipients = [newsletter_form.email.data]
         mail.send(msg)
+    file = 'spa.html' if request.method == 'STATIC' else 'base.html'
     return render_template('refund.html', title='Sales & Refund', newsletter_form=newsletter_form, form=form)
 
 @app.route('/privacy-policy', methods=['GET', 'POST', 'STATIC'])
