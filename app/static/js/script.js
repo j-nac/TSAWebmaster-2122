@@ -77,13 +77,12 @@ $(document).on('submit','#newsletter-form',function(e) {
 
 ScrollReveal().reveal('.reveal', { duration: 1500, reset: true });
 
-/*
-document.getElementsByClassName('navbox')[0].addEventListener('keyup', (e)=>{
-    if (e.keycode=='esc') {
-        $(".navbox:before").css("display", "flex");
+document.addEventListener('keyup', (e) => {
+    if (e.code=='Escape'){
+        toggleNavbar()
     }
 })
-*/
+
 /*
 HOME FILE
 */
