@@ -510,10 +510,11 @@ CART FILE
 }
 
 .cooler-btn {
+    margin-top: 30px;
     border: none;
     background-color: var(--neon-blue);
-    font-size: 1.8rem;
-    padding: 10px 20px;
+    font-size: 1.6rem;
+    padding: 10px 16px;
 }
 
 /*
@@ -604,9 +605,13 @@ img.card-img-top {
     border: none;
     background-color: var(--neon-blue);
     color: var(--cultured);
-    padding: 5px 10px;
-    width: 85px;
+    padding: 8px 20px;
+    width: 150px;
     margin-left: 20px;
+    position: fixed;
+    bottom: 0;
+    right: 10vw;
+    z-index: 3;
 }
 
 .tags-select {

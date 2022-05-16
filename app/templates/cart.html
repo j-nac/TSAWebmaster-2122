@@ -13,7 +13,12 @@
             </li>
             {% endfor %}
         </ul>
+        {% if items %}
         <button class="cooler-btn">Buy Now</button>
+        {% else %}
+        <p>You haven't bought anything yet! :(</p>
+        {% endif %}
+        
     </section>
 </div>
 {% endblock %}
