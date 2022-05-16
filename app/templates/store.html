@@ -11,7 +11,7 @@
         <form id = "searchbox">
             <div class="row">
                 <div class="col-12 col-lg-9">{{ form.search(placeholder_="Search", value=search if search else '') }}</div>
-                <div class="col-12 col-lg-3"><input type="submit" value="Search" id="search-button"><button id="go-cart">My Cart</button></div>
+                <div class="col-12 col-lg-3"><input type="submit" value="Search" id="search-button"><button id="go-cart" class="linkme" link="{{ url_for('cart') }}">My Cart</button></div>
             </div>
             <div class="tags-select">
                 {% for t in tags %}
