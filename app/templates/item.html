@@ -5,14 +5,17 @@
 
 {% block content %}
 <div class="container">
-    <section class="container my-5 itempage">
+    <section class="container my-5 itempage" itemid="{{ item.id }}">
         <h1>{{ item.name }}</h1>
-        <p>${{item.price}}</p>
+        <p>${{ item.price }}</p>
         <div class="itemanddesc">
             <img src="{{ url_for('static', filename='img/'+item.image_file) }}" alt="" style="max-width: 400px">
             <div class = 'desc'>
                 <p>{{ item.description }}</p>
-                <button type="button" class="red-btn">Buy now</button>
+                <div id="checkout">
+                    <input type="number" value="1" min="1" id="itemquan">
+                    <button type="button" class="red-btn" onclick="add_item()">Buy now</button>
+                </div>
             </div>
         </div>
     </section>

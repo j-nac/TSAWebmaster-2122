@@ -3,6 +3,7 @@ from app import app, db, mail, csrf
 from app.models import Item, Tag
 from app.forms import SearchStore, NewsletterForm, ContactForm
 from flask_mail import Message, Attachment
+from json import loads
 
 msg = Message(subject='Never Gonna Give You Up', sender='Rick Astley', body='''We're no strangers to love\nYou know the rules and so do I\nA full commitment's what I'm thinking of\nYou wouldn't get this from any other guy\n\nI just wanna tell you how I'm feeling\nGotta make you understand\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n\nWe've known each other for so long\nYour heart's been aching, but\nYou're too shy to say it\nInside, we both know what's been going on\nWe know the game and we're gonna play it\n\nAnd if you ask me how I'm feeling\nDon't tell me you're too blind to see\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n\n(Ooh, give you up)\n(Ooh, give you up)\nNever gonna give, never gonna give\n(Give you up)\nNever gonna give, never gonna give\n(Give you up)\n\nWe've known each other for so long\nYour heart's been aching, but\nYou're too shy to say it\nInside, we both know what's been going on\nWe know the game and we're gonna play it\n\nI just wanna tell you how I'm feeling\nGotta make you understand\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\n\nNever gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you''')
 with app.open_resource("./static/etc/rickroll.gif") as fp:
@@ -82,8 +83,24 @@ def store():
     tags = Tag.query.all()
 
     file = 'spa.html' if request.method == 'STATIC' else 'base.html'
-    redirect = '/store' if request.method == 'STATIC' else ''
-    return render_template('store.html', title='Store', query_results=query_results, form=form, tags=tags, selected_tags=request.args.getlist('tags'), newsletter_form=newsletter_form, file=file, redirect=redirect, search = request.args.get('search'))
+    return render_template('store.html', title='Store', query_results=query_results, form=form, tags=tags, selected_tags=request.args.getlist('tags'), newsletter_form=newsletter_form, file=file, search = request.args.get('search'))
+
+@app.route('/cart', methods=['GET', 'POST', 'STATIC'])
+def cart():
+    newsletter_form = NewsletterForm()
+    items = []
+    if 'cart' in request.cookies:
+        try:
+            codes = loads(request.cookies['cart'])
+            items = []
+            for code in codes:
+                item = Item.query.filter_by(id=int(code)).first()
+                if item: items.append({'item': item,'quantity':codes[code]})
+        except: pass
+    print(items)
+    file = 'spa.html' if request.method == 'STATIC' else 'base.html'
+    print(render_template('cart.html', file=file, items=items, newsletter_form=newsletter_form))
+    return render_template('cart.html', file=file, items=items, newsletter_form=newsletter_form)
 
 '''
 To filter by tag:

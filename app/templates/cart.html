@@ -1,0 +1,16 @@
+{% extends file %}
+{% block head %} {% endblock %}
+{% block content %}
+<div class="container">
+    <section class="container my-5 cartbox">
+        <h2>ITEMS</h2>
+        {% for item in items %}
+        <div id="item{{item['id'] }}cont">
+            <h1>{{ item['item'].name }} - <g id="item{{ item['item'].id }}">{{ item['quantity'] }}</g> - $<g>{{ item['item'].price }}</g></h1> 
+            <button onclick="changeItem({{ item['item'].id }},-1)">rem</button>
+            <button onclick="changeItem({{ item['item'].id }},1)">add</button>
+        </div>
+        {% endfor %}
+    </section>
+</div>
+{% endblock %}
