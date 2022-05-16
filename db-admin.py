@@ -30,7 +30,7 @@ def create_item():
     tags = []
     for i in tag_ids:
         tags.append(Tag.query.get(i))
-
+    print(tags)
     new_item = Item(name=name, description=description, price=price, image_file=image_file, tags=tags)
 
     db.session.add(new_item)
