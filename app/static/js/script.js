@@ -185,10 +185,13 @@ function changeItem(id, amm){
     cart = get_cart()
     cart[id] = (parseInt(cart[id])||0)+amm
     if (cart[id]<=0){
-        delete cart['id']
+        delete cart[id]
         $(`#item${id}cont`).remove()
     } else {
         document.getElementById('item'+id).innerHTML = cart[id]
+    }
+    if(!document.getElementById('cart').children){
+        $('#cart').html("You haven't bought anything yet! :(")
     }
     set_cart(cart)
 }
