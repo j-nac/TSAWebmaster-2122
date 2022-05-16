@@ -30,6 +30,7 @@
 </head>
 
 <body>
+    <button onclick="toggleNavbar()" class="nav-open"><span class="material-icons" id="menu-icon">menu</span></button>
     <nav class="navbox" style="display: none;">
         <div class="navbar-back"></div>
         <button link="{{ url_for('home') }}" class="page-nav" js="loadhome()">Home</button>
@@ -39,7 +40,6 @@
         <button link="{{ url_for('faq') }}" class="page-nav" js="">FAQ</button>
         <button link="{{ url_for('tsa_info') }}" class="page-nav" js="">TSA Info</button>
     </nav>
-    <button link="url_for('cart')" class="page-nav"><i class="bi bi-cart"></i></button>
 
     <div id = 'page'>
         <div class="newpage">
