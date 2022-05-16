@@ -40,6 +40,7 @@ function insert_page(txt){
 }
 
 function redirect(){
+    toggleNavbar()
     window.history.pushState('Arch', '', this.getAttribute('link'));
     window.scrollTo(0, 0);
     cleanup()
