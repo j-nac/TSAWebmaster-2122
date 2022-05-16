@@ -4,9 +4,9 @@
 <div class="container">
     <section class="container my-5 cartbox">
         <h1>My Cart</h1>
-        <ul>
+        <ul id="cart">
             {% for item in items %}
-            <li id="item{{item['id'] }}cont">
+            <li id="item{{item['item'].id }}cont">
                 <p>{{ item['item'].name }} x<g id="item{{ item['item'].id }}">{{ item['quantity'] }}</g> - $<g>{{ item['item'].price }}</g></p> 
                 <button onclick="changeItem({{ item['item'].id }}, -1)" class="cool-btn">Remove</button>
                 <button onclick="changeItem({{ item['item'].id }}, 1)" class="cool-btn">Add</button>
