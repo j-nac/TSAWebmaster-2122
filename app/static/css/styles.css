@@ -499,8 +499,21 @@ ITEM FILE
 /*
 CART FILE
 */
-.cartbox button,.cartbox h1{
-    display: inline;
+.cartbox p {
+    margin: 0;
+}
+
+.cool-btn {
+    border: none;
+    background-color: var(--radical-red);
+    padding: 8px 12px;
+}
+
+.cooler-btn {
+    border: none;
+    background-color: var(--neon-blue);
+    font-size: 1.8rem;
+    padding: 10px 20px;
 }
 
 /*
@@ -583,6 +596,17 @@ img.card-img-top {
     background-color: var(--tiffany-blue);
     color: var(--cultured);
     padding: 5px 10px;
+    width: 85px;
+}
+
+#go-cart {
+    text-decoration: none;
+    border: none;
+    background-color: var(--neon-blue);
+    color: var(--cultured);
+    padding: 5px 10px;
+    width: 85px;
+    margin-left: 20px;
 }
 
 .tags-select {

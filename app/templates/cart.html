@@ -3,14 +3,17 @@
 {% block content %}
 <div class="container">
     <section class="container my-5 cartbox">
-        <h2>ITEMS</h2>
-        {% for item in items %}
-        <div id="item{{item['id'] }}cont">
-            <h1>{{ item['item'].name }} - <g id="item{{ item['item'].id }}">{{ item['quantity'] }}</g> - $<g>{{ item['item'].price }}</g></h1> 
-            <button onclick="changeItem({{ item['item'].id }},-1)">rem</button>
-            <button onclick="changeItem({{ item['item'].id }},1)">add</button>
-        </div>
-        {% endfor %}
+        <h1>My Cart</h1>
+        <ul>
+            {% for item in items %}
+            <li id="item{{item['id'] }}cont">
+                <p>{{ item['item'].name }} x<g id="item{{ item['item'].id }}">{{ item['quantity'] }}</g> - $<g>{{ item['item'].price }}</g></p> 
+                <button onclick="changeItem({{ item['item'].id }}, -1)" class="cool-btn">Remove</button>
+                <button onclick="changeItem({{ item['item'].id }}, 1)" class="cool-btn">Add</button>
+            </li>
+            {% endfor %}
+        </ul>
+        <button class="cooler-btn">Buy Now</button>
     </section>
 </div>
 {% endblock %}
