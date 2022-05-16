@@ -61,9 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.querySelectorAll('button.page-nav').forEach(button => {
 		button.onclick = redirect
 	});
-    document.querySelectorAll('button.linkme').forEach(button => {
-		button.onclick = redirect
-	});
 });
 
 $(document).on('submit','#newsletter-form',function(e) {
@@ -212,6 +209,10 @@ function loadstore(){
 	});
 
 	document.querySelectorAll('button.store-card').forEach(button => {
+		button.onclick = redirect
+	});
+    
+    document.querySelectorAll('button.linkme').forEach(button => {
 		button.onclick = redirect
 	});
 	document.getElementById('searchbox').onsubmit = function(){
