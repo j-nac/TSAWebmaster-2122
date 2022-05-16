@@ -8,7 +8,7 @@
 <div class="container">
     <section class="container my-5">
         <h1>{{ title }}</h1>
-        <form id = "searchbox">
+        <form id="searchbox">
             <div class="row">
                 <div class="col-11">{{ form.search(placeholder_="Search", value=search if search else '') }}</div>
                 <div class="col-1"><input type="submit" value="Search" id="search-button"></div>
@@ -22,6 +22,9 @@
                 {% endfor %}
             </div>
         </form>
+        <button id="go-cart" link="{{ url_for('cart') }}" class="linkme">My Cart<br><span class="material-icons">
+            shopping_cart
+            </span></button>
         <div class="grid row" id="gallery">
         
         {% for item in query_results %}

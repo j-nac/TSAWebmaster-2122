@@ -57,6 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.querySelectorAll('button.page-nav').forEach(button => {
 		button.onclick = redirect
 	});
+    document.querySelectorAll('button.linkme').forEach(button => {
+		button.onclick = redirect
+	});
 });
 
 $(document).on('submit','#newsletter-form',function(e) {
