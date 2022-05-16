@@ -33,12 +33,12 @@
     <button onclick="toggleNavbar()" class="nav-open"><span class="material-icons" id="menu-icon">menu</span></button>
     <nav class="navbox" style="display: none;">
         <div class="navbar-back"></div>
-        <button link="{{ url_for('home') }}" class="page-nav" js="loadhome()">Home</button>
-        <button link="{{ url_for('artists') }}" class="page-nav" js="">Artists</button>
-        <button link="{{ url_for('register') }}" class="page-nav" js="">Register</button>
-        <button link="{{ url_for('store') }}" class="page-nav" js="loadstore()">Store</button>
-        <button link="{{ url_for('faq') }}" class="page-nav" js="">FAQ</button>
-        <button link="{{ url_for('tsa_info') }}" class="page-nav" js="">TSA Info</button>
+        <button link="{{ url_for('home') }}" class="page-nav linkme" js="loadhome()">Home</button>
+        <button link="{{ url_for('artists') }}" class="page-nav linkme" js="">Artists</button>
+        <button link="{{ url_for('register') }}" class="page-nav linkme" js="">Register</button>
+        <button link="{{ url_for('store') }}" class="page-nav linkme" js="loadstore()">Store</button>
+        <button link="{{ url_for('faq') }}" class="page-nav linkme" js="">FAQ</button>
+        <button link="{{ url_for('tsa_info') }}" class="page-nav linkme" js="">TSA Info</button>
     </nav>
 
     <div id = 'page'>
@@ -53,26 +53,26 @@
                 <div class="col-12 col-sm-3 text-sm-start text-center mb-4">
                     <h5>Offerings</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item"><a href="{{ url_for('artists') }}" class="nav-link text-muted px-2">Artists</a></li>
-                        <li class="nav-item"><a href="{{ url_for('register') }}" class="nav-link text-muted px-2">Register</a></li>
-                        <li class="nav-item"><a href="{{ url_for('store') }}" class="nav-link text-muted px-2">Store</a></li>
+                        <li class="nav-item"><button link="{{ url_for('artists') }}" class="nav-link text-muted px-2 linkme foot-btn">Artists</button></li>
+                        <li class="nav-item"><button link="{{ url_for('register') }}" class="nav-link text-muted px-2 linkme foot-btn">Register</button></li>
+                        <li class="nav-item"><button link="{{ url_for('store') }}" class="nav-link text-muted px-2 linkme foot-btn" js="loadstore()">Store</button></li>
                     </ul>
                 </div>
                 <div class="col-12 col-sm-3 text-sm-start text-center mb-4">
                     <h5>About Us</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item"><a href="{{ url_for('home') }}" class="nav-link text-muted px-2">Home</a></li>
-                        <li class="nav-item"><a href="{{ url_for('faq') }}" class="nav-link text-muted px-2">FAQ</a></li>
-                        <li class="nav-item"><a href="{{ url_for('contact') }}" class="nav-link text-muted px-2">Contact</a></li>
-                        <li class="nav-item"><a href="{{ url_for('tsa_info') }}" class="nav-link text-muted px-2">TSA Info</a></li>
+                        <li class="nav-item"><button link="{{ url_for('home') }}" class="nav-link text-muted px-2 linkme foot-btn" js="loadhome()">Home</button></li>
+                        <li class="nav-item"><button link="{{ url_for('faq') }}" class="nav-link text-muted px-2 linkme foot-btn">FAQ</a></li>
+                        <li class="nav-item"><button link="{{ url_for('contact') }}" class="nav-link text-muted px-2 linkme foot-btn">Contact</button></li>
+                        <li class="nav-item"><button link="{{ url_for('tsa_info') }}" class="nav-link text-muted px-2 linkme foot-btn">TSA Info</button></li>
                     </ul>
                 </div>
                 <div class="col-12 col-sm-3 text-sm-start text-center mb-4">
                     <h5>Legal</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item"><a href="{{ url_for('privacy') }}" class="nav-link text-muted px-2">Privacy Policy</a></li>
-                        <li class="nav-item"><a href="{{ url_for('refund') }}" class="nav-link text-muted px-2">Sales & Refund</a></li>
-                        <li class="nav-item"><a href="{{ url_for('licensing') }}" class="nav-link text-muted px-2">Licensing</a></li>
+                        <li class="nav-item"><button link="{{ url_for('privacy') }}" class="nav-link text-muted px-2 linkme foot-btn">Privacy Policy</button></li>
+                        <li class="nav-item"><button link="{{ url_for('refund') }}" class="nav-link text-muted px-2 linkme foot-btn">Sales & Refund</button></li>
+                        <li class="nav-item"><button link="{{ url_for('licensing') }}" class="nav-link text-muted px-2 linkme foot-btn">Licensing</button></li>
                     </ul>
                 </div>
                 <div class="col-12 col-sm-3 text-sm-start text-center mb-4">

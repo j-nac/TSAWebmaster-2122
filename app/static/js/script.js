@@ -37,6 +37,9 @@ function insert_page(txt){
     $('.oldpage:first').on('transitionend',()=>{
         $('.oldpage:first').remove()
     })
+    document.querySelectorAll('button.linkme').forEach(button => {
+		button.onclick = redirect
+	});
 }
 
 function redirect(){
@@ -58,7 +61,7 @@ function redirect(){
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-	document.querySelectorAll('button.page-nav').forEach(button => {
+	document.querySelectorAll('button.linkme').forEach(button => {
 		button.onclick = redirect
 	});
 });
@@ -215,9 +218,6 @@ function loadstore(){
 		button.onclick = redirect
 	});
     
-    document.querySelectorAll('button.linkme').forEach(button => {
-		button.onclick = redirect
-	});
 	document.getElementById('searchbox').onsubmit = function(){
 		$.ajax({
 			url:'/store?'+$('#searchbox').serializeArray().map(e=>e['name']+'='+e['value']).join('&'),

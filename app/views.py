@@ -140,7 +140,7 @@ def contact():
     file=file = 'spa.html' if request.method == 'STATIC' else 'base.html'
     return render_template('contact.html', title='Contact', newsletter_form=newsletter_form, form=form, file=file)
 
-@app.route('/sale-and-refund', methods=['GET', 'POST', 'STATIC'])
+@app.route('/sales-and-refund', methods=['GET', 'POST', 'STATIC'])
 def refund():
     newsletter_form = NewsletterForm()
     form = ContactForm()
@@ -148,7 +148,7 @@ def refund():
         msg.recipients = [newsletter_form.email.data]
         mail.send(msg)
     file = 'spa.html' if request.method == 'STATIC' else 'base.html'
-    return render_template('refund.html', title='Sales & Refund', newsletter_form=newsletter_form, form=form)
+    return render_template('refund.html', title='Sales & Refund', newsletter_form=newsletter_form, form=form, file=file)
 
 @app.route('/privacy-policy', methods=['GET', 'POST', 'STATIC'])
 def privacy():
